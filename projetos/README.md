@@ -7,6 +7,7 @@ Hub de entrada de todos os projetos ativos do Anderson. Cada projeto tem sua pas
 - [Patrick Teixeira (Site Oficial)](patrickteixeira-1/): site de mentor de liderança (Next.js + Supabase). Briefing de site em `index.md`.
 - [Sistema TAG - Caldeira de Força (Puma)](sistema-tag-cdf-puma/): gestão de equipamentos industriais (React + Supabase)
 - [Vertexx Consulting (Landing Page)](vertexx-consulting/): landing de captação de leads
+- [Portfólio + Chatbot de Prospecção](portfolio-prospeccao/): site de portfólio por nicho + chatbot de entrevista + backend Supabase/Telegram. Planejamento e master prompts em `index.md`.
 
 ## Sites/sistemas sob encomenda (briefing na pasta)
 - [Casa Grande Drywall](casagrandedraywall/): site institucional + CRM/ERP (Next.js + Three.js). Briefing em `index.md`.
