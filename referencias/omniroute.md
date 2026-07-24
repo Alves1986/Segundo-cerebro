@@ -29,6 +29,7 @@ Gateway de inferência local OpenAI-compatible. Usado como **fallback de modelo*
 ## O que falta / atenção
 - **OmniRoute precisa estar rodando** para o fallback funcionar. O watchdog cobre queda, mas se a máquina reiniciar e o Hermes não subir o cron, o fallback fica off até o primeiro tick do cron.
 - Modelos bons p/ usar no `auto/`: `auto/best-coding`, `auto/best-reasoning`. Trocar manualmente: `/model custom:omniroute:auto/best-reasoning`.
+- **Dashboard** (`http://localhost:20128/dashboard`) tem senha definida (reset via `omniroute reset-password`, servidor parado antes). A senha NÃO é necessária para o fallback de inferência (API `/v1` é keyless). NÃO versionar a senha no git.
 - O OmniRoute usa providers free (qualidade variável). É fallback de resiliência, não substitui o principal para tarefas críticas.
 - Se quiser usar uma API key própria no OmniRoute (melhor qualidade), setar no dashboard dele e adicionar `api_key` ou `key_env` no `custom_providers`.
 

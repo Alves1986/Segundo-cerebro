@@ -1,0 +1,27 @@
+# Render.com — deploy do OmniRoute (fork Alves1986)
+# Free tier + cron de 10 min (seu) mantém o serviço acordado.
+
+services:
+  - type: web
+    name: omniroute
+    runtime: node
+    plan: free
+    # Branch que o Render vai buildar. Use "main" ou a tag de release estável:
+    branch: main
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    healthCheckPath: /v1/models
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: PORT
+        value: "20128"
+      # SENHA da API (/v1) — cole no dashboard do Render (sync:false = não vai pro repo)
+      - key: OMNIROUTE_API_KEY
+        sync: false
+      # Senha do dashboard web (a que você definiu localmente)
+      - key: INITIAL_PASSWORD
+        sync: false
+      # Se o build de native addons (better-sqlite3) falhar no Render, descomente:
+      # - key: OMNIROUTE_SKIP_POSTINSTALL
+      #   value: "1"
