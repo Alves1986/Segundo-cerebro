@@ -8,27 +8,12 @@ status: pendente-deploy
 
 Fallback de inferência 24/7 na nuvem, além do local. Plano free + seu cron de 10 min mantém acordado.
 
-## Arquivos nesta pasta
-- `render.yaml` — Blueprint do Render (Web Service, free, build/start corretos)
-- `.env.example` — exemplo de env vars (API key + senha dashboard)
+## Decisão (2026-07-24)
+- **Cloud: PAUSADO / NA GAVETA.** Deploy no Render free falhou: build do Next.js 16 estourou 8GB RAM (free tier não aguenta; Starter 2GB também não; Standard 8GB custa ~$25/mês — caro p/ um fallback).
+- Oracle Cloud Always Free: conta existe mas região sempre sem VM disponível (esgotado) -> inviável.
+- **Fallback LOCAL mantido:** OmniRoute rodando em localhost:20128 + watchdog cron 10min (start-omniroute-both.sh). Resolve o objetivo "não ficar na mão quando a cota Nous zera" enquanto o PC tá ligado.
+- **Retomar a nuvem** quando aparecer: (a) VM Oracle liberar na região, ou (b) micro VPS free (GCP/AWS/Azure 1GB) rodando só a API standalone, ou (c) algum free tier que aguente o build. Por enquanto, não vale o custo/esforço.
 
-## Passo a passo (você faz no dashboard do Render)
-1. Faça o **fork** de `diegosouzapw/OmniRoute` para `Alves1986/OmniRoute` (GitHub).
-2. No Render: **New +** → **Blueprint** → conecte o repo `Alves1986/OmniRoute`.
-3. O Render lê o `render.yaml` e cria o serviço `omniroute`.
-4. Nas **Environment Variables** do serviço, defina (sync:false já está no yaml, mas confirme):
-   - `OMNIROUTE_API_KEY` = `FRUsGepiD47OB2DusGEWVbtLslLScEJ0cAkDV8deNzs` (key forte gerada)
-   - `INITIAL_PASSWORD` = a senha do dashboard (Deusamou2026@)
-5. Deploy. Aguarde o build (free tier pode levar ~10-20 min no primeiro build do Next.js 16).
-6. Anote a URL: `https://omniroute.onrender.com` (ou o nome que o Render der).
-
-## Ajustes no Hermes (Anderson me passa a URL)
-Quando a URL do Render estiver no ar, eu:
-- Adiciono um 2º `custom_providers` apontando pra URL do Render (com `api_key`).
-- Adiciono o Render como 2º da `fallback_providers` chain: `[local, render]`.
-- Atualizo o cron watchdog pra bater nas duas URLs.
-
-## Segurança
-- NUNCA deixe `OMNIROUTE_API_KEY` vazia na nuvem (vira gateway aberto).
-- A API key gerada NÃO está no git (sync:false + .env.example mascarado).
-- O dashboard tem senha (INITIAL_PASSWORD).
+## Pendente (sua vez, em casa)
+- Fork Alves1986/OmniRoute já tem render.yaml (branch release/v3.8.49) mas o serviço no Render está failed. Deixar como está (gaveta).
+- Quando retomar: trocar plan ou migrar pra VPS; ajustar Hermes fallback chain local -> cloud.
