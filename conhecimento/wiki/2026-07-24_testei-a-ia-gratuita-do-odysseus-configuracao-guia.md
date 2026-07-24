@@ -49,4 +49,4 @@ Extraido da descricao: 🔥 Hospedagem Hostinger com desconto: https://www.hostg
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_Le75527tQkg_testei-a-ia-gratuita-do-odysseus-configu]]
+[[2026-07-24_testei-a-ia-gratuita-do-odysseus-configuracao-guia]]

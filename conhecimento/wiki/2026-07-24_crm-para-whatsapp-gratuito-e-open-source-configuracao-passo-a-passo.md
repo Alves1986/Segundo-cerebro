@@ -49,4 +49,4 @@ Extraido da descricao: 🔥 Link Hostinger com desconto: https://www.hostg.xyz/a
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_0o0ZVy0qvZo_crm-para-whatsapp-gratuito-e-open-source]]
+[[2026-07-24_crm-para-whatsapp-gratuito-e-open-source-configuracao-passo-a-passo]]

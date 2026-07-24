@@ -50,4 +50,4 @@ Extraido da descricao: Não precisa pagar! OpenCode é a alternativa ao Claude C
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_Kh7Oxo8Eado_nao-precisa-pagar-opencode-e-a-alternati]]
+[[2026-07-24_nao-precisa-pagar-opencode-e-a-alternativa-ao-claude-code-para-criar-s]]

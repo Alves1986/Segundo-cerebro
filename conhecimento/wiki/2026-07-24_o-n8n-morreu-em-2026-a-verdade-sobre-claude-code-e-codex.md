@@ -48,4 +48,4 @@ O n8n morreu em 2026? A resposta curta é: não. O n8n continua sendo uma das me
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_yrIjPzQmYZc_o-n8n-morreu-em-2026-a-verdade-sobre-cla]]
+[[2026-07-24_o-n8n-morreu-em-2026-a-verdade-sobre-claude-code-e-codex]]

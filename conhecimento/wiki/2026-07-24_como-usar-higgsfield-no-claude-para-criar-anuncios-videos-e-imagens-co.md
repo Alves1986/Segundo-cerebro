@@ -46,4 +46,4 @@ Extraido da descricao: Aprenda como usar o Higgsfield com Claude para criar imag
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_iGHr6eIENLQ_como-usar-higgsfield-no-claude-para-cria]]
+[[2026-07-24_como-usar-higgsfield-no-claude-para-criar-anuncios-videos-e-imagens-co]]

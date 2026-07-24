@@ -53,4 +53,4 @@ como criar um site institucional completo com um único prompt.
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_XHIIJCcoEyQ_crm-com-agente-de-ia-a-solucao-que-estav]]
+[[2026-07-24_crm-com-agente-de-ia-a-solucao-que-estava-procurando-hostinger-horizon]]

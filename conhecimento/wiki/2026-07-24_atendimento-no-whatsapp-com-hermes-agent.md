@@ -50,4 +50,4 @@ Extraido da descricao: Agente IA WhatsApp | Setup Completo com Hermes Agent
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_vIgBCkyJvfM_atendimento-no-whatsapp-com-hermes-agent]]
+[[2026-07-24_atendimento-no-whatsapp-com-hermes-agent]]

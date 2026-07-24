@@ -50,4 +50,4 @@ Nesse vídeo eu mostro como estou usando isso em dois cenários reai
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_J61xQsGgfFw_como-uso-o-mcp-do-n8n-com-claude-e-codex]]
+[[2026-07-24_como-uso-o-mcp-do-n8n-com-claude-e-codex-para-entregar-projetos-reais-]]

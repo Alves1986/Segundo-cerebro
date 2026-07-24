@@ -50,4 +50,4 @@ Extraido da descricao: Aprenda como instalar e configurar o Hermes Agent do zero
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_RMjSO49et2I_instalacao-completa-do-hermes-agent-do-z]]
+[[2026-07-24_instalacao-completa-do-hermes-agent-do-zero]]

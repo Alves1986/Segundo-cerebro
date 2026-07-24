@@ -48,4 +48,4 @@ Neste vídeo eu explico o que muda na cobrança da Meta para WhatsApp Business A
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_yZ48nP1XTcg_meta-vai-cobrar-respostas-no-whatsapp-re]]
+[[2026-07-24_meta-vai-cobrar-respostas-no-whatsapp-regras-da-api-oficial-2026]]

@@ -8,7 +8,7 @@ services:
     plan: free
     # Branch que o Render vai buildar (deve existir no fork). Use a que vc apontou no Blueprint.
     branch: release/v3.8.49
-    buildCommand: npm install && npm run build
+    buildCommand: npm install && npm run build:secure
     startCommand: npm run start
     healthCheckPath: /v1/models
     envVars:
@@ -16,12 +16,15 @@ services:
         value: "22"
       - key: PORT
         value: "20128"
+      # Build enxuto (corta i18n/docs pesados) — evita OOM/timeout no free tier
+      - key: OMNIROUTE_BUILD_PROFILE
+        value: "minimal"
+      # Teto de memória pro build (free tier ~512MB-2GB). Se estourar, subir plano.
+      - key: NODE_OPTIONS
+        value: "--max-old-space-size=2048"
       # SENHA da API (/v1) — cole no dashboard do Render (sync:false = não vai pro repo)
       - key: OMNIROUTE_API_KEY
         sync: false
       # Senha do dashboard web (a que você definiu localmente)
       - key: INITIAL_PASSWORD
         sync: false
-      # Se o build de native addons (better-sqlite3) falhar no Render, descomente:
-      # - key: OMNIROUTE_SKIP_POSTINSTALL
-      #   value: "1"

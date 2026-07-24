@@ -48,4 +48,4 @@ Hermes Agent na prática: neste vídeo eu mostro como usar um agente de IA open 
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_dcSyWNUKMLY_hermes-agent-na-pratica-casos-reais-para]]
+[[2026-07-24_hermes-agent-na-pratica-casos-reais-para-empresa]]

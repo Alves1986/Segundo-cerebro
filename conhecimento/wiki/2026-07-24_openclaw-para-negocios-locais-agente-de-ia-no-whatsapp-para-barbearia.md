@@ -49,4 +49,4 @@ Neste tutorial completo, eu mostro como instalar o OpenClaw do zero em uma VPS e
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_wzHNut6rFWU_openclaw-para-negocios-locais-agente-de-]]
+[[2026-07-24_openclaw-para-negocios-locais-agente-de-ia-no-whatsapp-para-barbearia]]

@@ -50,4 +50,4 @@ Extraido da descricao: Neste vídeo eu te mostro como criar um agente de IA no W
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_yHgvMztfQmw_agente-ia-whatsapp-oficial-setup-complet]]
+[[2026-07-24_agente-ia-whatsapp-oficial-setup-completo-com-claude-code]]

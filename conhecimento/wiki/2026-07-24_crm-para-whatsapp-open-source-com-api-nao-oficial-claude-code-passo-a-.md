@@ -51,4 +51,4 @@ Neste tutorial, você vai aprender como evoluir um CRM para WhatsApp open
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_DiLh9xk670w_crm-para-whatsapp-open-source-com-api-na]]
+[[2026-07-24_crm-para-whatsapp-open-source-com-api-nao-oficial-claude-code-passo-a-]]

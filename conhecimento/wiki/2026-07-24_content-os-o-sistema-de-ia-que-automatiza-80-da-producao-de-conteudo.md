@@ -48,4 +48,4 @@ Neste vídeo eu te mostro o Content OS, um sistema interno de inteligência arti
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_vyUPsDwJV1s_content-os-o-sistema-de-ia-que-automatiz]]
+[[2026-07-24_content-os-o-sistema-de-ia-que-automatiza-80-da-producao-de-conteudo]]

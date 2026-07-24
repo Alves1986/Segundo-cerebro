@@ -48,4 +48,4 @@ Te apresentamos o Lena Academy: nossa área de membros construída do zero com V
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_7qSzdiZDtCo_construi-uma-area-de-membros-completa-co]]
+[[2026-07-24_construi-uma-area-de-membros-completa-com-claude-code-vibe-coding]]

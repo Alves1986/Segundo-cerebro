@@ -50,4 +50,4 @@ Neste vídeo eu te mostro os 3 caminhos reais para conectar um agente de IA no W
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_gpIujQkNEjI_api-do-whatsapp-oficial-bsp-ou-nao-ofici]]
+[[2026-07-24_api-do-whatsapp-oficial-bsp-ou-nao-oficial-os-3-caminhos-para-agentes-]]

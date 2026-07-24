@@ -48,4 +48,4 @@ Claude Code pode ficar caro se você não souber gerenciar contexto, tokens, mod
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24_j5lYzSlPEjg_como-economizar-90-em-tokens-no-claude-c]]
+[[2026-07-24_como-economizar-90-em-tokens-no-claude-code]]

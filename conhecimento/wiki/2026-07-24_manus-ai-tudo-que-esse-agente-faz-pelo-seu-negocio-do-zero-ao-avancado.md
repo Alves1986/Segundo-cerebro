@@ -50,4 +50,4 @@ O que você vai ver:
 - [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
 
 ## Raw original
-[[2026-07-24__J-TI8Xjp0M_manus-ai-tudo-que-esse-agente-faz-pelo-s]]
+[[2026-07-24_manus-ai-tudo-que-esse-agente-faz-pelo-seu-negocio-do-zero-ao-avancado]]
