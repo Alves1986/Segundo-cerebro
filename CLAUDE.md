@@ -110,3 +110,19 @@ Contexto dos meus projetos (ja conectados no cerebro, ver `projetos/README.md`):
 **Prioridade 2:**
 **Prioridade 3:**
 **Bloqueio principal:**
+
+---
+
+## 7. Origem e acesso remoto (git)
+
+O vault e versionado em repo privado no GitHub para acesso de qualquer lugar.
+
+- Repo privado: `https://github.com/Alves1986/Segundo-cerebro.git`
+- O Hermes faz auto-push a cada 30 minutos (cron `Vault Git Auto-Push`), commitando mudancas locais no OneDrive.
+- Para abrir o vault em outro dispositivo (PC, celular via app git, ou web via github.dev):
+  - Clone: `git clone https://github.com/Alves1986/Segundo-cerebro.git`
+  - Atualize: `git pull` (o Hermes ja empurra as mudancas do PC principal)
+  - Edite e envie: `git add -A && git commit -m "..." && git push`
+- No celular: use um app git (MGit, Working Copy no iOS, ou termux) apontando para o clone, ou github.dev no navegador.
+- OObsidian mobile le o clone normalmente (e so markdown + pastas, as fotos ficam linkadas via file:/// fora do repo).
+- Nunca versionar tokens: o `.gitignore` bloqueia `*token*.txt`, `*acess token*`, `.env`, `.git-credentials`. O token de push fica em arquivo fora do vault (Temp) e e injetado so no momento do push.
