@@ -1,0 +1,30 @@
+# .gitignore do vault (segundo-cerebro)
+# Ignora a configuracao local do Obsidian (.obsidian) para nao versionar
+# preferencias de tema/plugins de quem clonar. O conteudo (notas) vai tudo.
+.obsidian/
+
+# trilhos de sincronizacao / lock
+.trash/
+*.tmp
+
+# nao versionar binarios pesados; fotos ficam linkadas via file:/// na pasta Anderson
+# (fora do vault), entao nao entram aqui. Se algum dia quiser fotos no git, remova a linha.
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
+*.heic
+!referencias/**/*.md
+
+# sistemas/OS
+.DS_Store
+Thumbs.db
+
+# NUNCA versionar tokens/credenciais (mesmo em repo privado)
+*token*.txt
+*acess token*
+*.pat
+secrets/
+.env
+.git-credentials
