@@ -6,8 +6,8 @@ services:
     name: omniroute
     runtime: node
     plan: free
-    # Branch que o Render vai buildar. Use "main" ou a tag de release estável:
-    branch: main
+    # Branch que o Render vai buildar (deve existir no fork). Use a que vc apontou no Blueprint.
+    branch: release/v3.8.49
     buildCommand: npm install && npm run build
     startCommand: npm run start
     healthCheckPath: /v1/models

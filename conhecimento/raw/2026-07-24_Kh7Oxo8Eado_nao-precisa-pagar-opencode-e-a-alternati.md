@@ -3,10 +3,10 @@ tipo: video-youtube
 video_id: Kh7Oxo8Eado
 titulo: Não precisa pagar! OpenCode é a alternativa ao Claude Code para criar sites com IA
 canal: Thalena Lima - IA & Automações
-url: https://youtube.com/watch?v=Kh7Oxo8Eado
+url: https://youtu.be/Kh7Oxo8Eado
 data_publicacao: 20260723
 duracao: 14m 44s
-views: 358
+views: 931
 tags: []
 criado_em: 2026-07-24
 processado_para_wiki: false
@@ -16,10 +16,10 @@ processado_para_wiki: false
 
 ## Metadados
 - Canal: Thalena Lima - IA & Automações
-- URL: [assistir](https://youtube.com/watch?v=Kh7Oxo8Eado)
+- URL: [assistir](https://youtu.be/Kh7Oxo8Eado)
 - Publicacao: 20260723
 - Duracao: 14m 44s
-- Views: 358
+- Views: 931
 
 ## Descricao (original)
 Não precisa pagar! OpenCode é a alternativa ao Claude Code para criar sites com IA

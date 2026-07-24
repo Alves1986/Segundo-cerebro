@@ -1,59 +1,53 @@
 ---
-tipo: video-youtube-wiki
-video_id: Kh7Oxo8Eado
+tipo: nota-wiki
+origem: video-youtube
 titulo: Não precisa pagar! OpenCode é a alternativa ao Claude Code para criar sites com IA
 canal: Thalena Lima - IA & Automações
-url: https://youtube.com/watch?v=Kh7Oxo8Eado
-data_publicacao: 2026-07-23
+url: https://youtu.be/Kh7Oxo8Eado
+data_publicacao: 20260723
 duracao: 14m 44s
-views: 358
-tags: [opencode, claude-code, vibe-coding, landing-page, open-source, ia-gratuita, hospedagem]
+views: 931
+tags: [ia, automacao, thalena-lima, youtube-knowledge]
 criado_em: 2026-07-24
-origem_raw: conhecimento/raw/2026-07-24_Kh7Oxo8Eado_nao-precisa-pagar-opencode-e-a-alternati.md
+processado_de: 2026-07-24_Kh7Oxo8Eado_nao-precisa-pagar-opencode-e-a-alternati.md
 ---
 
-# Resumo do conhecimento: OpenCode (alternativa open source ao Claude Code)
+# Não precisa pagar! OpenCode é a alternativa ao Claude Code para criar sites com IA
 
-## O que é
-Agente de codificação open source (mais de 160.000 estrelas no GitHub) que funciona como o Claude Code, Codex, Cursor ou Antigravity, mas com nucleo gratuito. Roda no terminal, em IDE (VS Code, Antigravity, Cursor) ou via app desktop.
+## O que e
+Video do canal Thalena Lima - IA & Automações sobre automacao com IA. Assista em [youtu.be](https://youtu.be/Kh7Oxo8Eado).
 
-## Modelos disponíveis no plano gratuito
-- Modelo "misterioso" da própria OpenCode (nao revela o provedor, um dos mais fortes da lista gratuita).
-- Modelo da Xiaomi (lida bem com codigo e imagem, gera imagem dentro do app).
-- Modelo enxuto e rapido (otimo para tarefas simples/automacoes).
-- Deepseek (versao gratuita do modelo rapido chines, otimo custo-beneficio).
-- Modelo americano novo, aberto, feito para tarefas longas e complexas.
-- Modelo mais pesado da lista gratuita, com contexto maior (ideal para tarefas pesadas).
+## O que resolve
+Extraido da descricao: Não precisa pagar! OpenCode é a alternativa ao Claude Code para criar sites com IA
 
-## Planos pagos (opcional)
-- Zen: paga por token usado (coloca saldo e vai consumindo).
-- Go: valor mensal fixo (primeiro mes sai quase de graca, depois R$ 10), uso ilimitado de modelos.
-- Voce tambem pode plugar sua propria chave de Claude/GPT/Gemini/OpenRouter.
+➡️ Conheça meu Treinamento Completo: https://iaexperts.thalena.com.br/?utm_source=organico&utm_medium=youtube&utm_campaign=videos&utm_term=descricao&utm_content=video83
 
-## O que da pra construir de graca
-- Prototipo de sistema (validar com cliente antes de fechar contrato).
-- Proposta comercial em HTML (linda, por nicho: clinica, personal trainer, advogado, imobiliaria).
-- Landing page para qualquer nicho (cliente ou voce mesmo).
-- Automacoes simples via scripts pontuais.
+🔗 Conheça nossos serviços e implementações → https://lp.lenaai.com.br/?utm_source=organico&utm_medium=youtube&utm_campaign=videos&utm_term=descricao&utm_content=video83
 
-## Passo a passo demonstrado
-1. Baixar o app OpenCode no site oficial (opencode.ai) e instalar (next/next no Windows ou Mac).
-2. Em configuracoes, selecionar os modelos gratuitos desejados (padrao ja vem todos marcados).
-3. Criar uma pasta no computador para o projeto e abrir nova sessao.
-4. Escrever um prompt BEM detalhado (regra de ouro com modelo gratuito: quanto mais detalhado, melhor o resultado, porque o modelo e limitado).
-5. Escolher o modelo, enviar e esperar (modelos novos podem demorar por concorrencia).
-6. A pagina e gerada na pasta, revisar o resultado.
-7. Subir no ar via hospedagem (ela recomenda Hostinger, R$ 12,99/mes, sites ilimitados + dominio + creditos de vibe code). No gerenciador de arquivos, apagar o conteudo da pasta public, mover o HTML gerado, renomear para index.html (tudo minusculo) e pronto.
+🔥 Hospedagem Hostinger com desconto: https://www.hostg.xyz/aff_c?offer_id=6&aff_id=221622
+🎟️ Cupom THALENA → 10% OFF nos planos anuais
+*Cupom válido para contas novas, nos plan
 
-## Dica principal
-Ao usar modelos gratuitos, o prompt precisa ser longo e detalhado de proposito: mostre a estrutura da pagina, estilo visual, fonte, formato (HTML pra abrir rapido). O modelo gratuito nao adivinha.
+## Casos de uso
+- Estudo de ferramenta/agente de IA e automacao.
+- Referencia tecnica para implementar algo semelhante nos projetos do cerebro.
 
-## Utilidade pro seu ecossistema
-- OpenCode + modelos gratuitos e uma alternativa real ao seu stack de master prompts (sites-alto-padrao, landing-page-infoproduto, gestao-interna) para prototipar sem custo antes de mandar pro Claude Code/agentes.
-- Encaca no fluxo de construcao do portfólio-prospeccao: prototipo rapido no OpenCode -> refinamento via agentes no master prompt.
-- A regra de prompt detalhado reforca a filosofia dos seus master prompts (especificacao explicita > pergunta ao usuario).
+## Utilidade pro ecossistema do usuario
+- Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
+## Resumo (sintetizado da transcricao)
+- Se você tiver um time maior que precisa usar aqui, quais são os modelos que a gente vai conseguir utilizar no plano gratuito, que é esse que a gente vai testar.
+- E é através dessa forma de instalação que eu vou te mostrar como é que você vai usar, como é que você vai construir, por exemplo, uma página, né, uma land page aqui de forma gratuita.
+- A própria Open Code não revela muito quem é que tá por trás desse modelo e ele é um dos mais fortes da lista gratuita.
+- Se você for usar modelos gratuitos, você tem que pensar que você tem que ser detalhista, você tem que mostrar, destrinchar mesmo tudo que você quer, bem bacana aqui, porque aí você vai ter um resultado muito melhor.
+- No vídeo de hoje, eu vou te mostrar mais uma possibilidade, mais uma ferramenta que é gratuita, open source e que você pode utilizar para construir página, para construir algumas aplicações, para construir automações, enfim.
+- A gente vai baixar o app e vamos instalar na nossa máquina, igual qualquer outro aplicativo que você instala aí no seu computador.
 
 ## Pontos pra estudar
-- [ ] Testar o OpenCode com um dos seus master prompts como entrada de prompt.
-- [ ] Comparar velocidade/custo de OpenCode gratuito vs seu stack atual (Claude Code + agentes) para prototipos.
-- [ ] Avaliar se o OpenCode entra como "fase 0" de prototipagem barata antes do portfólio-prospeccao.
+- [ ] Identificar o passo a passo principal mostrado no video.
+- [ ] Qual ferramenta/API ele usa e como replica no seu caso.
+- [ ] Onde isso encaixa no Gestao-Escala ou em algum projeto seu.
+
+## Raw original
+[[2026-07-24_Kh7Oxo8Eado_nao-precisa-pagar-opencode-e-a-alternati]]
