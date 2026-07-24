@@ -16,7 +16,7 @@ Sistema completo de gestão de equipamentos industriais com busca inteligente, n
 **Como gravar aqui:** decisões de arquitetura, bugs, telas novas vão nesta pasta.
 
 ## Estado atual (auto)
-> Atualizado automaticamente em 2026-07-23. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
+> Atualizado automaticamente em 2026-07-24. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
 
 - **Tipo:** projeto local (git)
 - **Branch:** main
@@ -30,6 +30,6 @@ Sistema completo de gestão de equipamentos industriais com busca inteligente, n
   - "UPGRADE TAG KLABIN/ingestao_manual.ts"
   - "UPGRADE TAG KLABIN/integracao_manual_sistema_tag.md"
   - "UPGRADE TAG KLABIN/tags_caldeira_catalogo_v2.csv"
-- **Ultimo commit:** f610193 2026-07-22 21:24:25 -0300 mobile: rail lateral vira bottom-nav nativa no mobile (CommandRail/CommandShell)
+- **Ultimo commit:** b2f1154 2026-07-24 07:56:23 -0300 fix(bibliotecario): corrige leitura de env (VITE_) e busca FTS + melhora layout mobile
 - **Ultimo push (GitHub):** 2026-07-23T00:24:35Z
 - **Repo:** https://github.com/Alves1986/SistemaTagCdfPuma

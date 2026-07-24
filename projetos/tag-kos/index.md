@@ -9,6 +9,6 @@ Base de conhecimento técnica da Caldeira de Força (KOS): equipamentos, fluxos,
 **Como gravar aqui:** extração de conhecimento, novo equipamento ou procedimento vai na base real linkada acima. Esta nota é o hub de entrada do cerebro pro domínio KOS. Dúvidas de extração vão no `Inbox-KOS` da base.
 
 ## Estado atual (auto)
-> Atualizado automaticamente em 2026-07-23. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
+> Atualizado automaticamente em 2026-07-24. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
 
 - **Tipo:** pasta local sem git (TAG KOS)

@@ -18,18 +18,11 @@ Webapp para afiliados de e-commerce (Shopee / TikTok): catálogo de produtos de 
 **Como gravar aqui:** notas de escopo, decisões de arquitetura, bugs e copias vão nesta pasta.
 
 ## Estado atual (auto)
-> Atualizado automaticamente em 2026-07-23. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
+> Atualizado automaticamente em 2026-07-24. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
 
 - **Tipo:** projeto local (git)
 - **Branch:** main
-- **Modificacoes nao commitadas:** 6
-- **Arquivos alterados (amostra):**
-  - app/whatsapp/page.tsx
-  - components/CopyModal.tsx
-  - lib/config.ts
-  - app/api/evolution/
-  - lib/evolution.ts
-  - start_local.sh
-- **Ultimo commit:** 89c9b42 2026-07-23 20:25:45 -0300 Catalogo: filtros (plataforma/categoria/busca), ranking 'quentes', 1-clique gerar link + disparo multi-grupo, cadastro pede dados basicos e perfil pre-preenche
-- **Ultimo push (GitHub):** 2026-07-23T23:25:54Z
+- **Modificacoes nao commitadas:** 0
+- **Ultimo commit:** cadcdac 2026-07-24 01:25:38 -0300 SaaS: assinatura anual Mercado Pago + bloqueio de acesso + purge + plataformas pluggable
+- **Ultimo push (GitHub):** 2026-07-24T05:11:56Z
 - **Repo:** https://github.com/Alves1986/catalagoviral

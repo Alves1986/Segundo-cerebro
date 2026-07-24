@@ -17,7 +17,7 @@ Site profissional de alto padrão para Patrick Teixeira, mentor de liderança ma
 **Como gravar aqui:** notas de escopo, branding, copias e reunioes vao nesta pasta.
 
 ## Estado atual (auto)
-> Atualizado automaticamente em 2026-07-23. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
+> Atualizado automaticamente em 2026-07-24. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
 
 - **Tipo:** projeto local (git)
 - **Branch:** main

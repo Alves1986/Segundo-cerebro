@@ -10,7 +10,7 @@ Sistema para gestão de ministérios de igrejas. É o repo de origem do conceito
 **Como gravar aqui:** notas de arquitetura, decisões e comparação com o Gestão-Escala vão nesta pasta.
 
 ## Estado atual (auto)
-> Atualizado automaticamente em 2026-07-23. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
+> Atualizado automaticamente em 2026-07-24. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
 
 - **Tipo:** so GitHub (nao clonado localmente)
 - **Ultimo push (GitHub):** 2026-07-01T01:50:20Z

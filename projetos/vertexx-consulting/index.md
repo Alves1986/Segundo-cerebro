@@ -14,7 +14,7 @@ Landing page de captação de leads para a Vertexx Consulting (posicionamento, l
 **Como gravar aqui:** notas de reunião com o cliente, copy, decisões de seção vão nesta pasta.
 
 ## Estado atual (auto)
-> Atualizado automaticamente em 2026-07-23. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
+> Atualizado automaticamente em 2026-07-24. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
 
 - **Tipo:** so GitHub (nao clonado localmente)
 - **Ultimo push (GitHub):** indisponivel (HTTP Error 404: Not Found)

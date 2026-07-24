@@ -14,7 +14,7 @@ Sistema web completo para a Casa Grande Drywall (Drywall, Elétrica e Steel Fram
 **Como gravar aqui:** notas de escopo, briefing e decisões vao nesta pasta.
 
 ## Estado atual (auto)
-> Atualizado automaticamente em 2026-07-23. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
+> Atualizado automaticamente em 2026-07-24. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
 
 - **Tipo:** so GitHub (nao clonado localmente)
 - **Ultimo push (GitHub):** 2026-07-06T18:08:25Z
