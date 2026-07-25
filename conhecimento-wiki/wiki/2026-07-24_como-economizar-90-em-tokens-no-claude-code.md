@@ -32,7 +32,7 @@ Claude Code pode ficar caro se você não souber gerenciar contexto, tokens, mod
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - Então, por isso que ela vai usar o modelo mais barato para isso e vai só seguir a instrução daquele plano que foi mantado pelo modelo mais caro, entendeu?

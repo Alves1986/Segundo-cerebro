@@ -32,7 +32,7 @@ Te apresentamos o Lena Academy: nossa área de membros construída do zero com V
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - Aqui é a parte de configurações, eh, onde mostra o vídeo também de onboard, assim como em produtos, mostra o vídeo do plano gratuito com link e o vídeo do IA Experts, que eu adicionei esse daqui só como teste, que é o vídeo do Levi.

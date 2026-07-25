@@ -32,7 +32,7 @@ O n8n morreu em 2026? A resposta curta é: não. O n8n continua sendo uma das me
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - Inclusive, eu já tenho até um conteúdo completo só sobre isso, uma playlist do Hermes, mostrando como é que você configura e como você pode usar ele também na tua agência, na tua operação.

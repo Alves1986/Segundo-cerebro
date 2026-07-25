@@ -32,7 +32,7 @@ Neste vídeo eu explico o que muda na cobrança da Meta para WhatsApp Business A
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - No final vou trazer um tópicozinho que eu vou falar um pouco sobre a API não oficial para quem tá usando API não oficial também ficar por dentro de como é que vai funcionar as coisas agora, tá?

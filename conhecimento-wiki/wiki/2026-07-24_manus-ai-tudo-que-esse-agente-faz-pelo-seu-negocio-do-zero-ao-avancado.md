@@ -34,7 +34,7 @@ O que você vai ver:
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - Antes da gente começar a usar e eu te mostrar as funcionalidades, tem uma configuração aqui que faz muita diferença e que pouca gente menciona, que é a escolha do modo de IA que você vai trabalhar.

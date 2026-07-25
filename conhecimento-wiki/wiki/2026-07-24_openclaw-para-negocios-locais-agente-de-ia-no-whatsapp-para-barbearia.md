@@ -33,7 +33,7 @@ Neste tutorial completo, eu mostro como instalar o OpenClaw do zero em uma VPS e
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - Então, vem acompanhar tudo aqui para você entender como é que você vai fazer de maneira atualizada a instalação do seu Openflow, né, e a configuração do seu agente A.

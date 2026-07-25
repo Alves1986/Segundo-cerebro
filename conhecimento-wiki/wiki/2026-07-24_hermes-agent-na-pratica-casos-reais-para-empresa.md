@@ -32,7 +32,7 @@ Hermes Agent na prática: neste vídeo eu mostro como usar um agente de IA open 
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - Então já tô aqui com o primeiro perfil operador interno, que é justamente como o Hermes agente pode funcionar como um braço operacional do teu time, que é como eu já tô começando a usar ele aqui dentro da minha operação, tá?

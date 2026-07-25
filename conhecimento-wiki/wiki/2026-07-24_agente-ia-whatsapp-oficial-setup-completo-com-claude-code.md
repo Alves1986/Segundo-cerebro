@@ -34,7 +34,7 @@ Extraido da descricao: Neste vídeo eu te mostro como criar um agente de IA no W
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - O pack de arquivos e o prompt que eu utilizei aqui, além do guia de implementação em PDF, com todo o passo a passo escrito e o material completo sobre como configurar o app lá na meta para você ter acesso à Pay oficial.

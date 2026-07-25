@@ -29,7 +29,7 @@
 | `reunioes/` | Reuniões sem dono de cliente (internas, parcerias), por contexto. |
 | `deals/` | Negócios em andamento: leads quentes, oportunidades, fechamentos. Meu funil. |
 | `financas/` | Dinheiro: entradas, saídas, status de pagamento, contratos, valores. |
-| `projetos/` | Entregas sob demanda: LP, sistema, documento, proposta. Uma pasta por projeto. |
+| `projetos-software/` | Entregas sob demanda: LP, sistema, documento, proposta. Uma pasta por projeto. |
 | `conteudo/` | Tudo de conteúdo: roteiros, carrosseis, posts. `ideias/` pro que ainda é semente. |
 | `conhecimento/` | Wiki. `raw/` = bruto por processar. `wiki/` = notas limpas e interligadas. |
 | `pessoal/` | Vida pessoal: metas, rotina, saúde, finanças pessoais. |
@@ -53,7 +53,7 @@
 | Contrato, valor, parcela, "recebi/paguei" | `financas/` |
 | "Tive uma ideia de reel/carrossel/post", roteiro | `conteudo/` (semente em `conteudo/ideias/`) |
 | Material de estudo, artigo, transcrição pra aprender | `conhecimento/raw/` (depois `conhecimento/wiki/`) |
-| Projeto de entrega (LP, sistema, documento) | `projetos/<nome>/` |
+| Projeto de entrega (LP, sistema, documento) | `projetos-software/<nome>/` |
 | Referência de voz, swipe, print que inspira | `referencias/` |
 | Vida pessoal, meta, rotina, finança pessoal | `pessoal/` |
 | Registro do dia | `diario/YYYY-MM-DD.md` |
@@ -67,15 +67,15 @@ Quando eu disser "vou ter uma reunião amanhã com o João da Acme às 15h", voc
 4. Se houver venda em jogo, criar/atualizar o card em `deals/`.
 5. Preencher data, participantes, objetivo e espaço pra pauta.
 
-Contexto dos meus projetos (ja conectados no cerebro, ver `projetos/README.md`): toda nota sobre um projeto (bug, feature, decisao, reuniao, copia) vai na pasta dele em `projetos/<projeto>/`. Os arquivos de codigo ficam nas pastas reais e sao acessados por link `file:///`, nunca se copia codigo pra dentro do vault.
-- Catálogo Viral: webapp afiliados Shopee/TikTok (Next.js + Supabase) -> `projetos/catalogo-viral/`
-- Patrick Teixeira (site oficial): mentor de lideranca (Next.js + Supabase) -> `projetos/patrickteixeira-1/`
-- Sistema TAG - Caldeira de Forca (Puma): gestao de equipamentos (React + Supabase) -> `projetos/sistema-tag-cdf-puma/`
-- Vertexx Consulting: landing de captacao de leads -> `projetos/vertexx-consulting/`
-- Casa Grande Drywall: site institucional + CRM/ERP (Next.js + Three.js) -> `projetos/casagrandedraywall/` (briefing em `index.md`)
-- Briefings de site/sistema (Patrick, Casa Grande): ficam linkados em `projetos/<projeto>/index.md` via file:/// (origem na pasta Anderson "Planejamento de Site-Sistemas")
-- Planos do Catálogo Viral (7 dias, prompts, implementação): linkados em `projetos/catalogo-viral/index.md` (origem na pasta Anderson "Nova pasta")
-| Meus repos no GitHub (52 ao total, ver `referencias/repos-github.md`): quando eu citar um repo/lib/ferramenta do meu github, o cerebro busca no indice e abre o link. Repos que ja estao no disco (catalogo-viral, patrickteixeira-1, SistemaTagCdfPuma) tem nota em `projetos/` com link `file:///` pro codigo local + link pro GitHub. Sistemas meus ainda nao clonados (ministral, wacrm, bolten-crm, casagrandedraywall, Cerimonial-Studio, Suite-Criativa-Pro) tem nota em `projetos/` apontando pro GitHub. Nunca clonar repo so pra dentro do vault: o codigo fica no GitHub ou na pasta real.
+Contexto dos meus projetos (ja conectados no cerebro, ver `projetos-software/README.md`): toda nota sobre um projeto (bug, feature, decisao, reuniao, copia) vai na pasta dele em `projetos-software/<projeto>/`. Os arquivos de codigo ficam nas pastas reais e sao acessados por link `file:///`, nunca se copia codigo pra dentro do vault.
+- Catálogo Viral: webapp afiliados Shopee/TikTok (Next.js + Supabase) -> `projetos-software/catalogo-viral/`
+- Patrick Teixeira (site oficial): mentor de lideranca (Next.js + Supabase) -> `projetos-software/patrickteixeira-1/`
+- Sistema TAG - Caldeira de Forca (Puma): gestao de equipamentos (React + Supabase) -> `projetos-software/sistema-tag-cdf-puma/`
+- Vertexx Consulting: landing de captacao de leads -> `projetos-software/vertexx-consulting/`
+- Casa Grande Drywall: site institucional + CRM/ERP (Next.js + Three.js) -> `projetos-software/casagrandedraywall/` (briefing em `index.md`)
+- Briefings de site/sistema (Patrick, Casa Grande): ficam linkados em `projetos-software/<projeto>/index.md` via file:/// (origem na pasta Anderson "Planejamento de Site-Sistemas")
+- Planos do Catálogo Viral (7 dias, prompts, implementação): linkados em `projetos-software/catalogo-viral/index.md` (origem na pasta Anderson "Nova pasta")
+| Meus repos no GitHub (52 ao total, ver `referencias/repos-github.md`): quando eu citar um repo/lib/ferramenta do meu github, o cerebro busca no indice e abre o link. Repos que ja estao no disco (catalogo-viral, patrickteixeira-1, SistemaTagCdfPuma) tem nota em `projetos-software/` com link `file:///` pro codigo local + link pro GitHub. Sistemas meus ainda nao clonados (ministral, wacrm, bolten-crm, casagrandedraywall, Cerimonial-Studio, Suite-Criativa-Pro) tem nota em `projetos-software/` apontando pro GitHub. Nunca clonar repo so pra dentro do vault: o codigo fica no GitHub ou na pasta real.
 | Lista de skills de apoio a site/sistema (copiar so o necessario): `referencias/skills-apoio-site-sistema.md` (origem Vertex/Skills Anderson.txt).
 | Identidade visual e marca (logos de cliente/empresa, canal YouTube): `referencias/identidade-visual.md`. Fotos pessoais do Anderson (galeria): `pessoal/fotos.md`. Material de estudo do Instagram (PDFs): `referencias/material-instagram.md`.
 | Pacote pro NotebookLM: `referencias/notebooklm-export/` (fonte montada pela skill notebooklm-bridge).

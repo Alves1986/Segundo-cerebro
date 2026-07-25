@@ -34,7 +34,7 @@ Agente IA WhatsApp | Setup Completo com Hermes Agent
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - A gente precisa configurar uma API, porque o Hermesage, gente, ele vai precisar de um modelo de linguagem, de uma LLM atrelado a ele.

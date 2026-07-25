@@ -35,7 +35,7 @@ Neste tutorial, você vai aprender como evoluir um CRM para WhatsApp open
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - E olha só, esse vídeo aqui é o passo dois de um vídeo que eu já publiquei aqui no canal, onde eu te mostrei o passo a passo completo de como clonar, configurar e colocar no A de graça esse CRM de WhatsApp que é open source.

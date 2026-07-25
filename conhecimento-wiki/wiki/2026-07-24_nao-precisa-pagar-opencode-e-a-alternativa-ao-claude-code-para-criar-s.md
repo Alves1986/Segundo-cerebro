@@ -34,7 +34,7 @@ Extraido da descricao: Não precisa pagar! OpenCode é a alternativa ao Claude C
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - Se você tiver um time maior que precisa usar aqui, quais são os modelos que a gente vai conseguir utilizar no plano gratuito, que é esse que a gente vai testar.

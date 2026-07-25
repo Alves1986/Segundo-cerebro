@@ -34,7 +34,7 @@ Neste vídeo eu te mostro os 3 caminhos reais para conectar um agente de IA no W
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - Todo o passo a passo, desde compra, desde a verificação da empresa, é você colocar um agente A para funcionar dentro desse WhatsApp oficial.

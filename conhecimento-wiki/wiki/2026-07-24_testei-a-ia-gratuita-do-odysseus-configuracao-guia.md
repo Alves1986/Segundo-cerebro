@@ -33,7 +33,7 @@ Extraido da descricao: 🔥 Hospedagem Hostinger com desconto: https://www.hostg
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - E como a proposta desse vídeo é justamente trazer uma ferramenta de agente autônomo gratuita, onde a gente possa utilizar ele aí de forma gratuita, eu não vou usar o crédito pago da API da Open igual eu sempre faço.

@@ -10,7 +10,7 @@
 | catalagoviral | Webapp afiliados Shopee/TikTok (Catálogo Viral) | https://github.com/Alves1986/catalagoviral | Sim (pasta `catalogo-viral/`) |
 | patrickteixeira | Site oficial Patrick Teixeira (mentor de liderança) | https://github.com/Alves1986/patrickteixeira | Sim (pasta `patrickteixeira-1/`) |
 | SistemaTagCdfPuma | Gestão de equipamentos industriais (Caldeira de Força) | https://github.com/Alves1986/SistemaTagCdfPuma | Sim (pasta `SistemaTagCdfPuma/`) |
-| ministral | Sistema para gestão de ministérios de igrejas | https://github.com/Alves1986/ministral | Não (ver `projetos/ministral/`) |
+| ministral | Sistema para gestão de ministérios de igrejas | https://github.com/Alves1986/ministral | Não (ver `projetos-software/ministral/`) |
 | wacrm | CRM WhatsApp | https://github.com/Alves1986/wacrm | Não |
 | bolten-crm | CRM (Bolten) | https://github.com/Alves1986/bolten-crm | Não |
 | casagrandedraywall | Site Casa Grande Drywall | https://github.com/Alves1986/casagrandedraywall | Não |

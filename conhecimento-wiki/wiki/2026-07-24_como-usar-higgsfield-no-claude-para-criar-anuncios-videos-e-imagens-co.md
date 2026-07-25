@@ -30,7 +30,7 @@ Extraido da descricao: Aprenda como usar o Higgsfield com Claude para criar imag
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - Você não vai precisar saber qual é o nome de cada modelo, não vai precisar construir um prompt técnico ali para cada tipo de geração.

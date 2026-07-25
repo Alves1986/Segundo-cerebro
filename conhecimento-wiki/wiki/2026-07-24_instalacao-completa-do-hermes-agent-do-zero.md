@@ -34,7 +34,7 @@ Extraido da descricao: Aprenda como instalar e configurar o Hermes Agent do zero
 
 ## Utilidade pro ecossistema do usuario
 - Aplicavel ao Gestao-Escala (escalas/voluntarios de igreja) se envolver WhatsApp/CRM/atendimento.
-- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos/.
+- Reutilizavel nos projetos de automacao (Hermes Agent, n8n, agentes de IA) documentados em projetos-software/.
 - Base de estudo para conteudo (roteiros/carrosseis) em conteudo/.
 ## Resumo (sintetizado da transcricao)
 - Por isso que nesse vídeo eu vou te mostrar como instalar e configurar o Hermes do zero, do jeito certo, em poucos minutos, para você poder colher todos os benefícios desse agente.
