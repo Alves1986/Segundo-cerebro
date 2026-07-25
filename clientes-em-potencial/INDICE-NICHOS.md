@@ -1,0 +1,10 @@
+# Índice de Nichos (Telêmaco Borba - PR)
+
+- **restaurantes** (3 empresas sem site próprio)
+- **saloes-beleza** (3 empresas sem site próprio)
+- **clinicas-saude** (2 empresas sem site próprio)
+- **advocacia** (2 empresas sem site próprio)
+- **imobiliarias** (2 empresas sem site próprio)
+- **automecanica** (3 empresas sem site próprio)
+- **pousadas-hoteis** (1 empresas sem site próprio)
+- **academias** (2 empresas sem site próprio)
