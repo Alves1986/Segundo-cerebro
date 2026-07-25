@@ -3,6 +3,12 @@
 
 ---
 
+> ⚠️ ATENÇÃO: Esta empresa JÁ POSSUI site próprio (TEM site: https://upfitness.com.br). Reavaliar abordagem para melhoria/SEO, não site do zero.
+
+
+> ⚠️ ATENÇÃO: Esta empresa JÁ POSSUI site próprio (TEM site: https://upfitness.com.br). Reavaliar abordagem para melhoria/SEO, não site do zero.
+
+
 Olá! Sou o Anderson, desenvolvedor de sites e sistemas aqui de Telêmaco Borba - PR.
 Notei que o **Up Fitness** tem uma ótima presença no Instagram, mas ainda não tem um **site próprio**.
 

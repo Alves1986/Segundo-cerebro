@@ -3,6 +3,9 @@
 
 ---
 
+> ⚠️ ATENÇÃO: Esta empresa JÁ POSSUI site próprio (TEM site: https://imobiliarialira.com.br). Reavaliar abordagem para melhoria/SEO, não site do zero.
+
+
 Olá! Sou o Anderson, desenvolvedor de sites e sistemas aqui de Telêmaco Borba - PR.
 Notei que o **Imobiliária Lira** tem uma ótima presença no Instagram, mas ainda não tem um **site próprio**.
 
