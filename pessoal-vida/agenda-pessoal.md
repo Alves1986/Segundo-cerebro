@@ -22,6 +22,11 @@ Calendário contínuo. O Hermes varre este arquivo todo dia e me manda lembrete 
 
 ---
 
+## 2026-07-25
+- 15:00 | Reunião com Patrick Teixeira (projeto site) | [[projetos-software/patrickteixeira-1]] | Local: Studio do Graça Cast ([[Graça Cast]])
+  - ⚠️ LEMBRAR DE ENVIAR a localização do Studio do Graça Cast pro Patrick (WhatsApp)
+  - Localização exata do Studio AINDA NÃO está no cérebro — confirmar endereço e registrar em [[Graça Cast]] antes de enviar
+
 ## 2026-07-26
 - 08:00 | Revisar prospecção (17 alvos foco) | [[clientes-em-potencial/FOCO-ALVOS]] | decidir se dispara abordagem
 
