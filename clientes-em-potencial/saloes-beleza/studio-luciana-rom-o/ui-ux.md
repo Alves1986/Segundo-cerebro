@@ -1,18 +1,24 @@
 # UI/UX — Studio Luciana Romão
-> Nicho: saloes-beleza | Cidade: Telêmaco Borba - PR
+> Nicho: saloes-beleza | Base: master-prompt-sites-alto-padrao.md (Fase 2) + ui-ux-pro-max-skill + awesome-design-md
 
-## Diretrizes de design
-- **Paleta:** definir 2 cores da marca + 1 cor de acento. Se não houver marca, sugerir neutros + 1 cor quente (ex: laranja/verde).
-- **Tipografia:** 1 fonte de título (bold, moderna) + 1 de corpo (legível). Evitar serifa antiga.
-- **Layout:** mobile-first. Cards com cantos arredondados, sombras suaves.
-- **Fotos:** usar fotos REAIS do estabelecimento (não banco de imagem genérico). Boa iluminação.
-- **CTAs:** botões grandes de WhatsApp/contato sempre visíveis.
+## Direção de arte (arquétipo, não cópia de marca)
+- Definir arquétipo em `awesome-design-md` (ex: artesanal/quente p/ comida, confiança/corporativo p/ clínica, editorial/autoral p/ salão).
+- **Nunca** paleta aleatória: extrair cores do Instagram auditado (se houver) + 1 cor de acento da marca.
+- Tipografia: par display + texto (nunca Inter+Inter por preguiça). Ex.: display serifada de impacto + corpo grotesk legível.
 
-## Experiência do usuário (UX)
-- Carregamento < 2s (cidade de interior, internet varia).
-- Navegação máximo 3 cliques para qualquer info.
-- WhatsApp em 1 toque.
-- Mapa e horário de funcionamento em destaque na Home.
+## Hierarquia e conversão (ui-ux-pro-max-skill)
+- CTA de WhatsApp acima da dobra, sempre visível (flutuante em mobile).
+- Contraste AA mínimo, alvo de toque >=44px, foco de teclado no admin.
+- Prova social próxima à decisão (avaliação do TripAdvisor / depoimentos / nº de clientes).
+- Estados vazios e de erro claros (ex.: "nenhum agendamento hoje").
 
-## Inspiration references
-- Ver `referencias-inspiracao/` no vault para swipe de design.
+## Layout e performance
+- Mobile-first (tráfego de Instagram é majoritariamente celular).
+- Carregamento < 2s (interior, internet varia): next/image, font-display swap, sem JS bloqueando render.
+- Máximo 3 cliques para qualquer info; mapa e horário em destaque na Home.
+- Fotos REAIS do estabelecimento (nunca banco de imagem genérico de aperto de mão).
+
+## "Não fazer" do projeto
+- Nunca template hero+3 cards sem alma.
+- Nunca copy "somos comprometidos com a excelência".
+- Nunca estoque de fotos genéricas.

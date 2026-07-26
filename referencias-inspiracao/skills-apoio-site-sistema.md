@@ -21,5 +21,7 @@ Repositorios que o Anderson pediu para usar como base ao iniciar projetos de sit
 - [misotts](https://github.com/Alves1986/misotts)
 - [awesome-design-md](https://github.com/Alves1986/awesome-design-md)
 - [motion](https://github.com/Alves1986/motion)
+- [claude-directory](https://github.com/Alves1986/claude-directory)
+- [animate.css](https://github.com/Alves1986/animate.css)
 
 **Regra do Anderson:** usar cada um conforme o projeto; copiar so o necessario. Muitos ja estao no indice geral em [repos-github.md](repos-github.md).

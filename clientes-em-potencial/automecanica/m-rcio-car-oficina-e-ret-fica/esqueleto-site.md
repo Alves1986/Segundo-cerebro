@@ -1,22 +1,45 @@
-# Esqueleto de Site — Márcio Car Oficina e Retífica
+# Esqueleto de Projeto — Márcio Car Oficina e Retífica
 > Nicho: automecanica | Cidade: Telêmaco Borba - PR
-> Gerado em 2026-07-24 (prospecção Hermes)
+> Tipo: SISTEMA DE GESTÃO INTERNA (operação do dia a dia)
+> Dor operacional identificada: Oficina e retífica de motores, reprogramação eletrônica, sem site próprio nem orçamento online.
+> Gerado com base nos master prompts padrão do Anderson (alto padrão).
 
-## Páginas sugeridas
-1. **Home** — hero com nome/logo, frase de impacto, botão "WhatsApp" e "Agendar".
-2. **Sobre** — história, diferenciais, fotos do espaço/equipe.
-3. **Serviços/Cardápio/Imóveis/Planos** — lista com fotos e preços (ou "sob consulta").
-4. **Galeria** — fotos reais do dia a dia (Instagram embutido).
-5. **Contato** — mapa, endereço, telefone, WhatsApp, formulário.
-6. **Blog/Notícias** (opcional) — conteúdo para SEO local.
+## Por que não é site genérico
+Cada tela/funcionalidade abaixo nasce da dor real do nicho (auditada na prospecção), não de lista "Home/Sobre/Contato" copiada. O objetivo é fechar contrato mostrando sistema sob medida.
 
-## Funcionalidades-chave
-- Botão flutuante de WhatsApp em todas as páginas.
-- Formulário de contato com e-mail + notificação.
-- SEO local (Google Meu Negócio integrado, schema.org).
-- Responsivo (mobile-first, cidade de interior usa muito celular).
-- Integração com Instagram (feed embutido).
+## Mapa de páginas / telas (mínimo necessário)
+- **Login do dono** (Supabase Auth) — acesso só do operador.
+- **Dashboard do dia** — agenda de hoje, próximos atendimentos, atalho "concluir".
+- **Agenda/Agendamento** — criar/editar horário, cliente, serviço; bloqueio de conflito.
+- **Cadastro de Cliente** — nome, contato, histórico de atendimentos por pessoa.
+- **Estoque** (se aplicável) — itens usados, alerta de baixo estoque.
+- **Configurações** — dados do negócio, WhatsApp de produção p/ lembretes.
 
-## Stack recomendada
-- **Opção A (estático/barato):** HTML + CSS + JS, hospedado na Vercel/Netlify (grátis).
-- **Opção B (com sistema):** Next.js + Supabase (agendamento, login, painel).
+## Stack técnica (obrigatória em todo projeto)
+- **Front-end:** Next.js (App Router) + TypeScript strict (any proibido) + Tailwind com tokens do DESIGN.md.
+- **Backend/Dados:** Supabase (Postgres + RLS em TODA tabela + Auth + Storage + Realtime).
+- **Deploy:** Vercel (preview por PR) + GitHub (main protegida, .env.example, nunca segredo commitado).
+- **Regras:** mobile-first, Core Web Vitals no verde, acessibilidade AA, rate limit em formulário público, LGPD (consentimento em captura de lead).
+
+### Pipeline de execução (resumo das Fases 1-8 do master-prompt-sistema-gestao-interna.md)
+1. **Descoberta Operacional** — validar a dor real ("Oficina e retífica de motores, reprogramação eletrônica, sem site próprio nem orçamento online.") e mapear o fluxo manual atual (WhatsApp/caderno). Priorizar MVP pela dor #1, não por completude.
+2. **Design System (painel interno)** — clareza operacional acima de estética; alvo de toque >=44px p/ tablet/celular no balcão; estados vazios claros ("nenhum agendamento hoje").
+3. **Mapa de telas mínimo** — Agenda/Agendamento, Cadastro de Cliente (com histórico), Estoque (se aplicável), Configurações.
+4. **Metodologia** — superpowers + get-shit-done + ruflo + claude-mem.
+5. **Stack** — Next.js (App Router) + TypeScript strict + Tailwind + Supabase (Postgres + RLS + Auth + Realtime). Tabelas: `agendamentos`, `clientes`, `historico_atendimento`, `estoque_itens`.
+6. **Automação** — lembrete de agendamento via evolution-api (1:1, nunca disparo em massa).
+7. **QA** — playwright E2E: criar agendamento -> aparece na agenda -> concluir -> histórico atualizado.
+8. **Handoff** — README simples para o dono + README.dev para o Anderson. Comparativo honesto de custo vs. ferramenta atual.
+
+## Repositórios de referência (meus, organização Alves1986)
+Clone em `.reference/` na raiz do projeto (pasta de apoio, não entra no código final):
+- `awesome-design-md` — biblioteca DESIGN.md de marcas para definir arquétipo visual
+- `ui-ux-pro-max-skill` — inteligência de UX (hierarquia, acessibilidade, conversão)
+- `wacrm` — modelagem de mini-CRM de leads / cadastro de cliente
+- `evolution-api` — automação WhatsApp (pré-qualificação / lembrete)
+- `ruflo` — orquestração de agentes em paralelo
+- `superpowers` — metodologia spec → plano → TDD → revisão
+- `get-shit-done` — engenharia de contexto (specs pequenas)
+- `claude-mem` — memória persistente de decisões
+- `playwright` — QA/testes E2E
+

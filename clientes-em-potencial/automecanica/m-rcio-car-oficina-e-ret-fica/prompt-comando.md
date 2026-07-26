@@ -1,24 +1,12 @@
 # Prompt de Comando — Márcio Car Oficina e Retífica
-> Use para gerar/rodar o projeto do site deste cliente.
+> Use este prompt copiando o conteúdo do arquivo `master-prompt-sistema-gestao-interna.md` do vault/referência e colando a entrada abaixo.
 
-## Stack
-Next.js 16 (App Router) + Tailwind CSS + Supabase (se precisar de agendamento/login).
+## Entrada (cole no template de invocação da Seção 6 do master-prompt-sistema-gestao-interna.md)
 
-## Prompt para IA (Claude Code / Hermes Agent / v0)
-```
-Crie um site institucional responsivo para "Márcio Car Oficina e Retífica", automecanica em Telêmaco Borba - PR.
-Seções: Home (hero + WhatsApp), Sobre, Serviços, Galeria, Contato (mapa + formulário).
-Paleta: definir com o cliente. Mobile-first. Botão flutuante de WhatsApp.
-Hospedar na Vercel. SEO local básico.
-```
+NICHO: automecanica
+DOR_PRINCIPAL: Oficina e retífica de motores, reprogramação eletrônica, sem site próprio nem orçamento online.
+FERRAMENTA_ATUAL: WhatsApp/caderno (confirmar na Fase 1)
+INSTAGRAM: @mecmarciocartb
 
-## Comandos (se gerar localmente)
-```
-npx create-next-app@latest m-rcio-car-oficina-e-ret-fica --ts --tailwind --app
-cd m-rcio-car-oficina-e-ret-fica
-npm run dev
-# depois: npm run build && vercel --prod
-```
-
-## Deploy
-- Vercel (grátis) ou Netlify. Domínio: sugerir m-rcio-car-oficina-e-ret-fica.com.br (verificar disponibilidade).
+## Instrução
+Siga o pipeline completo (Fases 1 a 8) do master-prompt-sistema-gestao-interna.md. Não pule fases. Não peça mais informações além das fornecidas — pesquise e decida. Ao final, apresente o relatório de entrega (Seção 4/5 do master prompt).
