@@ -28,7 +28,7 @@ Calendário contínuo. O Hermes varre este arquivo todo dia e me manda lembrete 
 ## 2026-07-27
 - 15:00 | Reunião com Patrick Teixeira (projeto site) | [[projetos-software/patrickteixeira-1]] | Local: Studio do Graça Cast ([[Graça Cast]])
   - ⚠️ LEMBRAR DE ENVIAR a localização do Studio do Graça Cast pro Patrick (WhatsApp)
-  - Localização exata do Studio AINDA NÃO está no cérebro — confirmar endereço e registrar em [[Graça Cast]] antes de enviar
+  - ✅ Localização JÁ REGISTRADA em [[Graça Cast]] (Av. Paraná 802, acesso pela rua lateral anexa ao salão da [[Sâmia Lima]]). Texto pronto pra copiar e enviar.
 
 ## 2026-07-28
 - 09:00 | Check mensal de projetos | [[projetos-software/README]] | Catálogo Viral, Sistema TAG, Gestão-Escala
