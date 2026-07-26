@@ -33,6 +33,9 @@ Calendário contínuo. O Hermes varre este arquivo todo dia e me manda lembrete 
 ## 2026-07-28
 - 09:00 | Check mensal de projetos | [[projetos-software/README]] | Catálogo Viral, Sistema TAG, Gestão-Escala
 
+## Períodos (férias, viagens — sem hora fixa)
+- 2026-08-12 a 2026-09-15 | 🏖️ FÉRIAS | | ausência planejada; reagendar compromissos fora desse intervalo
+
 ## Sem data fixa (backlog)
 - | Estudar Engenharia de Software | [[conhecimento-wiki]] | retomar transcrições
 - | Organizar metas da semana | [[pessoal-vida]] | preencher Foco da Semana no CLAUDE.md
