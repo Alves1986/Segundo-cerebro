@@ -16,12 +16,14 @@ Critério aplicado:
 
 ---
 
-## 🎯 FOCO PRIMÁRIO — sem site próprio (17 alvos)
+## 🎯 FOCO PRIMÁRIO — sem site próprio (23 alvos)
 
 ### restaurantes
 - **Sabor & Cia** — (42) 99970-0977 / (42) 99983-7617 — FB saboreciatelemaco / IG osaboreciaa — [abordagem](restaurantes/sabor-cia-restaurante/abordagem.md)
 - **Bom Gosto** — (42) 98808-5059 / (42) 3272-1803 — IG bomgostotb / FB bomgostotelemacoborba — [abordagem](restaurantes/bom-gosto-restaurante/abordagem.md)
 - **Dom do Mah** — (42) 98807-2489 — IG ddm.telemaco — [abordagem](restaurantes/dom-do-mah/abordagem.md)
+- **Espaço Tec's** — (42) 99100-0000 (pesq) — IG espaco.tecs / FB tecsemporio — [abordagem](restaurantes/espaco-tecs/abordagem.md)
+- **Tchê X Burguer E Cia** — (42) 0000-0000 (pesq) — TripAdvisor + redes — [abordagem](restaurantes/tche-x-burguer/abordagem.md)
 
 ### saloes-beleza
 - **Agnaldo Gomes** — (42) 99827-1222 / (42) 3272-7815 — IG agnaldogomes_hairstyle / FB — [abordagem](saloes-beleza/agnaldo-gomes-studio-de-beleza/abordagem.md)
@@ -50,6 +52,16 @@ Critério aplicado:
 - **Restaurante Tibor** — TripAdvisor 3,9 (52 avaliações), sem site — [abordagem](nivel-medio/restaurante-tibor/abordagem.md)
 - **Autoescola Nativa** — IG cfcnativa — [abordagem](nivel-medio/autoescola-nativa/abordagem.md)
 - **Casa do Campo Agrop** — IG casadocampo_agrop — [abordagem](nivel-medio/casa-do-campo-agrop/abordagem.md)
+
+### petshop-veterinaria (novo nicho)
+- **Vida Animal** — (42) 99148-7056 / (42) 3273-2762 — IG vidaanimalcv / FB vidaanimalcv — [abordagem](petshop-veterinaria/vida-animal/abordagem.md)
+
+### padarias (novo nicho)
+- **Farini Padaria & Forneria** — (42) 99100-2323 — IG farini.gastronomia / WhatsApp — [abordagem](padarias/farini-padaria-forneria/abordagem.md)
+
+### oficina-mecanica (novo nicho)
+- **Rodar Auto Center** — (42) 0000-0000 (pesq) — IG rodarautocenter_tb — [abordagem](oficina-mecanica/rodar-auto-center/abordagem.md)
+- **PKS Auto Center** — (42) 0000-0000 (pesq) — FB pksautocenter — [abordagem](oficina-mecanica/pks-auto-center/abordagem.md)
 
 ---
 
