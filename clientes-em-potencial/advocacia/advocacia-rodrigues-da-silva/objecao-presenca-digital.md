@@ -1,30 +1,40 @@
-# Objeção: Presença Digital — Advocacia Rodrigues da Silva
+# Gatilho de Fechamento — Advocacia Rodrigues da Silva
 > Nicho: advocacia | Cidade: Telêmaco Borba - PR
-> Tipo: material de educação/abordagem (usar na conversa com o dono)
+> Uso: anexar à abordagem ou enviar como follow-up depois da primeira conversa.
+> Objetivo: fazer o dono SENTIR a perda de não ter site e querer contratar COM RECORRÊNCIA.
 
-## A metáfora do fantasma
-Ter um negócio sem presença digital é como ser um **fantasma que quer aparecer para todos**.
-O boca a boca funciona — alguém indica, fala bem, o nome corre na cidade. Mas aí a pessoa vai no
-Google buscar o contato e... não acha nada. Ou acha um número antigo. Ou só um perfil de rede social
-que some do feed em 2 horas. O fantasma tentou aparecer, mas não tem corpo.
+## 1. O imposto do invisível (perda real, todo dia)
+Quem precisa de advogado busca no Google por área (trabalhista, previdenciário); sem site, você nem entra na lista de opções.
+Cada um desses clientes é dinheiro que saiu da sua porta e entrou na do concorrente. Não por qualidade —
+por não ter sido **encontrado** na hora da decisão. Esse é o "imposto do invisível" que você paga todo mês
+sem ver a nota.
 
-**Marketing boca a boca funciona. Mas de nada adianta ser falado se não há presença para o interessado encontrar.**
+## 2. Efeito espelho (prova social local)
+Não é teoria. Aqui em Telêmaco já tem negócio igual ao seu rodando site feito por mim e colhendo:
+- Casa Grande Drywall — orçamento e captação automática de cliente pelo site
+- SL Serralheria — captura de lead só com CEP, vira cliente no WhatsApp
+- Kutz Studio — agendamento e edição leve, dono atualiza sozinho
+- Patrick Teixeira — site de autoridade que fecha mentorias
 
-## O problema concreto deste negócio
-- ✅ Telefone visível nas redes (porém ainda sem site próprio — o ponto abaixo vale igual).
-- O número existe, mas sem site o negócio depende 100% do alcance da rede social.
-- Sem site próprio, o negócio não aparece em busca local ("restaurante em Telêmaco Borba", "oficina perto de mim").
-- Depende de rede social, cujo alcance muda quando a plataforma quer — o dono não controla.
-- Quem está na cidade à passeio, ou quem chega de fora, simplesmente não sabe que a empresa existe.
+O vizinho que aparece no Google leva o cliente que buscou por você. O espelho já existe — só não é você ainda.
 
-## Como crescer saindo do "fantasma"
-1. **Ter um corpo (site)** — página própria, no Google, 24h, sem depender de algoritmo.
-2. **Ter contato visível e correto** — telefone, WhatsApp em 1 toque, horário, mapa.
-3. **Ser encontrado por quem busca** — SEO local traz o cliente que já decidiu comprar.
-4. **Prova social no lugar certo** — avaliações e fotos no próprio site, não espalhadas e efêmeras.
+## 3. Custo de inação vs. investimento (ancoragem)
+Pergunte quanto custa um cliente perdido por semana. Multiplique por mês. O site não é "gasto", é a
+parte do aluguel/luz que finalmente trabalha 24h trazendo gente. Investimento único acessível + manutenção
+que não para.
 
-## O que eu (Anderson) entrego
-Um site moderno, rápido, feito para o celular, com botão de WhatsApp, mapa e horário — e o dono
-pode atualizar sozinho. Investimento acessível para negócio local. Prévia grátis, sem compromisso.
+## 4. Venda de recorrência (não é "site", é presença que não para)
+Não entrego só um site e sumo. Entrego a **presença que continua trabalhando**:
+- Site atualizado (você muda cardápio/preço sozinho, sem me chamar)
+- Aparece no Google (SEO local) toda semana, não só no dia da estreia
+- Lembrete de agendamento pro seu cliente via WhatsApp (volta toda semana)
+- Ajuste e melhoria contínuos — o site evolui com o negócio
 
-> Texto de apoio à abordagem em `abordagem.md` desta pasta.
+Ou seja: você não me contrata uma vez. Você me contrata para **continuar aparecendo** — e isso é o que
+mantém a porta aberta. Plano mensal leve, sem surpresa.
+
+## 5. Gatilho de fechamento (frase pronta)
+"Todo mês você paga o imposto de não ser encontrado. Por menos que uma conta de celular, seu negócio
+aparece no Google, o cliente te acha e agenda sozinho. Quer ver uma prévia grátis do seu site hoje?"
+
+> Complementa `abordagem.md` e `esqueleto-site.md` desta pasta.
