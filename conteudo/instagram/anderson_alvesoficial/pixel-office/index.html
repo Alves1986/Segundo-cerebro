@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pixel Studio — Time de Conteúdo</title>
+<style>
+/* --- PALETA PIXEL --- */
+:root{
+  --navy:#0f1e3d;--emerald:#10b981;--gold:#e0a82e;
+  --wall:#e8edf5;--floor:#c4956a;--desk:#8b5e34;
+  --skin1:#f0c8a0;--skin2:#e0b890;--hair1:#2d1b0e;--hair2:#1a1a2e;
+  --pixel:4px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--navy);display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:'Courier New',monospace;padding:20px}
+
+/* --- CONTAINER --- */
+.office{
+  background:var(--wall);border:calc(var(--pixel)*2) solid var(--navy);
+  border-radius:calc(var(--pixel)*4);padding:calc(var(--pixel)*8);
+  max-width:960px;width:100%;position:relative;
+  box-shadow:calc(var(--pixel)*4) calc(var(--pixel)*4) 0 rgba(0,0,0,.2);
+}
+
+/* --- TITULO --- */
+.sign{
+  text-align:center;margin-bottom:calc(var(--pixel)*6);position:relative;
+}
+.sign h1{
+  font-size:calc(var(--pixel)*6);text-transform:uppercase;
+  color:var(--navy);letter-spacing:calc(var(--pixel)*2);
+  background:var(--gold);display:inline-block;
+  padding:calc(var(--pixel)*2) calc(var(--pixel)*6);
+  border:calc(var(--pixel)*1) solid var(--navy);
+  image-rendering:pixelated;
+}
+.sign .status-bar{
+  font-size:calc(var(--pixel)*3);color:var(--emerald);
+  margin-top:calc(var(--pixel)*2);background:var(--navy);
+  display:inline-block;padding:calc(var(--pixel)*1) calc(var(--pixel)*4);
+  color:#fff;border-radius:calc(var(--pixel)*2);
+}
+
+/* --- GRID DE AGENTES --- */
+.agents{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);grid-gap:calc(var(--pixel)*6);
+  margin-bottom:calc(var(--pixel)*8);
+}
+
+.agent{
+  background:#fff;border:calc(var(--pixel)*1) solid var(--navy);
+  padding:calc(var(--pixel)*4);border-radius:calc(var(--pixel)*3);
+  text-align:center;position:relative;overflow:hidden;
+  transition:transform .3s,box-shadow .3s;
+}
+.agent:hover{transform:translateY(calc(var(--pixel)*-2));box-shadow:0 calc(var(--pixel)*3) 0 rgba(0,0,0,.15);}
+.agent:after{content:'';position:absolute;bottom:0;left:0;right:0;height:calc(var(--pixel)*1);}
+
+/* cor da borda inferior por funcao */
+.agent[data-role="estrategia"]:after{background:var(--gold);}
+.agent[data-role="roteirista"]:after{background:#f59e0b;}
+.agent[data-role="designer"]:after{background:#ec4899;}
+.agent[data-role="ilustrador"]:after{background:var(--emerald);}
+.agent[data-role="montador"]:after{background:#6366f1;}
+.agent[data-role="revisor"]:after{background:#ef4444;}
+
+.agent .emoji-big{font-size:calc(var(--pixel)*10);display:block;margin:calc(var(--pixel)*2) 0;line-height:1.2;animation:idle 2s ease-in-out infinite;}
+
+@keyframes idle{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(calc(var(--pixel)*-1))}
+}
+.agent[data-state="working"] .emoji-big{animation:work 1s ease-in-out infinite;}
+@keyframes work{
+  0%,100%{transform:translateY(0) rotate(0)}
+  25%{transform:translateY(calc(var(--pixel)*-1)) rotate(-2deg)}
+  75%{transform:translateY(0) rotate(2deg)}
+}
+.agent .name{font-size:calc(var(--pixel)*4);font-weight:bold;color:var(--navy);}
+.agent .role{font-size:calc(var(--pixel)*3);color:#666;margin-bottom:calc(var(--pixel)*2);}
+.agent .task{
+  font-size:calc(var(--pixel)*3);color:var(--emerald);min-height:calc(var(--pixel)*8);
+  background:var(--wall);padding:calc(var(--pixel)*2);border-radius:calc(var(--pixel)*2);
+  margin-top:calc(var(--pixel)*2);
+}
+.agent .desk{
+  background:var(--desk);height:calc(var(--pixel)*4);
+  border-radius:calc(var(--pixel)*1);margin:calc(var(--pixel)*2) 0;
+  position:relative;
+}
+.agent .desk-item{
+  position:absolute;bottom:calc(var(--pixel)*5);font-size:calc(var(--pixel)*5);
+  left:50%;transform:translateX(-50%);
+}
+.agent[data-role="ilustrador"] .desk-item{animation:glow 1.5s ease-in-out infinite;}
+@keyframes glow{
+  0%,100%{filter:brightness(1)}
+  50%{filter:brightness(1.4)}
+}
+
+/* --- KANBAN BOARD --- */
+.kanban{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:calc(var(--pixel)*3);
+  margin-top:calc(var(--pixel)*4);
+}
+.kanban-col{
+  background:rgba(15,30,61,.05);border-radius:calc(var(--pixel)*3);
+  padding:calc(var(--pixel)*3);min-height:calc(var(--pixel)*16);
+}
+.kanban-col h3{
+  font-size:calc(var(--pixel)*3);text-align:center;
+  color:var(--navy);margin-bottom:calc(var(--pixel)*2);
+  text-transform:uppercase;letter-spacing:1px;
+}
+.kanban-item{
+  background:#fff;border:1px solid #ddd;border-radius:calc(var(--pixel)*2);
+  padding:calc(var(--pixel)*2);font-size:calc(var(--pixel)*3);
+  margin-bottom:calc(var(--pixel)*2);text-align:center;
+  animation:fadeIn .5s ease-out;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(calc(var(--pixel)*2))}to{opacity:1;transform:translateY(0)}}
+
+/* --- FOOTER / PIPELINE --- */
+.pipeline{
+  background:var(--navy);border-radius:calc(var(--pixel)*3);
+  padding:calc(var(--pixel)*4);margin-top:calc(var(--pixel)*6);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.pipeline-step{
+  color:#fff;font-size:calc(var(--pixel)*3);text-align:center;
+  flex:1;padding:calc(var(--pixel)*2);position:relative;
+}
+.pipeline-step.active{
+  color:var(--gold);font-weight:bold;
+}
+.pipeline-step.active:before{
+  content:'▶';position:absolute;left:calc(var(--pixel)*-2);font-size:calc(var(--pixel)*5);
+  color:var(--emerald);top:50%;transform:translateY(-50%);
+}
+.pipeline-arrow{color:var(--emerald);font-size:calc(var(--pixel)*5);}
+
+/* --- FOOTER INFO --- */
+.footer-info{
+  text-align:center;font-size:calc(var(--pixel)*3);color:#666;
+  margin-top:calc(var(--pixel)*4);
+}
+.footer-info strong{color:var(--emerald);}
+</style>
+</head>
+<body>
+<div class="office" id="app">
+  <div class="sign">
+    <h1>✦ PIXEL STUDIO ✦</h1>
+    <div class="status-bar">time de conteúdo · @anderson_alvesoficial</div>
+  </div>
+
+  <div class="agents" id="agentsGrid">
+    <!-- AGENTES gerados via JS -->
+  </div>
+
+  <!-- KANBAN BOARD -->
+  <div class="kanban" id="kanbanBoard">
+    <div class="kanban-col"><h3>📥 Briefing</h3><div id="col-briefing"></div></div>
+    <div class="kanban-col"><h3>✍️ Roteiro</h3><div id="col-roteiro"></div></div>
+    <div class="kanban-col"><h3>🎨 Criação</h3><div id="col-criacao"></div></div>
+    <div class="kanban-col"><h3>✅ Pronto</h3><div id="col-pronto"></div></div>
+  </div>
+
+  <!-- PIPELINE -->
+  <div class="pipeline" id="pipelineBar">
+    <div class="pipeline-step">📊 Cá</div><span class="pipeline-arrow">→</span>
+    <div class="pipeline-step">✍️ Ro</div><span class="pipeline-arrow">→</span>
+    <div class="pipeline-step">🎨 De</div><span class="pipeline-arrow">→</span>
+    <div class="pipeline-step">🖼️ Im</div><span class="pipeline-arrow">→</span>
+    <div class="pipeline-step">🎬 Mo</div><span class="pipeline-arrow">→</span>
+    <div class="pipeline-step">✅ Re</div>
+  </div>
+
+  <div class="footer-info">
+    <strong>🔧 turno ativo:</strong> produzindo conteúdo · <span id="clock"></span>
+  </div>
+</div>
+
+<script>
+const AGENTS = [
+  {emoji:'📊',name:'Cá',role:'Estrategista',desc:'Calendário, métricas, briefing',tool:'📋',color:'gold',state:'idle',
+   tasks:['Revisando calendário semanal','Analisando engajamento','Definindo pilares do mês','Ajustando frequência']},
+  {emoji:'✍️',name:'Ro',role:'Roteirista',desc:'Copys, reels, legendas',tool:'✏️',color:'amber',state:'idle',
+   tasks:['Escrevendo roteiro de reel','Criando legenda para carrossel','Ajustando tom de voz','Escrevendo CTA']},
+  {emoji:'🎨',name:'De',role:'Designer',desc:'Layout, paleta, slides',tool:'🎨',color:'pink',state:'idle',
+   tasks:['Montando slide carrossel','Escolhendo paleta de cores','Posicionando elementos','Revisando proporções']},
+  {emoji:'🖼️',name:'Im',role:'Ilustrador',desc:'Imagens IA, assets',tool:'✨',color:'emerald',state:'idle',
+   tasks:['Gerando imagem com IA','Criando ilustração','Editando asset','Renderizando fundo']},
+  {emoji:'🎬',name:'Mo',role:'Montador',desc:'Reels, vídeos, edição',tool:'🎥',color:'indigo',state:'idle',
+   tasks:['Editando timeline','Adicionando transições','Ajustando áudio','Renderizando corte']},
+  {emoji:'✅',name:'Re',role:'Revisor',desc:'Tom, ortografia, consistência',tool:'🔍',color:'red',state:'idle',
+   tasks:['Revisando ortografia','Conferindo tom de voz','Validando CTA','Aprovando peça']},
+];
+
+const KANBAN_ITEMS = [
+  {text:'"Cabeça não escala" — carrossel',col:'briefing'},
+  {text:'Reel — app em 1 tarde',col:'briefing'},
+  {text:'Story — frase de autoridade',col:'roteiro'},
+  {text:'Carrossel — 3 sinais',col:'criacao'},
+  {text:'Reel — concorrente Google',col:'briefing'},
+  {text:'Story — enquete',col:'pronto'},
+];
+
+function renderAgents(){
+  const grid = document.getElementById('agentsGrid');
+  grid.innerHTML = '';
+  AGENTS.forEach(a => {
+    const div = document.createElement('div');
+    div.className = 'agent';
+    div.dataset.role = a.color;
+    div.dataset.state = a.state;
+    div.innerHTML = `
+      <span class="emoji-big">${a.emoji}</span>
+      <div class="desk"><span class="desk-item">${a.tool}</span></div>
+      <div class="name">${a.name}</div>
+      <div class="role">${a.role}</div>
+      <div class="task">${a.tasks[0]}</div>
+    `;
+    div.id = 'agent-'+a.name;
+    grid.appendChild(div);
+  });
+}
+
+function renderKanban(){
+  KANBAN_ITEMS.forEach(item => {
+    const col = document.getElementById('col-'+item.col);
+    const div = document.createElement('div');
+    div.className = 'kanban-item';
+    div.textContent = item.text;
+    col.appendChild(div);
+  });
+}
+
+function simulateWork(){
+  // Rotaciona tarefas dos agentes e move pipeline
+  const stepNames = ['Cá','Ro','De','Im','Mo','Re'];
+  let stepIdx = 0;
+
+  setInterval(() => {
+    // atualiza tarefa de cada agente
+    AGENTS.forEach(a => {
+      const el = document.getElementById('agent-'+a.name);
+      if(!el) return;
+      const taskEl = el.querySelector('.task');
+      const currentIdx = a.tasks.indexOf(a.tasks.find(t => taskEl.textContent.includes(t.split(' ')[0])));
+      const nextIdx = (currentIdx + 1) % a.tasks.length;
+      taskEl.textContent = a.tasks[nextIdx];
+      el.dataset.state = 'working';
+      setTimeout(() => { el.dataset.state = 'idle'; }, 1500);
+    });
+
+    // avanca pipeline
+    const steps = document.querySelectorAll('.pipeline-step');
+    steps.forEach(s => s.classList.remove('active'));
+    steps[stepIdx % steps.length].classList.add('active');
+    stepIdx++;
+  }, 4000);
+}
+
+function updateClock(){
+  const now = new Date();
+  document.getElementById('clock').textContent =
+    now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+  setTimeout(updateClock, 60000);
+}
+
+renderAgents();
+renderKanban();
+simulateWork();
+updateClock();
+</script>
+</body>
+</html>
