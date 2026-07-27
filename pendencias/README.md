@@ -11,6 +11,12 @@
 - **Próximo passo:** Postar os lotes e reportar resultados.
 - **Criado:** 2026-07-26
 
+### Opensquad — Instagram Content Squad
+- **Status:** 🟢 Ativo — framework multi-agente instalado e squad configurado (6 agentes).
+- **Local:** `~/projetos-software/opensquad/squads/instagram-content/`
+- **Próximo passo:** Rodar o squad via skill opensquad ou via CLI (`npx opensquad run instagram-content`).
+- **Criado:** 2026-07-27
+
 ### Site para empresa (clientes-em-potencial)
 - **Status:** 🟡 Pendente — lista de prioridade pronta (29 empresas sem site).
 - **Próximo passo:** Decidir qual começar (topo: Sabor & Cia Restaurante).
