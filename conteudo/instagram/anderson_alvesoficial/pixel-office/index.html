@@ -1,280 +1,276 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pixel Studio — Time de Conteúdo</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pixel Studio — Top-Down Office</title>
 <style>
-/* --- PALETA PIXEL --- */
 :root{
-  --navy:#0f1e3d;--emerald:#10b981;--gold:#e0a82e;
-  --wall:#e8edf5;--floor:#c4956a;--desk:#8b5e34;
-  --skin1:#f0c8a0;--skin2:#e0b890;--hair1:#2d1b0e;--hair2:#1a1a2e;
-  --pixel:4px;
-}
+  --floor:#b5b59a;--wall:#302a33;--wood:#957656;--wood-dark:#6a4d3b;
+  --screen:#3a5f8a;--chair:#8b7355;--plant:#5b8a4e;
+  --cg:#d4a22a;--ca:#c49020;--cp:#b84a7a;--ce:#3a9d6e;--ci:#4a6a9a;--cr:#b84a4a;
+  --green:#5bb85a;--red:#d9534f;--pixel:3px;}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--navy);display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:'Courier New',monospace;padding:20px}
+body{background:#1a1620;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:'Courier New',monospace;padding:20px}
+.office{background:var(--floor);width:780px;position:relative;border:calc(var(--pixel)*2) solid var(--wall);image-rendering:pixelated;overflow:hidden}
+.sign{text-align:center;padding:calc(var(--pixel)*4) 0;background:var(--wall);color:var(--floor);font-size:calc(var(--pixel)*5);letter-spacing:calc(var(--pixel)*2);text-transform:uppercase;z-index:3}
+/* ESTACOES */
+.stations{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--pixel)*2);padding:calc(var(--pixel)*6)}
+.station{background:var(--wood);border:calc(var(--pixel)*1) solid var(--wood-dark);padding:calc(var(--pixel)*3);position:relative;min-height:calc(var(--pixel)*28);cursor:pointer;transition:transform .2s}
+.station:hover{transform:scale(1.03);z-index:10}
+.station .floor{background:var(--floor);height:100%;position:relative;padding:calc(var(--pixel)*2)}
+.monitor{background:var(--screen);width:calc(var(--pixel)*10);height:calc(var(--pixel)*7);border:calc(var(--pixel)*1) solid var(--wood-dark);margin:0 auto calc(var(--pixel)*2);position:relative}
+.monitor:after{content:'';position:absolute;top:calc(var(--pixel)*1);left:calc(var(--pixel)*1);right:calc(var(--pixel)*1);bottom:calc(var(--pixel)*2);background:linear-gradient(135deg,#4a7aaa,#2a4a6a)}
+.chair{background:var(--chair);width:calc(var(--pixel)*6);height:calc(var(--pixel)*5);margin:calc(var(--pixel)*1) auto;border-radius:calc(var(--pixel)*2);border:calc(var(--pixel)*1) solid var(--wood-dark)}
+.agent-dot{width:calc(var(--pixel)*6);height:calc(var(--pixel)*6);border-radius:50%;margin:calc(var(--pixel)*1) auto;box-shadow:0 0 0 calc(var(--pixel)*1) var(--wood-dark)}
+.estrategia{background:var(--cg)}.roteirista{background:var(--ca)}.designer{background:var(--cp)}
+.ilustrador{background:var(--ce)}.montador{background:var(--ci)}.revisor{background:var(--cr)}
+.station .name{font-size:calc(var(--pixel)*3.5);color:var(--floor);text-align:center;font-weight:bold;margin-top:calc(var(--pixel)*1)}
+.station .role{font-size:calc(var(--pixel)*3);color:var(--wood-dark);text-align:center}
+.lvl-badge{position:absolute;top:calc(var(--pixel)*1);right:calc(var(--pixel)*1);background:var(--wall);color:#fff;font-size:calc(var(--pixel)*2.5);padding:calc(var(--pixel)*.5) calc(var(--pixel)*2);border-radius:calc(var(--pixel)*2);z-index:5}
+/* KANBAN */
+.kanban-area{padding:0 calc(var(--pixel)*6) calc(var(--pixel)*6)}
+.kanban-title{font-size:calc(var(--pixel)*4);color:var(--wall);text-align:center;text-transform:uppercase;margin-bottom:calc(var(--pixel)*3);letter-spacing:calc(var(--pixel)*1)}
+.kanban{display:grid;grid-template-columns:repeat(5,1fr);gap:calc(var(--pixel)*2)}
+.kanban-col{background:rgba(48,42,51,.12);min-height:calc(var(--pixel)*14);border:calc(var(--pixel)*1) solid rgba(48,42,51,.2)}
+.kanban-col h3{font-size:calc(var(--pixel)*2.5);text-align:center;color:var(--wall);padding:calc(var(--pixel)*2) 0;background:var(--floor);border-bottom:calc(var(--pixel)*1) solid rgba(48,42,51,.2)}
+.kanban-item{background:var(--wood);color:var(--floor);font-size:calc(var(--pixel)*2.5);padding:calc(var(--pixel)*2);margin:calc(var(--pixel)*1);text-align:center;border:calc(var(--pixel)*1) solid var(--wood-dark);cursor:pointer;transition:opacity .3s}
+.kanban-item.aprov{background:var(--green);color:#fff}
+.kanban-item:hover{opacity:.8}
+/* PIPELINE */
+.pipeline{background:var(--wall);padding:calc(var(--pixel)*3);display:flex;justify-content:space-around;margin:0 calc(var(--pixel)*6) calc(var(--pixel)*6)}
+.p-step{color:var(--floor);font-size:calc(var(--pixel)*2.5);text-align:center;padding:calc(var(--pixel)*1) calc(var(--pixel)*2)}
+.p-step.active{background:var(--wood);color:#fff}
+/* TRAIN */
+.train-log{margin:0 calc(var(--pixel)*6) calc(var(--pixel)*6);background:var(--wall);padding:calc(var(--pixel)*4)}
+.train-log h3{color:var(--floor);font-size:calc(var(--pixel)*3);margin-bottom:calc(var(--pixel)*2);text-transform:uppercase;text-align:center}
+.train-entry{color:var(--floor);font-size:calc(var(--pixel)*2.5);padding:calc(var(--pixel)*1) 0}
+.train-entry strong{color:var(--cg)}
+.archive-note{text-align:center;padding:calc(var(--pixel)*4);color:var(--wall);font-size:calc(var(--pixel)*3)}
 
-/* --- CONTAINER --- */
-.office{
-  background:var(--wall);border:calc(var(--pixel)*2) solid var(--navy);
-  border-radius:calc(var(--pixel)*4);padding:calc(var(--pixel)*8);
-  max-width:960px;width:100%;position:relative;
-  box-shadow:calc(var(--pixel)*4) calc(var(--pixel)*4) 0 rgba(0,0,0,.2);
-}
-
-/* --- TITULO --- */
-.sign{
-  text-align:center;margin-bottom:calc(var(--pixel)*6);position:relative;
-}
-.sign h1{
-  font-size:calc(var(--pixel)*6);text-transform:uppercase;
-  color:var(--navy);letter-spacing:calc(var(--pixel)*2);
-  background:var(--gold);display:inline-block;
-  padding:calc(var(--pixel)*2) calc(var(--pixel)*6);
-  border:calc(var(--pixel)*1) solid var(--navy);
-  image-rendering:pixelated;
-}
-.sign .status-bar{
-  font-size:calc(var(--pixel)*3);color:var(--emerald);
-  margin-top:calc(var(--pixel)*2);background:var(--navy);
-  display:inline-block;padding:calc(var(--pixel)*1) calc(var(--pixel)*4);
-  color:#fff;border-radius:calc(var(--pixel)*2);
-}
-
-/* --- GRID DE AGENTES --- */
-.agents{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);grid-gap:calc(var(--pixel)*6);
-  margin-bottom:calc(var(--pixel)*8);
-}
-
-.agent{
-  background:#fff;border:calc(var(--pixel)*1) solid var(--navy);
-  padding:calc(var(--pixel)*4);border-radius:calc(var(--pixel)*3);
-  text-align:center;position:relative;overflow:hidden;
-  transition:transform .3s,box-shadow .3s;
-}
-.agent:hover{transform:translateY(calc(var(--pixel)*-2));box-shadow:0 calc(var(--pixel)*3) 0 rgba(0,0,0,.15);}
-.agent:after{content:'';position:absolute;bottom:0;left:0;right:0;height:calc(var(--pixel)*1);}
-
-/* cor da borda inferior por funcao */
-.agent[data-role="estrategia"]:after{background:var(--gold);}
-.agent[data-role="roteirista"]:after{background:#f59e0b;}
-.agent[data-role="designer"]:after{background:#ec4899;}
-.agent[data-role="ilustrador"]:after{background:var(--emerald);}
-.agent[data-role="montador"]:after{background:#6366f1;}
-.agent[data-role="revisor"]:after{background:#ef4444;}
-
-.agent .emoji-big{font-size:calc(var(--pixel)*10);display:block;margin:calc(var(--pixel)*2) 0;line-height:1.2;animation:idle 2s ease-in-out infinite;}
-
-@keyframes idle{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(calc(var(--pixel)*-1))}
-}
-.agent[data-state="working"] .emoji-big{animation:work 1s ease-in-out infinite;}
-@keyframes work{
-  0%,100%{transform:translateY(0) rotate(0)}
-  25%{transform:translateY(calc(var(--pixel)*-1)) rotate(-2deg)}
-  75%{transform:translateY(0) rotate(2deg)}
-}
-.agent .name{font-size:calc(var(--pixel)*4);font-weight:bold;color:var(--navy);}
-.agent .role{font-size:calc(var(--pixel)*3);color:#666;margin-bottom:calc(var(--pixel)*2);}
-.agent .task{
-  font-size:calc(var(--pixel)*3);color:var(--emerald);min-height:calc(var(--pixel)*8);
-  background:var(--wall);padding:calc(var(--pixel)*2);border-radius:calc(var(--pixel)*2);
-  margin-top:calc(var(--pixel)*2);
-}
-.agent .desk{
-  background:var(--desk);height:calc(var(--pixel)*4);
-  border-radius:calc(var(--pixel)*1);margin:calc(var(--pixel)*2) 0;
-  position:relative;
-}
-.agent .desk-item{
-  position:absolute;bottom:calc(var(--pixel)*5);font-size:calc(var(--pixel)*5);
-  left:50%;transform:translateX(-50%);
-}
-.agent[data-role="ilustrador"] .desk-item{animation:glow 1.5s ease-in-out infinite;}
-@keyframes glow{
-  0%,100%{filter:brightness(1)}
-  50%{filter:brightness(1.4)}
-}
-
-/* --- KANBAN BOARD --- */
-.kanban{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:calc(var(--pixel)*3);
-  margin-top:calc(var(--pixel)*4);
-}
-.kanban-col{
-  background:rgba(15,30,61,.05);border-radius:calc(var(--pixel)*3);
-  padding:calc(var(--pixel)*3);min-height:calc(var(--pixel)*16);
-}
-.kanban-col h3{
-  font-size:calc(var(--pixel)*3);text-align:center;
-  color:var(--navy);margin-bottom:calc(var(--pixel)*2);
-  text-transform:uppercase;letter-spacing:1px;
-}
-.kanban-item{
-  background:#fff;border:1px solid #ddd;border-radius:calc(var(--pixel)*2);
-  padding:calc(var(--pixel)*2);font-size:calc(var(--pixel)*3);
-  margin-bottom:calc(var(--pixel)*2);text-align:center;
-  animation:fadeIn .5s ease-out;
-}
-@keyframes fadeIn{from{opacity:0;transform:translateY(calc(var(--pixel)*2))}to{opacity:1;transform:translateY(0)}}
-
-/* --- FOOTER / PIPELINE --- */
-.pipeline{
-  background:var(--navy);border-radius:calc(var(--pixel)*3);
-  padding:calc(var(--pixel)*4);margin-top:calc(var(--pixel)*6);
-  display:flex;justify-content:space-between;align-items:center;
-}
-.pipeline-step{
-  color:#fff;font-size:calc(var(--pixel)*3);text-align:center;
-  flex:1;padding:calc(var(--pixel)*2);position:relative;
-}
-.pipeline-step.active{
-  color:var(--gold);font-weight:bold;
-}
-.pipeline-step.active:before{
-  content:'▶';position:absolute;left:calc(var(--pixel)*-2);font-size:calc(var(--pixel)*5);
-  color:var(--emerald);top:50%;transform:translateY(-50%);
-}
-.pipeline-arrow{color:var(--emerald);font-size:calc(var(--pixel)*5);}
-
-/* --- FOOTER INFO --- */
-.footer-info{
-  text-align:center;font-size:calc(var(--pixel)*3);color:#666;
-  margin-top:calc(var(--pixel)*4);
-}
-.footer-info strong{color:var(--emerald);}
+/* === MODAL DE AVALIACAO === */
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,22,32,.85);z-index:100;justify-content:center;align-items:center}
+.modal-overlay.aberto{display:flex}
+.modal{background:var(--wall);border:calc(var(--pixel)*2) solid var(--floor);padding:calc(var(--pixel)*6);max-width:500px;width:90%;color:var(--floor)}
+.modal h2{font-size:calc(var(--pixel)*5);margin-bottom:calc(var(--pixel)*4);text-align:center;text-transform:uppercase;letter-spacing:calc(var(--pixel)*1)}
+.modal .produto{background:var(--floor);color:var(--wall);padding:calc(var(--pixel)*4);margin-bottom:calc(var(--pixel)*3);text-align:center;font-size:calc(var(--pixel)*3)}
+.modal .produto .label{font-size:calc(var(--pixel)*2);color:var(--wood-dark);margin-bottom:calc(var(--pixel)*1)}
+.modal .produto .titulo{font-size:calc(var(--pixel)*4);font-weight:bold}
+.modal .produto .agente{font-size:calc(var(--pixel)*3);color:var(--wood-dark);margin-top:calc(var(--pixel)*1)}
+.modal .botoes{display:flex;gap:calc(var(--pixel)*3);justify-content:center;margin-top:calc(var(--pixel)*3)}
+.modal .btn{font-family:'Courier New',monospace;font-size:calc(var(--pixel)*4);padding:calc(var(--pixel)*3) calc(var(--pixel)*6);border:none;cursor:pointer;text-transform:uppercase;letter-spacing:calc(var(--pixel)*1)}
+.btn-aprovar{background:var(--green);color:#fff}
+.btn-reprovar{background:var(--red);color:#fff}
+.btn-voltar{background:var(--wood);color:var(--floor)}
+/* grade de agentes no reprovar */
+.avaliacao-agentes{margin-top:calc(var(--pixel)*4)}
+.avaliacao-agentes h3{font-size:calc(var(--pixel)*3);text-align:center;margin-bottom:calc(var(--pixel)*3)}
+.agente-row{display:flex;align-items:center;justify-content:space-between;padding:calc(var(--pixel)*2) 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.agente-row .nome{font-size:calc(var(--pixel)*3);font-weight:bold}
+.agente-row .botoes-agente{display:flex;gap:calc(var(--pixel)*2)}
+.agente-row .tag{font-family:'Courier New',monospace;font-size:calc(var(--pixel)*2.5);padding:calc(var(--pixel)*1) calc(var(--pixel)*3);border:none;cursor:pointer;border-radius:calc(var(--pixel)*1)}
+.tag-manter{background:var(--green);color:#fff}
+.tag-melhorar{background:var(--red);color:#fff}
+.tag-selecionado{outline:calc(var(--pixel)*1) solid #fff;outline-offset:calc(var(--pixel)*1)}
+.btn-enviar{width:100%;margin-top:calc(var(--pixel)*3);padding:calc(var(--pixel)*3);font-family:'Courier New',monospace;font-size:calc(var(--pixel)*3);background:var(--wood);color:var(--floor);border:none;cursor:pointer;text-transform:uppercase}
 </style>
 </head>
 <body>
-<div class="office" id="app">
-  <div class="sign">
-    <h1>✦ PIXEL STUDIO ✦</h1>
-    <div class="status-bar">time de conteúdo · @anderson_alvesoficial</div>
+<div class="office">
+  <div class="sign">✦ PIXEL STUDIO ✦</div>
+
+  <div class="stations">
+    <div class="station"><div class="lvl-badge">Lv.1</div><div class="floor"><div class="monitor"></div><div class="chair"></div><div class="agent-dot estrategista"></div><div class="name">Cá</div><div class="role">Estrategista</div></div></div>
+    <div class="station"><div class="lvl-badge">Lv.1</div><div class="floor"><div class="monitor"></div><div class="chair"></div><div class="agent-dot roteirista"></div><div class="name">Ro</div><div class="role">Roteirista</div></div></div>
+    <div class="station"><div class="lvl-badge">Lv.1</div><div class="floor"><div class="monitor"></div><div class="chair"></div><div class="agent-dot designer"></div><div class="name">De</div><div class="role">Designer</div></div></div>
+    <div class="station"><div class="lvl-badge">Lv.1</div><div class="floor"><div class="monitor"></div><div class="chair"></div><div class="agent-dot ilustrador"></div><div class="name">Im</div><div class="role">Ilustrador</div></div></div>
+    <div class="station"><div class="lvl-badge">Lv.1</div><div class="floor"><div class="monitor"></div><div class="chair"></div><div class="agent-dot montador"></div><div class="name">Mo</div><div class="role">Montador</div></div></div>
+    <div class="station"><div class="lvl-badge">Lv.1</div><div class="floor"><div class="monitor"></div><div class="chair"></div><div class="agent-dot revisor"></div><div class="name">Re</div><div class="role">Revisor</div></div></div>
   </div>
 
-  <div class="agents" id="agentsGrid">
-    <!-- AGENTES gerados via JS -->
+  <div class="kanban-area">
+    <div class="kanban-title">📋 Produção</div>
+    <div class="kanban" id="kanbanBoard">
+      <div class="kanban-col"><h3>📥 Briefing</h3><div class="kanban-item" data-item="briefing1">"Cabeça não escala" — carrossel</div><div class="kanban-item" data-item="briefing2">Reel — app 1 tarde</div></div>
+      <div class="kanban-col"><h3>✍️ Roteiro</h3><div class="kanban-item" data-item="roteiro1">Story — frase de autoridade</div></div>
+      <div class="kanban-col"><h3>🎨 Criação</h3><div class="kanban-item" data-item="criacao1">Carrossel — 3 sinais</div></div>
+      <div class="kanban-col"><h3>✅ Pronto</h3><div class="kanban-item pronto-item" data-item="pronto1" data-agente="Re" data-title="Reel — concorrente Google">📺 Reel — concorrente Google</div></div>
+      <div class="kanban-col"><h3>⏳ Sua vez</h3></div>
+    </div>
   </div>
 
-  <!-- KANBAN BOARD -->
-  <div class="kanban" id="kanbanBoard">
-    <div class="kanban-col"><h3>📥 Briefing</h3><div id="col-briefing"></div></div>
-    <div class="kanban-col"><h3>✍️ Roteiro</h3><div id="col-roteiro"></div></div>
-    <div class="kanban-col"><h3>🎨 Criação</h3><div id="col-criacao"></div></div>
-    <div class="kanban-col"><h3>✅ Pronto</h3><div id="col-pronto"></div></div>
-  </div>
-
-  <!-- PIPELINE -->
   <div class="pipeline" id="pipelineBar">
-    <div class="pipeline-step">📊 Cá</div><span class="pipeline-arrow">→</span>
-    <div class="pipeline-step">✍️ Ro</div><span class="pipeline-arrow">→</span>
-    <div class="pipeline-step">🎨 De</div><span class="pipeline-arrow">→</span>
-    <div class="pipeline-step">🖼️ Im</div><span class="pipeline-arrow">→</span>
-    <div class="pipeline-step">🎬 Mo</div><span class="pipeline-arrow">→</span>
-    <div class="pipeline-step">✅ Re</div>
+    <div class="p-step">📊 Cá</div><div class="p-step">✍️ Ro</div><div class="p-step">🎨 De</div><div class="p-step">🖼️ Im</div><div class="p-step">🎬 Mo</div><div class="p-step">✅ Re</div>
   </div>
 
-  <div class="footer-info">
-    <strong>🔧 turno ativo:</strong> produzindo conteúdo · <span id="clock"></span>
+  <div class="train-log">
+    <h3>📚 Log de Treinamento</h3>
+    <div class="train-entry">📊 Cá <strong>aprendeu:</strong> Briefings com dados, não achismo.</div>
+    <div class="train-entry">✍️ Ro <strong>aprendeu:</strong> Tom confiança, gatilho "cabeça não escala".</div>
+    <div class="train-entry">🎨 De <strong>aprendeu:</strong> Paleta navy/emerald. Limpo e direto.</div>
+    <div class="train-entry">🖼️ Im <strong>aprendeu:</strong> Gerar estilo premium flat.</div>
+    <div class="train-entry">🎬 Mo <strong>aprendeu:</strong> Gancho forte nos 3 primeiros segundos.</div>
+    <div class="train-entry">✅ Re <strong>aprendeu:</strong> Anderson aprova antes. Correção volta pro agente.</div>
+  </div>
+  <div class="archive-note">🔧 turno ativo · clique em "Pronto" para avaliar</div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal" id="modalInner">
+    <h2>📋 Avaliar Peça</h2>
+    <div class="produto">
+      <div class="label">produto finalizado</div>
+      <div class="titulo" id="modalTitulo">—</div>
+      <div class="agente" id="modalAgente">produzido por: —</div>
+    </div>
+
+    <!-- APPROVE/REJECT -->
+    <div id="faseDecisao">
+      <div class="botoes">
+        <button class="btn btn-aprovar" onclick="aprovar()">✅ Aprovar</button>
+        <button class="btn btn-reprovar" onclick="reprovar()">❌ Reprovar</button>
+      </div>
+    </div>
+
+    <!-- REJECT DETAIL -->
+    <div id="faseAvaliacao" style="display:none">
+      <div class="avaliacao-agentes">
+        <h3>O que cada agente precisa?</h3>
+        <div id="gradeAgentes"></div>
+        <button class="btn-enviar" onclick="enviarRevisao()">🔄 Enviar para revisão</button>
+      </div>
+    </div>
   </div>
 </div>
 
 <script>
-const AGENTS = [
-  {emoji:'📊',name:'Cá',role:'Estrategista',desc:'Calendário, métricas, briefing',tool:'📋',color:'gold',state:'idle',
-   tasks:['Revisando calendário semanal','Analisando engajamento','Definindo pilares do mês','Ajustando frequência']},
-  {emoji:'✍️',name:'Ro',role:'Roteirista',desc:'Copys, reels, legendas',tool:'✏️',color:'amber',state:'idle',
-   tasks:['Escrevendo roteiro de reel','Criando legenda para carrossel','Ajustando tom de voz','Escrevendo CTA']},
-  {emoji:'🎨',name:'De',role:'Designer',desc:'Layout, paleta, slides',tool:'🎨',color:'pink',state:'idle',
-   tasks:['Montando slide carrossel','Escolhendo paleta de cores','Posicionando elementos','Revisando proporções']},
-  {emoji:'🖼️',name:'Im',role:'Ilustrador',desc:'Imagens IA, assets',tool:'✨',color:'emerald',state:'idle',
-   tasks:['Gerando imagem com IA','Criando ilustração','Editando asset','Renderizando fundo']},
-  {emoji:'🎬',name:'Mo',role:'Montador',desc:'Reels, vídeos, edição',tool:'🎥',color:'indigo',state:'idle',
-   tasks:['Editando timeline','Adicionando transições','Ajustando áudio','Renderizando corte']},
-  {emoji:'✅',name:'Re',role:'Revisor',desc:'Tom, ortografia, consistência',tool:'🔍',color:'red',state:'idle',
-   tasks:['Revisando ortografia','Conferindo tom de voz','Validando CTA','Aprovando peça']},
+// --- DADOS DOS AGENTES ---
+const AGENTES = [
+  {id:'ca',emoji:'📊',nome:'Cá',role:'Estrategista',cor:'var(--cg)'},
+  {id:'ro',emoji:'✍️',nome:'Ro',role:'Roteirista',cor:'var(--ca)'},
+  {id:'de',emoji:'🎨',nome:'De',role:'Designer',cor:'var(--cp)'},
+  {id:'im',emoji:'🖼️',nome:'Im',role:'Ilustrador',cor:'var(--ce)'},
+  {id:'mo',emoji:'🎬',nome:'Mo',role:'Montador',cor:'var(--ci)'},
+  {id:'re',emoji:'✅',nome:'Re',role:'Revisor',cor:'var(--cr)'},
 ];
+AGENTES.forEach(a => a.avaliacao = 'manter'); // default
 
-const KANBAN_ITEMS = [
-  {text:'"Cabeça não escala" — carrossel',col:'briefing'},
-  {text:'Reel — app em 1 tarde',col:'briefing'},
-  {text:'Story — frase de autoridade',col:'roteiro'},
-  {text:'Carrossel — 3 sinais',col:'criacao'},
-  {text:'Reel — concorrente Google',col:'briefing'},
-  {text:'Story — enquete',col:'pronto'},
-];
+let itemAtual = null;
+let fase = 'decisao';
 
-function renderAgents(){
-  const grid = document.getElementById('agentsGrid');
-  grid.innerHTML = '';
-  AGENTS.forEach(a => {
-    const div = document.createElement('div');
-    div.className = 'agent';
-    div.dataset.role = a.color;
-    div.dataset.state = a.state;
-    div.innerHTML = `
-      <span class="emoji-big">${a.emoji}</span>
-      <div class="desk"><span class="desk-item">${a.tool}</span></div>
-      <div class="name">${a.name}</div>
-      <div class="role">${a.role}</div>
-      <div class="task">${a.tasks[0]}</div>
-    `;
-    div.id = 'agent-'+a.name;
-    grid.appendChild(div);
+// --- ABRIR MODAL ---
+document.querySelectorAll('.pronto-item').forEach(el => {
+  el.addEventListener('click', () => {
+    itemAtual = {
+      titulo: el.dataset.title,
+      agente: el.dataset.agente,
+      el: el,
+    };
+    abrirModal();
   });
+});
+
+function abrirModal() {
+  document.getElementById('modalTitulo').textContent = itemAtual.titulo;
+  document.getElementById('modalAgente').textContent = 'produzido por: ' + itemAtual.agente;
+  mostrarFase('decisao');
+  document.getElementById('modal').classList.add('aberto');
 }
 
-function renderKanban(){
-  KANBAN_ITEMS.forEach(item => {
-    const col = document.getElementById('col-'+item.col);
-    const div = document.createElement('div');
-    div.className = 'kanban-item';
-    div.textContent = item.text;
-    col.appendChild(div);
-  });
+function mostrarFase(f) {
+  fase = f;
+  document.getElementById('faseDecisao').style.display = f === 'decisao' ? 'block' : 'none';
+  document.getElementById('faseAvaliacao').style.display = f === 'avaliacao' ? 'block' : 'none';
+  if (f === 'avaliacao') renderGrade();
 }
 
-function simulateWork(){
-  // Rotaciona tarefas dos agentes e move pipeline
-  const stepNames = ['Cá','Ro','De','Im','Mo','Re'];
-  let stepIdx = 0;
+// --- APROVAR ---
+function aprovar() {
+  itemAtual.el.classList.remove('pronto-item');
+  itemAtual.el.classList.add('aprov');
+  itemAtual.el.textContent = '✅ ' + itemAtual.el.dataset.title;
+  // mover p/ coluna "Sua vez" como aprovado
+  const colSuaVez = document.querySelector('.kanban-col:nth-child(5)');
+  colSuaVez.appendChild(itemAtual.el);
+  itemAtual.el.style.background = 'var(--green)';
+  fecharModal();
+}
 
-  setInterval(() => {
-    // atualiza tarefa de cada agente
-    AGENTS.forEach(a => {
-      const el = document.getElementById('agent-'+a.name);
-      if(!el) return;
-      const taskEl = el.querySelector('.task');
-      const currentIdx = a.tasks.indexOf(a.tasks.find(t => taskEl.textContent.includes(t.split(' ')[0])));
-      const nextIdx = (currentIdx + 1) % a.tasks.length;
-      taskEl.textContent = a.tasks[nextIdx];
-      el.dataset.state = 'working';
-      setTimeout(() => { el.dataset.state = 'idle'; }, 1500);
+// --- REPROVAR ---
+function reprovar() {
+  AGENTES.forEach(a => a.avaliacao = 'manter');
+  mostrarFase('avaliacao');
+}
+
+function renderGrade() {
+  const g = document.getElementById('gradeAgentes');
+  g.innerHTML = AGENTES.map(a => `
+    <div class="agente-row">
+      <span class="nome">${a.emoji} ${a.nome}</span>
+      <span style="font-size:calc(var(--pixel)*2.5);color:#999">${a.role}</span>
+      <div class="botoes-agente">
+        <button class="tag tag-manter ${a.avaliacao==='manter'?'tag-selecionado':''}" data-id="${a.id}" data-val="manter">Manter</button>
+        <button class="tag tag-melhorar ${a.avaliacao==='melhorar'?'tag-selecionado':''}" data-id="${a.id}" data-val="melhorar">Melhorar</button>
+      </div>
+    </div>
+  `).join('');
+  document.querySelectorAll('.tag').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.id;
+      const val = btn.dataset.val;
+      const ag = AGENTES.find(a => a.id === id);
+      ag.avaliacao = val;
+      renderGrade();
     });
-
-    // avanca pipeline
-    const steps = document.querySelectorAll('.pipeline-step');
-    steps.forEach(s => s.classList.remove('active'));
-    steps[stepIdx % steps.length].classList.add('active');
-    stepIdx++;
-  }, 4000);
+  });
 }
 
-function updateClock(){
-  const now = new Date();
-  document.getElementById('clock').textContent =
-    now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
-  setTimeout(updateClock, 60000);
+// --- ENVIAR REVISAO ---
+function enviarRevisao() {
+  const melhorar = AGENTES.filter(a => a.avaliacao === 'melhorar');
+  if (melhorar.length === 0) { alert('Selecione pelo menos 1 agente para melhorar.'); return; }
+
+  // move item de volta pro briefing (inicio) com nota
+  const colBriefing = document.querySelector('.kanban-col:nth-child(1)');
+  const novoCard = document.createElement('div');
+  novoCard.className = 'kanban-item';
+  novoCard.textContent = '🔄 ' + itemAtual.el.dataset.title + ' (revisão)';
+  novoCard.title = 'Melhorar: ' + melhorar.map(a => a.nome).join(', ');
+  colBriefing.appendChild(novoCard);
+
+  // remove o card original
+  itemAtual.el.remove();
+
+  // log no treinamento
+  const log = document.querySelector('.train-log');
+  const entry = document.createElement('div');
+  entry.className = 'train-entry';
+  const melhorarNomes = melhorar.map(a => a.nome).join(', ');
+  entry.innerHTML = `🔄 <strong>Revisão:</strong> "${itemAtual.titulo}" voltou — melhorar: ${melhorarNomes}`;
+  log.appendChild(entry);
+  log.scrollTop = log.scrollHeight;
+
+  fecharModal();
 }
 
-renderAgents();
-renderKanban();
-simulateWork();
-updateClock();
+function fecharModal() {
+  document.getElementById('modal').classList.remove('aberto');
+  itemAtual = null;
+}
+
+// clique fora do modal fecha
+document.getElementById('modal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) fecharModal();
+});
+
+// pipeline animation
+const steps = document.querySelectorAll('.p-step');
+let idx = 0;
+setInterval(() => {
+  steps.forEach(s => s.classList.remove('active'));
+  steps[idx % steps.length].classList.add('active');
+  idx++;
+}, 3500);
 </script>
 </body>
 </html>
