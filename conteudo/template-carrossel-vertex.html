@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  /* ── RESET ── */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* ── ROOT (Vertex Consulting brand) ── */
+  :root {
+    --bg: #0a0a0a;
+    --bg-card: #111111;
+    --gold: #c9a84c;
+    --gold-light: #e2c97e;
+    --gold-dark: #a8872e;
+    --gold-glow: rgba(201,168,76,0.2);
+    --text-bright: #f0f0f0;
+    --text-body: #d8d8d8;
+    --text-muted: #888;
+    --line-gold: rgba(201,168,76,0.2);
+    --gradient-gold: linear-gradient(135deg, #a8872e, #c9a84c, #e2c97e);
+    --radius: 12px;
+  }
+
+  body {
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+
+  h1 {
+    color: var(--gold);
+    font-size: 28px;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+  }
+
+  .sub {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+
+  /* ── SLIDE ── */
+  .slide {
+    width: 540px;        /* preview 1/2 size */
+    height: 540px;
+    background: var(--bg);
+    border: 1px solid var(--line-gold);
+    border-radius: var(--radius);
+    padding: 40px 44px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  }
+
+  /* decorative corner accent */
+  .slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle at top right, var(--gold-glow), transparent 70%);
+    pointer-events: none;
+  }
+
+  .slide::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at bottom left, var(--gold-glow), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* thin gold line top */
+  .slide-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-gold);
+  }
+
+  /* tag */
+  .slide-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .slide-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--text-bright);
+    line-height: 1.2;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .slide-title .hl {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .slide-body {
+    font-size: 16px;
+    color: var(--text-body);
+    line-height: 1.6;
+    max-width: 90%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .slide-body strong {
+    color: var(--gold-light);
+  }
+
+  .slide-list {
+    list-style: none;
+    margin-top: 16px;
+  }
+
+  .slide-list li {
+    font-size: 15px;
+    color: var(--text-body);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .slide-list li::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 8px;
+  }
+
+  .slide-cta {
+    margin-top: auto;
+    padding: 14px 32px;
+    background: var(--gradient-gold);
+    border: none;
+    border-radius: 8px;
+    color: #0a0a0a;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    align-self: flex-start;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .slide-number {
+    position: absolute;
+    bottom: 16px;
+    right: 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: 1px;
+    z-index: 1;
+  }
+
+  /* ── TEMPLATE GALLERY ── */
+  .templates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 1140px;
+  }
+
+  .template-label {
+    color: var(--text-muted);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<h1>VERTEX CONSULTING</h1>
+<p class="sub">🟡 Template de Carrossel — 1080×1080 (prévia 50%)</p>
+
+<div class="templates">
+
+  <!-- ─────────── TELA 1: CAPA ─────────── -->
+  <div>
+    <div class="template-label">01 · Capa</div>
+    <div class="slide">
+      <div class="slide-accent"></div>
+      <div class="slide-tag">Vertex Consulting</div>
+      <div class="slide-title" style="margin-top:60px; font-size:44px;">
+        Sua cabeça<br>
+        <span class="hl">não escala</span>
+      </div>
+      <div class="slide-body" style="margin-top:auto; margin-bottom:20px;">
+        Por que seu negócio precisa de um site profissional
+      </div>
+      <div class="slide-cta">▸ Saiba mais</div>
+      <div class="slide-number">01/07</div>
+    </div>
+  </div>
+
+  <!-- ─────────── TELA 2: PROBLEMA ─────────── -->
+  <div>
+    <div class="template-label">02 · Problema</div>
+    <div class="slide">
+      <div class="slide-accent"></div>
+      <div class="slide-tag">O Problema</div>
+      <div class="slide-title" style="font-size:32px; margin-top:20px;">
+        O algoritmo<br>
+        <span class="hl">não é seu amigo</span>
+      </div>
+      <div class="slide-body" style="margin-top:20px;">
+        Você acorda, o alcance caiu. Você posta todo dia, o Instagram entrega pra 10% dos seguidores. Você depende de uma plataforma que <strong>muda as regras quando quer</strong>.
+      </div>
+      <ul class="slide-list">
+        <li>Alcance orgânico em queda livre</li>
+        <li>Seguidor não é cliente</li>
+        <li>Você não controla seu canal de vendas</li>
+      </ul>
+      <div class="slide-number">02/07</div>
+    </div>
+  </div>
+
+  <!-- ─────────── TELA 3: SOLUÇÃO ─────────── -->
+  <div>
+    <div class="template-label">03 · Solução</div>
+    <div class="slide">
+      <div class="slide-accent"></div>
+      <div class="slide-tag">A Solução</div>
+      <div class="slide-title" style="font-size:30px; margin-top:20px;">
+        Tenha seu <span class="hl">próprio<br>endereço digital</span>
+      </div>
+      <div class="slide-body" style="margin-top:16px;">
+        Um site profissional é como um ponto comercial na internet. <strong>Você manda.</strong> Não tem algoritmo, não tem depósito caindo, não tem "link na bio" que quebra.
+      </div>
+      <ul class="slide-list">
+        <li>Controle total do seu conteúdo</li>
+        <li>Cliente encontra você no Google</li>
+        <li>Disponível 24 horas por dia</li>
+      </ul>
+      <div class="slide-number">03/07</div>
+    </div>
+  </div>
+
+  <!-- ─────────── TELA 4: SERVIÇOS ─────────── -->
+  <div>
+    <div class="template-label">04 · Serviços</div>
+    <div class="slide">
+      <div class="slide-accent"></div>
+      <div class="slide-tag">O Que Fazemos</div>
+      <div class="slide-title" style="font-size:30px; margin-top:10px;">
+        Soluções <span class="hl">completas</span><br>
+        para seu negócio
+      </div>
+      <ul class="slide-list" style="margin-top:24px;">
+        <li><strong>Sites institucionais</strong> — Sua marca na internet</li>
+        <li><strong>CRM</strong> — Gerencie seus clientes</li>
+        <li><strong>WhatsApp integrado</strong> — Atenda pelo site</li>
+        <li><strong>Landing Pages</strong> — Capture leads</li>
+        <li><strong>Sistemas web</strong> — Agendamento, cardápio, pedidos</li>
+      </ul>
+      <div class="slide-number">04/07</div>
+    </div>
+  </div>
+
+  <!-- ─────────── TELA 5: PROVA ─────────── -->
+  <div>
+    <div class="template-label">05 · Prova Social</div>
+    <div class="slide">
+      <div class="slide-accent"></div>
+      <div class="slide-tag">Resultados</div>
+      <div class="slide-title" style="font-size:36px; margin-top:30px;">
+        <span class="hl">+150</span> projetos<br>
+        entregues
+      </div>
+      <div class="slide-body" style="margin-top:16px;">
+        Empresas de Telêmaco Borba e região que transformaram seu negócio com presença digital de verdade.
+      </div>
+      <ul class="slide-list">
+        <li>98% dos clientes satisfeitos</li>
+        <li>50+ empresas atendidas</li>
+        <li>5+ anos de mercado</li>
+      </ul>
+      <div class="slide-number">05/07</div>
+    </div>
+  </div>
+
+  <!-- ─────────── TELA 6: DIFERENCIAL ─────────── -->
+  <div>
+    <div class="template-label">06 · Diferencial</div>
+    <div class="slide">
+      <div class="slide-accent"></div>
+      <div class="slide-tag">Nosso Diferencial</div>
+      <div class="slide-title" style="font-size:28px; margin-top:20px;">
+        Não é só um site.<br>
+        É um <span class="hl">sistema completo</span>
+      </div>
+      <div class="slide-body" style="margin-top:12px;">
+        Enquanto outros entregam uma página bonita, a Vertex entrega um ecossistema digital:
+      </div>
+      <ul class="slide-list">
+        <li>Site + CRM integrado</li>
+        <li>WhatsApp automático via Evolution API</li>
+        <li>Supabase na nuvem</li>
+        <li>Suporte contínuo</li>
+      </ul>
+      <div class="slide-number">06/07</div>
+    </div>
+  </div>
+
+  <!-- ─────────── TELA 7: CTA ─────────── -->
+  <div>
+    <div class="template-label">07 · CTA Final</div>
+    <div class="slide">
+      <div class="slide-accent"></div>
+      <div class="slide-tag">Vamos Conversar</div>
+      <div class="slide-title" style="font-size:38px; margin-top:40px;">
+        Bora fazer o<br>
+        <span class="hl">site do seu<br>
+        negócio?</span>
+      </div>
+      <div class="slide-body" style="margin-top:auto; margin-bottom:16px;">
+        📍 Telêmaco Borba - PR<br>
+        📱 Chama no direct ou WhatsApp
+      </div>
+      <div class="slide-cta">▸ Solicitar Orçamento</div>
+      <div class="slide-number">07/07</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
