@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0a0a;
+    --gold: #c9a84c;
+    --gold-light: #e2c97e;
+    --gold-dark: #a8872e;
+    --gold-glow: rgba(201,168,76,0.15);
+    --text-bright: #f0f0f0;
+    --text-muted: #888;
+    --line-gold: rgba(201,168,76,0.2);
+    --gradient-gold: linear-gradient(135deg, #a8872e, #c9a84c, #e2c97e);
+  }
+
+  body {
+    background: #111;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 20px;
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+
+  .card {
+    width: 360px;
+    height: 640px;
+    background: var(--bg);
+    border: 1px solid var(--line-gold);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 60px rgba(201,168,76,0.06);
+  }
+
+  .card-accent {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: var(--gradient-gold);
+  }
+
+  .card-glow {
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle at top right, var(--gold-glow), transparent);
+    pointer-events: none;
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .card-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
+  }
+
+  .card-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text-bright);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .card-sub {
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .card-line {
+    width: 40px;
+    height: 2px;
+    background: var(--gradient-gold);
+    margin: 20px auto;
+    border-radius: 2px;
+  }
+
+  .card-footer {
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .card-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 0 30px rgba(201,168,76,0.2);
+  }
+
+  .photo-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--text-muted);
+    background: #111;
+  }
+
+  .card-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .card-role {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+
+  h2 {
+    width: 100%;
+    color: var(--gold);
+    font-size: 22px;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .desc {
+    width: 100%;
+    color: var(--text-muted);
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+</style>
+</head>
+<body>
+
+<h2>HIGHLIGHT COVERS</h2>
+<p class="desc">Vertex Consulting · 1080×1920 (prévia 360×640)</p>
+
+<!-- 1. QUEM SOU -->
+<div class="card">
+  <div class="card-accent"></div>
+  <div class="card-glow"></div>
+  <div class="card-content">
+    <div class="photo-placeholder" style="background: #1a1a1a; color:#666; font-size:10px;">
+      📷 FOTO DO<br>ANDERSON
+    </div>
+    <div class="card-name">ANDERSON ALVES</div>
+    <div class="card-role">CRIADOR DE SITES</div>
+    <div class="card-line"></div>
+    <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6; max-width: 240px;">
+      Site profissional · CRM<br>
+      WhatsApp integrado<br>
+      Telêmaco Borba - PR
+    </div>
+  </div>
+  <div class="card-footer">Vertex Consulting</div>
+</div>
+
+<!-- 2. SERVIÇOS -->
+<div class="card">
+  <div class="card-accent"></div>
+  <div class="card-glow"></div>
+  <div class="card-content">
+    <div class="card-icon">💼</div>
+    <div class="card-title">Serviços</div>
+    <div class="card-line"></div>
+    <div style="font-size: 14px; color: var(--text-muted); line-height: 2.2;">
+      🌐 Sites Profissionais<br>
+      📊 CRM Completo<br>
+      💬 WhatsApp Integrado<br>
+      📱 Landing Pages<br>
+      🛒 Lojas Virtuais<br>
+      📋 Sistemas Web
+    </div>
+  </div>
+  <div class="card-footer">Vertex Consulting</div>
+</div>
+
+<!-- 3. CONTATO -->
+<div class="card">
+  <div class="card-accent"></div>
+  <div class="card-glow"></div>
+  <div class="card-content">
+    <div class="card-icon">📱</div>
+    <div class="card-title">Contato</div>
+    <div class="card-line"></div>
+    <div style="font-size: 14px; color: var(--text-muted); line-height: 2;">
+      📍 Telêmaco Borba - PR<br>
+      📲 Chama no direct<br>
+      💬 WhatsApp direto
+    </div>
+    <div style="margin-top: 24px; padding: 12px 32px; background: var(--gradient-gold); border-radius: 8px; color: #0a0a0a; font-weight: 700; font-size: 13px; letter-spacing: 2px;">
+      FALE COMIGO
+    </div>
+  </div>
+  <div class="card-footer">Vertex Consulting</div>
+</div>
+
+<!-- 4. PROJETOS -->
+<div class="card">
+  <div class="card-accent"></div>
+  <div class="card-glow"></div>
+  <div class="card-content">
+    <div class="card-icon">🚀</div>
+    <div class="card-title">Projetos</div>
+    <div class="card-line"></div>
+    <div style="font-size: 13px; color: var(--text-muted); line-height: 2;">
+      ✅ Sites entregues<br>
+      ✅ CRM ativos<br>
+      ✅ Clientes satisfeitos<br>
+      🏆 150+ projetos
+    </div>
+    <div style="margin-top: 16px; font-size: 36px; font-weight: 800; background: var(--gradient-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+      150+
+    </div>
+  </div>
+  <div class="card-footer">Vertex Consulting</div>
+</div>
+
+<!-- 5. DEPOIMENTOS -->
+<div class="card">
+  <div class="card-accent"></div>
+  <div class="card-glow"></div>
+  <div class="card-content">
+    <div class="card-icon">⭐</div>
+    <div class="card-title">Depoimentos</div>
+    <div class="card-line"></div>
+    <div style="font-size: 14px; color: var(--text-muted); font-style: italic; line-height: 1.6; max-width: 260px;">
+      "O Anderson criou o site da minha empresa e mudou tudo. Agora apareço no Google e vendo pelo WhatsApp direto do site."
+    </div>
+    <div style="margin-top: 20px; font-size: 13px; color: var(--gold);">
+      — Clientes Vertex
+    </div>
+  </div>
+  <div class="card-footer">Vertex Consulting</div>
+</div>
+
+</body>
+</html>
