@@ -33,7 +33,8 @@
 | `conteudo/` | Tudo de conteúdo: roteiros, carrosseis, posts. `ideias/` pro que ainda é semente. |
 | `conhecimento/` | Wiki. `raw/` = bruto por processar. `wiki/` = notas limpas e interligadas. |
 | `pessoal/` | Vida pessoal: metas, rotina, saúde, finanças pessoais. |
-| `referencias/` | Swipe, voz, estilo, leituras, prints que inspiram. |
+| `referencias/` | Swipe, voz, estilo, leituras, prints que inspiram. Assets externos, logos. |
+| `clientes-em-potencial/` | Prospecção local: empresas sem site ou com presença digital fraca. Por nicho e cidade. |
 | `arquivo/` | Histórico e encerrado. Nunca é ativo. Arquivar aqui com timestamp. |
 
 ---
@@ -72,7 +73,11 @@ Contexto dos meus projetos (ja conectados no cerebro, ver `projetos-software/REA
 - Patrick Teixeira (site oficial): mentor de lideranca (Next.js + Supabase) -> `projetos-software/patrickteixeira-1/`
 - Sistema TAG - Caldeira de Forca (Puma): gestao de equipamentos (React + Supabase) -> `projetos-software/sistema-tag-cdf-puma/`
 - Vertexx Consulting: landing de captacao de leads -> `projetos-software/vertexx-consulting/`
-- Casa Grande Drywall: site institucional + CRM/ERP (Next.js + Three.js) -> `projetos-software/casagrandedraywall/` (briefing em `index.md`)
+- Casa Grande Drywall: site institucional + CRM/ERP (Next.js + Three.js) -> `projetos-software/casagrandedraywall/`
+- MG Music Studio: site institucional para estúdio de música -> `projetos-software/mg-music-studio/`
+- OpenSquad: CLI de orquestração de agentes -> `projetos-software/opensquad/`
+- Graça Cast: podcast/conteúdo -> `projetos-software/graca-cast/`
+- OmniRoute: servidor de inferência local -> `referencias/omniroute/`
 - Briefings de site/sistema (Patrick, Casa Grande): ficam linkados em `projetos-software/<projeto>/index.md` via file:/// (origem na pasta Anderson "Planejamento de Site-Sistemas")
 - Planos do Catálogo Viral (7 dias, prompts, implementação): linkados em `projetos-software/catalogo-viral/index.md` (origem na pasta Anderson "Nova pasta")
 | Meus repos no GitHub (52 ao total, ver `referencias/repos-github.md`): quando eu citar um repo/lib/ferramenta do meu github, o cerebro busca no indice e abre o link. Repos que ja estao no disco (catalogo-viral, patrickteixeira-1, SistemaTagCdfPuma) tem nota em `projetos-software/` com link `file:///` pro codigo local + link pro GitHub. Sistemas meus ainda nao clonados (ministral, wacrm, bolten-crm, casagrandedraywall, Cerimonial-Studio, Suite-Criativa-Pro) tem nota em `projetos-software/` apontando pro GitHub. Nunca clonar repo so pra dentro do vault: o codigo fica no GitHub ou na pasta real.
@@ -118,11 +123,16 @@ Contexto dos meus projetos (ja conectados no cerebro, ver `projetos-software/REA
 O vault e versionado em repo privado no GitHub para acesso de qualquer lugar.
 
 - Repo privado: `https://github.com/Alves1986/Segundo-cerebro.git`
-- O Hermes faz auto-push a cada 30 minutos (cron `Vault Git Auto-Push`), commitando mudancas locais no OneDrive.
-- Para abrir o vault em outro dispositivo (PC, celular via app git, ou web via github.dev):
+- **Setup MAC + Windows:** MAC 24h no servidor captura áudio/dados; Windows armazena tudo. Ferramentas: Antigravity + OpenSquad.
+- O Hermes faz auto-push a cada 30 minutos (cron `Vault Git Auto-Push`), commitando mudancas locais no OneDrive e no clone `C:\Anderson\Segundo-cerebro\`.
+- Para abrir o vault em outro dispositivo (PC, MAC, celular via app git, ou web via github.dev):
   - Clone: `git clone https://github.com/Alves1986/Segundo-cerebro.git`
   - Atualize: `git pull` (o Hermes ja empurra as mudancas do PC principal)
   - Edite e envie: `git add -A && git commit -m "..." && git push`
 - No celular: use um app git (MGit, Working Copy no iOS, ou termux) apontando para o clone, ou github.dev no navegador.
 - OObsidian mobile le o clone normalmente (e so markdown + pastas, as fotos ficam linkadas via file:/// fora do repo).
 - Nunca versionar tokens: o `.gitignore` bloqueia `*token*.txt`, `*acess token*`, `.env`, `.git-credentials`. O token de push fica em arquivo fora do vault (Temp) e e injetado so no momento do push.
+
+## 8. Eventos agendados
+
+- **11/08/2026 (ter) — MEETUP Reserva - PR** — palestra sobre IA e tecnologia. Saída 17:30 de casa. Ver `pessoal/2026-08-11-meetup-reserva.md` e `pessoal/meetup-reserva-palestra-ia.md`.
