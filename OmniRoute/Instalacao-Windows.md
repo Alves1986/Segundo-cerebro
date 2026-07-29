@@ -106,3 +106,68 @@ npm update -g omniroute
 ---
 
 > 💡 **Dica:** no Windows, se você usa WSL (Ubuntu), pode instalar lá também com `npm i -g omniroute` e o servidor funciona igual.
+
+---
+
+## 8. Configurar o Hermes para usar OmniRoute
+
+Com o servidor rodando (`omniroute serve`), o Hermes precisa saber que o OmniRoute existe. Siga abaixo.
+
+### 8.1 Parar o Hermes (se estiver rodando)
+
+CTRL+C no terminal onde o Hermes está.
+
+### 8.2 Adicionar como provedor customizado
+
+Abra **cmd ou PowerShell** e rode:
+
+```cmd
+hermes config set custom_providers "[{\"name\":\"omniroute\",\"base_url\":\"http://localhost:20128/v1\",\"models\":{\"auto/best-coding\":{\"context_length\":1048576},\"auto/best-reasoning\":{\"context_length\":1048576}}}]"
+```
+
+```cmd
+hermes config set fallback_providers "[{\"provider\":\"custom:omniroute\",\"model\":\"auto/best-coding\"}]"
+```
+
+### 8.3 Validar
+
+```cmd
+hermes fallback list
+```
+
+Tem que aparecer:
+```
+1. auto/best-coding (via custom:omniroute) [http://localhost:20128/v1]
+```
+
+### 8.4 Iniciar o Hermes de novo
+
+```cmd
+hermes
+```
+
+### 8.5 Trocar modelo durante o chat
+
+Digite no chat do Hermes:
+
+```
+/model custom:omniroute:auto/best-coding
+```
+
+### Se o `hermes config set` quebrar o YAML
+
+Algumas versões gravam o JSON como string literal e estragam o YAML. Alternativa por Python:
+
+```cmd
+python -c "
+import json, yaml, os
+path = os.path.expanduser('~/.hermes/config.yaml')
+d = yaml.safe_load(open(path, encoding='utf-8'))
+d['custom_providers'] = [{'name':'omniroute','base_url':'http://localhost:20128/v1','models':{'auto/best-coding':{'context_length':1048576},'auto/best-reasoning':{'context_length':1048576}}}]
+d['fallback_providers'] = [{'provider':'custom:omniroute','model':'auto/best-coding'}]
+yaml.safe_dump(d, open(path, 'w', encoding='utf-8'), sort_keys=False, allow_unicode=True)
+print('OK')
+"
+```
+
+Depois valida com `hermes fallback list`.
