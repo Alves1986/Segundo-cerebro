@@ -1,8 +1,11 @@
-# ECC — Repositório para revisar
+# Repositórios para revisar (amanhã)
 
+## 1. ECC
 **Link:** https://github.com/affaan-m/ECC
 **Adicionado:** 2026-07-28
-**Motivo:** Gravar e revisar
 **Status:** ⏳ Pendente
 
-Repo sobre [descobrir o que é - verificar amanhã]
+## 2. Open-Generative-AI
+**Link:** https://github.com/Alves1986/Open-Generative-AI
+**Adicionado:** 2026-07-28
+**Status:** ⏳ Pendente
