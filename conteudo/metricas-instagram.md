@@ -1,92 +1,73 @@
----
-tags: [monitoramento, instagram, anderson_alvesoficial, resumo]
-data: 2026-07-28
-conta: @anderson_alvesoficial
-fonte: browser automation (Playwright + Chrome)
-horario: "~16:00 BRT"
----
-
-# 📊 Resumo Instagram — @anderson_alvesoficial
-**28 de julho de 2026**
+# Monitoramento Instagram — @anderson_alvesoficial
+**Data:** 2026-07-29 (quarta-feira, ~11h BRT)
 
 ---
 
-## Perfil
+## 📊 Estatísticas do Perfil
 
-| Campo | Valor |
-|---|---|
-| **Nome** | Anderson Alves \| Criador de Sites |
+| Métrica | Valor |
+|---------|-------|
 | **Seguidores** | 517 |
 | **Seguindo** | 318 |
-| **Posts no feed** | 2 |
+| **Posts** | 2 |
+| **Nome** | Anderson Alves \| Criador de Sites |
 | **Bio** | 🏠 @cassiarsalves @caiozpxd ⛪️ @obpccasaderestauracao 🎙️ @gracacast7 🚀 Crio sites profissionais para o seu negócio 📍 Telêmaco Borba - PR 👇🏻 Contato📱 |
-| **Link na bio** | [vertexxconsulting.vercel.app](https://vertexxconsulting.vercel.app) |
+| **Site** | vertexxconsulting.vercel.app |
 
 ---
 
-## Último Post
+## 📸 Último Post — Carrossel
 
 | Campo | Valor |
-|---|---|
-| **Link** | https://www.instagram.com/p/DbVm9TiDToC/ |
-| **Tipo** | 📷 Foto |
-| **Tema** | Vertex Consulting (marcou @patrickteixeiras e @vertexxconsulting) |
+|-------|-------|
+| **Tipo** | Carrossel (múltiplas imagens) |
+| **Data** | 28/07/2026 (~22h atrás) |
 | **Curtidas** | 17 |
-| **Comentários** | ~4 |
-| **Postado** | ~10 horas atrás (28/07/2026) |
+| **Comentários** | 4 |
+| **Reposts** | 4 |
 | **Local** | Telêmaco Borba |
-| **Destaque** | Anderson comentou: *"Se ainda tem dúvida me chama no Direct🔥"* |
+| **Tags** | @patrickteixeiras, @vertexxconsulting |
+| **Legenda** | "SUA CABEÇA NÃO ESCALA. Site profissional não é luxo, é necessidade." |
+| **URL** | https://www.instagram.com/p/DbVm9TiDToC/ |
 
-**Quem comentou:** @patrickteixeiras (🔥🔥🔥), @vertexxconsulting (👏👏👏), @cassiarsalves (👏👏👏👏👏👏)
+**Comentários visíveis:** @patrickteixeiras, @vertexxconsulting, @cassiarsalves, @anderson_alvesoficial (réplica)
+
+**Repostado por:** @vertexxconsulting com "🚀 Vertex Consulting Repostar"
 
 ---
 
-## Segundo Post (arquivado)
+## 📸 Post Anterior
 
 | Campo | Valor |
-|---|---|
-| **Link** | https://www.instagram.com/p/ClMSY_FAqt5/ |
-| **Tipo** | 📷 Foto |
-| **Tema** | Declaração de amor para Cassia (12 anos de casados) |
-| **Curtidas** | 17 |
-| **Postado** | 20 de novembro de 2022 (~192 semanas atrás) |
+|-------|-------|
+| **Tipo** | Foto |
+| **Data** | 20/11/2022 (antigo — ~3,5 anos) |
+| **Curtidas** | Não disponível |
+| **Comentários** | Não disponível |
+| **URL** | https://www.instagram.com/p/ClMSY_FAqt5/ |
 
 ---
 
-## Comparação com Varredura Anterior (27→28/jul)
+## 🎬 Stories
 
-| Métrica | 27/jul | 28/jul (manhã) | 28/jul (agora) | Variação |
-|---|---|---|---|---|
-| Seguidores | 517 | 517 | 517 | — |
-| Seguindo | 316 | 317 | 318 | +2 no dia |
-| Posts no feed | 1 | 0 (sumiu) | **2** 🆕 | +2 |
-| Engajamento último post | ~3.3% | N/A | ~3.3% (17 likes / 517 seg) | — |
+Nenhum story ativo no momento.
 
 ---
 
-## Principais Mudanças desde a manhã
+## 📈 Análise Rápida
 
-1. **🆕 NOVO POST PUBLICADO** — primeira postagem no feed desde nov/2022! Foto promovendo a **Vertex Consulting**, marcando @patrickteixeiras.
-2. **🔄 Bio ajustada de novo** — voltou a incluir *"🚀 Crio sites profissionais para o seu negócio"* (ontem tinha removido). Agora a bio comunica: família → igreja → podcast → **criação de sites** → localização → CTA de contato.
-3. **🔗 Link na bio mudou** — antes era WhatsApp (wa.me/...), agora é **vertexxconsulting.vercel.app** (site da Vertex).
-4. **➕ Seguiu +1 conta** (317 → 318).
-5. **📸 Post antigo de 2022 voltou a aparecer** — pode ter sido reativado dos arquivados.
-
----
-
-## Observações
-
-- **Perfil FINALMENTE tem conteúdo no feed.** O post da Vertex Consulting é um marco: é a primeira publicação de nicho (criação de sites/sistemas) desde que o perfil foi reformulado.
-- **Engajamento inicial bom:** 17 curtidas em ~10h com 517 seguidores = ~3.3% de engajamento (acima da média do Instagram que é ~1-2%).
-- **Bio agora está mais alinhada** com o posicionamento de "criador de sites", mantendo as camadas pessoais (família, igreja, podcast).
-- **CTA no comentário** ("me chama no Direct") é uma boa prática de conversão.
+- **Engajamento do último post:** ~3.3% (17 likes / 517 seguidores) — razoável para o porte
+- **Comentários:** 4, com interação de contas próximas (esposa, sócio, cliente)
+- **Frequência:** Baixíssima — apenas 2 posts no total, com hiato de ~3,5 anos entre eles. O perfil não é usado como canal ativo de conteúdo.
+- **Bio:** Completa e direta, link para site da Vertex Consulting
+- **Observação:** O perfil tem mais seguidores que seguindo (517 vs 318), o que indica que o conteúdo já atraiu alguma audiência mesmo com baixa frequência de postagem
 
 ---
 
-## Sugestões
+## 💡 Sugestões
 
-1. ✅ **Manter a frequência** — o feed estava há meses sem post. Continuar publicando (ideal 3-4x/semana) vai ativar o algoritmo.
-2. 📱 **Responder os comments** do post novo para aumentar engajamento.
-3. 🎬 **Alternar formato** — o próximo post poderia ser um **Reel** (tour rápido de um site entregue, ou "antes/depois de um site"). Reels têm 2-3x mais alcance que fotos.
-4. 📋 **Adicionar link do Gestão-Escala** na bio também, se possível (ou nos stories em destaque).
-5. 📊 **Acompanhar crescimento de seguidores** nos próximos dias — posts novos costumam trazer seguidores novos.
+1. **Frequência:** Se quiser crescer, postar no mínimo 1x/semana — Reels têm mais alcance orgânico
+2. **Call to Action:** O post "Sua cabeça não escala" é bom posicionamento. Poderia incluir CTA mais claro (ex: "chama no direct" ou link na bio)
+3. **Formato:** Reels de 15-30s mostrando cases de sites entregues tendem a converter melhor que carrosséis
+4. **Stories:** Usar stories diários (bastidores, cases rápidos) mesmo sem post no feed mantém engajamento
+5. **Marca:** Manter identidade visual Vertex (preto #0a0a0a + ouro #c9a84c) consistente em todos posts
