@@ -4,12 +4,12 @@ Landing page de captação de leads para a Vertexx Consulting (posicionamento, l
 
 **Identidade:** preto, dourado/bronze, cinza escuro. Tom profissional, autoritário, focado em resultados.
 
-**Localização dos arquivos:** [pasta do projeto](file:///C:/Users/Cassi/OneDrive/Documentos/Anderson/Vertex)
-
-**Briefing / fontes:**
-- Informações coletadas: [vertexx_info.txt](file:///C:/Users/Cassi/OneDrive/Documentos/Anderson/Vertex/vertexx_info.txt)
-- Prompt de construção da LP: [Prompt para Construção de Landing Page - Vertexx Consulting.md](file:///C:/Users/Cassi/OneDrive/Documentos/Anderson/Vertex/Prompt para Construção de Landing Page - Vertexx Consulting.md)
-- Skills do projeto: [Skills Anderson.txt](file:///C:/Users/Cassi/OneDrive/Documentos/Anderson/Vertex/Skills%20Anderson.txt)
+## Arquivos do projeto
+- Código fonte: `file:///C:/Anderson/Vertexconsulting/`
+- Briefing original: `file:///C:/Anderson/Vertexconsulting/DOCUMENTATION.md`
+- Imagem de logo/marca: `file:///C:/Anderson/Vertex.jpeg`
+- Carrossel de apresentação: `file:///C:/Anderson/carrossel_vertexx/carrossel.html`
+- Notas antigas: `file:///C:/Users/Cassi/OneDrive/Documentos/Anderson/Vertex`
 
 **Como gravar aqui:** notas de reunião com o cliente, copy, decisões de seção vão nesta pasta.
 
