@@ -1,64 +1,67 @@
-# Monitoramento Instagram — @anderson_alvesoficial
-**Data:** 2026-07-30 06:22 BRT
+# 📊 Monitoramento Instagram — @anderson_alvesoficial
+**Data:** 30/07/2026
 
 ---
 
-## 📊 Estatísticas do Perfil
+## 👤 Perfil
 
 | Métrica | Valor |
-|---------|-------|
-| **Seguidores** | 518 |
-| **Seguindo** | 319 |
+|---|---|
+| **Nome** | Anderson Alves \| Criador de Sites |
+| **Seguidores** | 517 |
+| **Seguindo** | 320 |
 | **Posts** | 2 |
-| **Nome** | Anderson Alves | Criador de Sites |
-| **Bio** | 🏠 @cassiarsalves @caiozpxd ⛪️ @obpccasaderestauracao 🎙️ @gracacast7 🚀 Crio sites profissionais para o seu negócio 📍 Telêmaco Borba - PR 👇🏻 Contato📱 |
-| **Categoria** | Digital creator |
-| **Links na Bio** |
-|  - WhatsApp: https://wa.me/554291534011
-|  - External: Vertex Consulting (vertexxconsulting.vercel.app)
-|
+| **Bio** | 🏠 @cassiarsalves @caiozpxd ⛪ @obpccasaderestauracao 🎙️ @gracacast7 🚀 Crio sites profissionais para o seu negócio 📍 Telêmaco Borba - PR 👇 Contato📱 |
+| **Categoria** | Criador(a) de conteúdo digital |
+| **Conta profissional** | ✅ Sim |
+| **Conta business** | ❌ Não |
+| **Privada** | ❌ Não |
+| **Verificada** | ❌ Não |
+| **Highlights** | 1 destaque |
+| **Tem Reels** | ✅ Sim (flag ativa) |
 
-## 📸 Últimos Posts
+### Links na Bio
+1. **WhatsApp:** https://wa.me/554291534011
+2. **Vertex Consulting:** https://vertexxconsulting.vercel.app
 
-### Post 1: 📑 Carrossel
+---
 
-| Campo | Valor |
-|-------|-------|
-| **Tipo** | 📑 Carrossel |
-| **Data** | 28/07/2026 13:52 |
-| **Curtidas** | 17 |
-| **Comentários** | N/D |
-| **Mídias** | 11 imagens |
-| **URL** | https://www.instagram.com/p/DbVm9TiDToC/ |
+## 📸 Posts Recentes
 
-### Post 2: 📷 Foto
+### Post 1 — 🎠 Carrossel (7 fotos)
+| | |
+|---|---|
+| **Data** | 28/07/2026 (2 dias atrás) |
+| **Link** | https://www.instagram.com/p/DbVm9TiDToC/ |
+| **Curtidas** | 18 |
+| **Comentários** | 4 |
+| **Legenda** | (sem texto) |
+| **Comentários (prévia):** | — |
 
-| Campo | Valor |
-|-------|-------|
-| **Tipo** | 📷 Foto |
-| **Data** | 20/11/2022 14:58 |
+### Post 2 — 📷 Foto
+| | |
+|---|---|
+| **Data** | 20/11/2022 |
+| **Link** | https://www.instagram.com/p/ClMSY_FAqt5/ |
 | **Curtidas** | 17 |
 | **Comentários** | 1 |
-| **URL** | https://www.instagram.com/p/ClMSY_FAqt5/ |
-| **Legenda** | O que posso dizer da mulher mais linda é maravilhosa desse mundo... |
+| **Legenda** | Homenagem à esposa Cassia — 12 anos juntos |
 
-## 🎬 Stories
+---
 
-Nenhum story ativo no momento.
+## 📈 Engajamento
 
-## 📈 Análise vs. Varredura Anterior (29/07 ~20h)
+**Métrica geral:** Apenas 2 posts no feed, com engajamento similar (~17-18 likes cada).
+**Post mais recente (carrossel):** 18 likes, 4 comentários em 2 dias — engajamento inicial bom considerando o alcance atual.
+**Post mais antigo (2022):** 17 likes — mostra que o público base é consistente.
 
-| Métrica | Antes | Agora | Variação |
-|---------|-------|-------|----------|
-| Seguidores | 518 | 518 | 0 |
-| Seguindo | 319 | 319 | 0 |
-| Posts | 2 | 2 | 0 |
+---
 
-**Engajamento do último post:** ~3.3% (17 likes / 518 seguidores)
+## 📝 Observações
 
-**Observações:**
-- Perfil estável — sem crescimento ou perda de seguidores desde a última varredura
-- Último post (carrossel de 28/07) mantém engajamento consistente de ~3.3%
-- Sem stories ativos
-- Bio e links inalterados
-- Nenhum post novo desde 28/07
+- **Conta com poucos posts (2)** — perfil em fase inicial de construção de conteúdo. O perfil existe desde antes de 2022 mas só tem 2 posts no feed.
+- **Followers (517) vs Following (320)** — relação saudável, não é perfil de "segue de volta".
+- **Sem stories ativos no momento** — nenhum story no tray.
+- **Flag de Reels ativa** mas sem reels visíveis no feed — possível conteúdo salvo ou em rascunho.
+- **Último post foi um carrossel de 7 fotos** postado em 28/07 — provavelmente um conteúdo estratégico (mostrar trabalho/services).
+- **Bio bem montada** com links: WhatsApp direto + site Vertex Consulting.
