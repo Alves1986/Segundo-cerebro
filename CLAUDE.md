@@ -104,6 +104,8 @@ Contexto dos meus projetos (ja conectados no cerebro, ver `projetos-software/REA
 - Sempre datar arquivos gerados: YYYY-MM-DD.
 - Na dúvida, depositar em `inbox/` e sinalizar pra revisão.
 - Escalar pra mim: dinheiro, compromissos, relacionamento com cliente.
+- **Sempre carregar skill antes de criar/corrigir/inspecionar projetos web** (ex: `react-ts-vite-verify`, `frontend-design`, `systematic-debugging`, `ui-design`). Nunca fazer no braço.
+- **Registrar tudo no vault** (SegundoCerebro) — sincroniza entre Mac e Windows via GitHub.
 
 ---
 
