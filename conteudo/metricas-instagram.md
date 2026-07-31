@@ -1,5 +1,6 @@
 # 📊 Monitoramento Instagram — @anderson_alvesoficial
-**Data:** 30/07/2026
+**Data:** 31/07/2026
+**Fonte:** API REST autenticada (sessão instagram_auth.json) — status 200 em perfil, feed e stories
 
 ---
 
@@ -31,12 +32,11 @@
 ### Post 1 — 🎠 Carrossel (7 fotos)
 | | |
 |---|---|
-| **Data** | 28/07/2026 (2 dias atrás) |
+| **Data** | 28/07/2026 (3 dias atrás) |
 | **Link** | https://www.instagram.com/p/DbVm9TiDToC/ |
 | **Curtidas** | 18 |
 | **Comentários** | 4 |
 | **Legenda** | (sem texto) |
-| **Comentários (prévia):** | — |
 
 ### Post 2 — 📷 Foto
 | | |
@@ -51,17 +51,16 @@
 
 ## 📈 Engajamento
 
-**Métrica geral:** Apenas 2 posts no feed, com engajamento similar (~17-18 likes cada).
-**Post mais recente (carrossel):** 18 likes, 4 comentários em 2 dias — engajamento inicial bom considerando o alcance atual.
-**Post mais antigo (2022):** 17 likes — mostra que o público base é consistente.
+- **Post mais recente (carrossel 28/07):** 18 likes, 4 comentários em 3 dias — estável, sem crescimento desde 30/07.
+- **Post mais antigo (2022):** 17 likes — público base consistente.
+- **Engajamento médio:** ~18 likes/post (base de 517 seguidores ≈ 3.5% do público em likes).
 
 ---
 
 ## 📝 Observações
 
-- **Conta com poucos posts (2)** — perfil em fase inicial de construção de conteúdo. O perfil existe desde antes de 2022 mas só tem 2 posts no feed.
-- **Followers (517) vs Following (320)** — relação saudável, não é perfil de "segue de volta".
-- **Sem stories ativos no momento** — nenhum story no tray.
-- **Flag de Reels ativa** mas sem reels visíveis no feed — possível conteúdo salvo ou em rascunho.
-- **Último post foi um carrossel de 7 fotos** postado em 28/07 — provavelmente um conteúdo estratégico (mostrar trabalho/services).
-- **Bio bem montada** com links: WhatsApp direto + site Vertex Consulting.
+- **Sem mudanças desde a varredura de 30/07/2026:** mesmos 517 seguidores, 320 seguindo, 2 posts.
+- **Nenhum post novo** desde o carrossel de 28/07 (3 dias sem postar).
+- **Sem stories ativos** no momento da varredura.
+- **Alerta de estagnação:** 3 dias sem conteúdo novo + seguidores parados em 517. Para crescer, manter frequência (mínimo 1 post a cada 2-3 dias) e usar stories diários (a flag de reels está ativa mas sem reels publicados).
+- **Bio e links saudáveis:** WhatsApp direto + site Vertex Consulting em ordem.
