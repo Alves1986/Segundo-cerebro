@@ -35,4 +35,10 @@ Landing page de captação de leads para a Vertexx Consulting (posicionamento, l
 - Security headers no vercel.json (CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy).
 - Testes de invasao: anon nao le/alterar/apaga leads; INSERT com status forjado e rejeitado (401).
 
-## Estado atual (auto)\n> Atualizado 2026-07-31. Gerado pela skill projeto-auto-sync.\n\n- **Tipo:** so GitHub\n- **Push:** erro (HTTP Error 404: Not Found)\n- **Repo:** https://github.com/Alves1986/Vertexx
+## Status de sincronização (2026-07-31)
+- **Repo GitHub:** https://github.com/Alves1986/Vertexconsulting (correto, com "consulting" no final)
+- **Último push:** f03285e "fix: resolve dark circle mask bug on landing page hero section"
+- **Site produção:** https://vertexxconsulting.vercel.app (HTTP 200, deploy automático no push)
+- **Build:** passa limpo (`npm run build`, 1.45s, 0 erros)
+- **Fluxos testados pelo Anderson:** envio de lead + login CRM OK
+- Observação: o auto-sync anterior apontava para repo errado (Vertexx com X dobrado) gerando 404 falso. Repo correto é Vertexconsulting.
