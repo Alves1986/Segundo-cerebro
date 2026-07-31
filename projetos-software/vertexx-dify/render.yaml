@@ -1,9 +1,10 @@
-# Render Blueprint: Dify leve (api + web)
-# Usage: Render > New > Blueprint > apontar para este arquivo
+# Render: 1 web service único (Dify API leve)
+# Free tier: 750h/mês. 1 service = não estoura o limite.
+# Evolucao/WhatsApp usa a API (nao precisa da UI web do Dify).
 
 services:
   - type: web
-    name: vertexx-dify-api
+    name: vertexx-dify
     runtime: docker
     dockerfilePath: ./Dockerfile.api
     healthCheckPath: /health
@@ -24,14 +25,3 @@ services:
       name: dify-storage
       mountPath: /app/api/storage
       sizeGB: 1
-
-  - type: web
-    name: vertexx-dify-web
-    runtime: docker
-    dockerfilePath: ./Dockerfile.web
-    healthCheckPath: /
-    envVars:
-      - key: NEXT_PUBLIC_API_PREFIX
-        value: https://vertexx-dify-api.onrender.com
-      - key: NEXT_PUBLIC_PUBLIC_API_PREFIX
-        value: https://vertexx-dify-api.onrender.com
