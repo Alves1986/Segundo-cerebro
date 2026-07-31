@@ -72,7 +72,7 @@ Contexto dos meus projetos (ja conectados no cerebro, ver `projetos-software/REA
 - Catálogo Viral: webapp afiliados Shopee/TikTok (Next.js + Supabase) -> `projetos-software/catalogo-viral/`
 - Patrick Teixeira (site oficial): mentor de lideranca (Next.js + Supabase) -> `projetos-software/patrickteixeira-1/`
 - Sistema TAG - Caldeira de Forca (Puma): gestao de equipamentos (React + Supabase) -> `projetos-software/sistema-tag-cdf-puma/`
-- Vertexx Consulting: landing de captacao de leads -> `projetos-software/vertexx-consulting/`
+- Vertexx Consulting: landing de captacao de leads -> `projetos-software/vertexx-consulting/` (site ~/Vertex, repo Alves1986/Vertexconsulting, PROD https://vertexxconsulting.vercel.app, deploy automatico Vercel no push; RLS Supabase fechado, formulario em modal com blur; detalhes na nota do projeto)
 - Casa Grande Drywall: site institucional + CRM/ERP (Next.js + Three.js) -> `projetos-software/casagrandedraywall/`
 - MG Music Studio: site institucional para estúdio de música -> `projetos-software/mg-music-studio/`
 - OpenSquad: CLI de orquestração de agentes -> `projetos-software/opensquad/`
