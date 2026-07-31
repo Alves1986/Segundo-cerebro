@@ -138,3 +138,12 @@ O vault e versionado em repo privado no GitHub para acesso de qualquer lugar.
 ## 8. Eventos agendados
 
 - **11/08/2026 (ter) — MEETUP Reserva - PR** — palestra sobre IA e tecnologia. Saída 17:30 de casa. Ver `pessoal/2026-08-11-meetup-reserva.md` e `pessoal/meetup-reserva-palestra-ia.md`.
+
+## Estado atual da migracao (2026-07-31)
+- Tudo migrado pra VM Oracle 129.213.166.201 (user ubuntu, Hermes v0.19.1)
+- Model: poolside/laguna-s-2.1:free (provider Nous Portal OAuth)
+- Telethon gateway ativo - Telegram polling @hermes-telegram
+- Crons: Vault Git Auto-Push (30m) + Projeto Auto Sync (diario 08h UTC)
+- Vault sync: ~/Segundo-cerebro - github.com/Alves1986/Segundo-cerebro.git
+- Creds: ~/credentials/github-token.txt (FORA do repo)
+- Scripts: ~/.hermes/scripts/vault-git-push.sh e projeto-auto-sync-sync.py
