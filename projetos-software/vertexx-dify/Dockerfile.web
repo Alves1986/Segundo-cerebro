@@ -1,0 +1,5 @@
+# Dockerfile.web — Dify Web (Next.js)
+FROM langgenius/dify-web:latest
+
+EXPOSE 3000
+CMD ["yarn", "start"]
