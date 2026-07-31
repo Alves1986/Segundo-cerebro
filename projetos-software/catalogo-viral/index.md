@@ -17,12 +17,4 @@ Webapp para afiliados de e-commerce (Shopee / TikTok): catálogo de produtos de 
 
 **Como gravar aqui:** notas de escopo, decisões de arquitetura, bugs e copias vão nesta pasta.
 
-## Estado atual (auto)
-> Atualizado automaticamente em 2026-07-24. Secao gerada pela skill projeto-auto-sync. Nao editar a mao.
-
-- **Tipo:** projeto local (git)
-- **Branch:** main
-- **Modificacoes nao commitadas:** 0
-- **Ultimo commit:** cadcdac 2026-07-24 01:25:38 -0300 SaaS: assinatura anual Mercado Pago + bloqueio de acesso + purge + plataformas pluggable
-- **Ultimo push (GitHub):** 2026-07-24T05:11:56Z
-- **Repo:** https://github.com/Alves1986/catalagoviral
+## Estado atual (auto)\n> Atualizado 2026-07-31. Gerado pela skill projeto-auto-sync.\n\n- **Tipo:** local sem git\n- **Push:** 2026-07-25T00:39:20Z\n- **Repo:** https://github.com/Alves1986/catalagoviral
