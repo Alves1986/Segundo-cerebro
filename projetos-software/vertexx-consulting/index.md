@@ -68,3 +68,9 @@ Lead (WhatsApp) → Evolution API (ja roda) → Dify (IA, Render free) → Evo C
 2. Conectar Dify na Evolution API (config nativa DifyCreds na instância)
 3. Baixar Evo CRM, isolar frontend de conversação, re-skinnar cores Vertex
 4. Documentar credenciais e URLs pra consolidação futura
+
+**Keep-alive do Dify (cron externo):**
+- Serviço: https://console.cron-job.org (agendador externo, não no Hermes)
+- Funcao: fazer HTTP request periodico no URL do Dify pra evitar sleep de 15min do Render free
+- STATUS: pendente — URL do Dify ainda nao existe (Dify nao subiu no Render ainda)
+- ACAO: quando o Dify subir e gerar a URL (ex: vertexx-dify.onrender.com), colar essa URL no cron-job.org pra manter acordado

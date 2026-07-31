@@ -1,0 +1,37 @@
+# Render Blueprint: Dify leve (api + web)
+# Usage: Render > New > Blueprint > apontar para este arquivo
+
+services:
+  - type: web
+    name: vertexx-dify-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile.api
+    healthCheckPath: /health
+    envVars:
+      - key: DB_TYPE
+        value: sqlite
+      - key: SQLITE_DB_PATH
+        value: /app/api/storage
+      - key: REDIS_HOST
+        value: ""
+      - key: CELERY_BROKER_URL
+        value: ""
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_API_BASE
+        value: https://api.openai.com/v1
+    disk:
+      name: dify-storage
+      mountPath: /app/api/storage
+      sizeGB: 1
+
+  - type: web
+    name: vertexx-dify-web
+    runtime: docker
+    dockerfilePath: ./Dockerfile.web
+    healthCheckPath: /
+    envVars:
+      - key: NEXT_PUBLIC_API_PREFIX
+        value: https://vertexx-dify-api.onrender.com
+      - key: NEXT_PUBLIC_PUBLIC_API_PREFIX
+        value: https://vertexx-dify-api.onrender.com
