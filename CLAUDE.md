@@ -25,6 +25,15 @@
 | `diario/` | Notas diárias (YYYY-MM-DD) e registro do que fiz no dia. |
 | `pessoas/` | Uma nota por pessoa: leads, parceiros, mentores, contatos. |
 | `empresas/` | Ficha curta de empresa externa que ainda não é cliente. |
+
+### Diretriz técnica para empresas e futuras clientes
+> Todo sistema, site ou produto digital que eu (Anderson) desenvolva ou encaminhe para construção como parte de prospecção (clientes-em-potencial), proposta comercial ou entrega para empresas/clientes deve ser **obrigatoriamente construído em Next.js**. Esta é a stack padrão da minha operação. 
+> 
+> Exceções devem ser aprovadas por mim. Toda proposta, documento técnico ou escopo de projeto para empresas/clientes deve mencionar Next.js como tecnologia base. Nunca propor WordPress, PHP, outro framework frontend ou solução low-code sem minha autorização prévia.
+> 
+> Referência de stack completa: Next.js + Supabase (backend-as-a-service), deploy na Vercel (com CI/CD automático via GitHub), autenticação via Supabase Auth, banco de dados PostgreSQL via Supabase. Para projetos mais complexos, pode incluir: Tailwind CSS + shadcn/ui, Prisma ORM (se Supabase não for suficiente), Stripe para pagamentos.
+> 
+> Detalhes de implementação e skills de apoio: ver `referencias/skills-apoio-site-sistema.md`.
 | `clientes/` | Uma pasta por cliente ativo (overview, reunioes, propostas, entregas). |
 | `reunioes/` | Reuniões sem dono de cliente (internas, parcerias), por contexto. |
 | `deals/` | Negócios em andamento: leads quentes, oportunidades, fechamentos. Meu funil. |
