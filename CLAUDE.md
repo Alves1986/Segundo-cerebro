@@ -78,9 +78,15 @@ Quando eu disser "vou ter uma reunião amanhã com o João da Acme às 15h", voc
 5. Preencher data, participantes, objetivo e espaço pra pauta.
 
 Contexto dos meus projetos (ja conectados no cerebro, ver `projetos-software/README.md`): toda nota sobre um projeto (bug, feature, decisao, reuniao, copia) vai na pasta dele em `projetos-software/<projeto>/`. Os arquivos de codigo ficam nas pastas reais e sao acessados por link `file:///`, nunca se copia codigo pra dentro do vault.
-- Catálogo Viral: webapp afiliados Shopee/TikTok (Next.js + Supabase) -> `projetos-software/catalogo-viral/`
+
+### Diretriz técnica para projetos de software
+> Todos os meus projetos de software (site, webapp, sistema) devem ser **obrigatoriamente construídos em Next.js**. Exceções precisam de minha aprovação prévia.
+>
+> Stack padrão: **Next.js 14 (App Router) + Supabase + Vercel (CI/CD) + Tailwind CSS + shadcn/ui**. Backend via Supabase Auth + PostgreSQL. Pagamentos via Stripe quando necessário.
+>
+> - Catálogo Viral: webapp afiliados Shopee/TikTok (Next.js + Supabase) -> `projetos-software/catalogo-viral/`
 - Patrick Teixeira (site oficial): mentor de lideranca (Next.js + Supabase) -> `projetos-software/patrickteixeira-1/`
-- Sistema TAG - Caldeira de Forca (Puma): gestao de equipamentos (React + Supabase) -> `projetos-software/sistema-tag-cdf-puma/`
+- Sistema TAG - Caldeira de Forca (Puma): gestao de equipamentos (React + Supabase) -> `projetos-software/sistema-tag-cdf-puma/` (⚠️ migrar para Next.js futuramente)
 - Vertexx Consulting: landing de captacao de leads -> `projetos-software/vertexx-consulting/` (site ~/Vertex, repo Alves1986/Vertexconsulting, PROD https://vertexxconsulting.vercel.app, deploy automatico Vercel no push; RLS Supabase fechado, formulario em modal com blur; detalhes na nota do projeto)
 - Casa Grande Drywall: site institucional + CRM/ERP (Next.js + Three.js) -> `projetos-software/casagrandedraywall/`
 - MG Music Studio: site institucional para estúdio de música -> `projetos-software/mg-music-studio/`
