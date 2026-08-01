@@ -35,4 +35,4 @@ Landing page de captação de leads para a Vertexx Consulting (posicionamento, l
 - Security headers no vercel.json (CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy).
 - Testes de invasao: anon nao le/alterar/apaga leads; INSERT com status forjado e rejeitado (401).
 
-## Estado atual (auto)\n> Atualizado 2026-07-31. Gerado pela skill projeto-auto-sync.\n\n- **Tipo:** so GitHub\n- **Push:** erro (HTTP Error 404: Not Found)\n- **Repo:** https://github.com/Alves1986/Vertexx
+## Estado atual (auto)\n> Atualizado 2026-08-01. Gerado pela skill projeto-auto-sync.\n\n- **Tipo:** so GitHub\n- **Push:** erro (HTTP Error 404: Not Found)\n- **Repo:** https://github.com/Alves1986/Vertexx
