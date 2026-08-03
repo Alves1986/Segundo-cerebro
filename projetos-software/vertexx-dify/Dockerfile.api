@@ -1,0 +1,5 @@
+# Dockerfile.api — Dify API leve (SQLite, sem Redis)
+FROM langgenius/dify-api:latest
+
+# Sobrescreve o comando para usar SQLite e sem Redis
+CMD ["sh", "-c", "flask migrate && gunicorn app:app --bind 0.0.0.0:5001 --workers 1"]

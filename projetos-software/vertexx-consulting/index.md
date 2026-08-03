@@ -35,4 +35,46 @@ Landing page de captação de leads para a Vertexx Consulting (posicionamento, l
 - Security headers no vercel.json (CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy).
 - Testes de invasao: anon nao le/alterar/apaga leads; INSERT com status forjado e rejeitado (401).
 
+<<<<<<< HEAD
 ## Estado atual (auto)\n> Atualizado 2026-08-03. Gerado pela skill projeto-auto-sync.\n\n- **Tipo:** so GitHub\n- **Push:** erro (HTTP Error 404: Not Found)\n- **Repo:** https://github.com/Alves1986/Vertexx
+=======
+## Arquitetura de IA (decisão 2026-07-31)
+
+**Objetivo:** adicionar IA de atendimento ao sistema Vertexx, usando a Evolution API já configurada.
+
+**Decisão:**
+- **Dify** como camada de IA (agentes/LLM) — self-host futuro
+- **Evo CRM**: usar SÓ o módulo de conversação (não o monólito completo de 6 serviços)
+- **Identidade visual:** cara de Evo CRM + cores da Vertex (preto #0a0a0a, dourado #c9a84c, branco gelo #f0f0f0, Inter bold)
+- **WhatsApp:** Evolution API já rodando (bridge nativa Dify ↔ Evolution)
+
+**Por que não na VM Oracle:** VM micro (~1GB RAM) não aguenta Dify (precisa 2GB+). Decisão: subir Dify no **Render free tier** por enquanto.
+
+**Render free tier (limitacoes conhecidas):**
+- 750 horas/mês grátis
+- Free web service DORME após 15min de inatividade (primeira requisição demora ~30-60s pra acordar)
+- RAM ~512MB-1GB (Dify leve com SQLite, sem PostgreSQL/Redis)
+- Serve pra DEV/TESTE, não produção
+
+**Plano de consolidação futura (quando contratar plano pago):**
+- Subir Dify + Evo CRM module num VPS único (ex: Render paid, ou VPS 4GB+)
+- Juntar tudo numa conta só (Render ou Oracle upgraded)
+- Conectar Dify + Evo module + Evolution + Supabase num só ambiente
+
+**Stack final pretendida:**
+```
+Lead (WhatsApp) → Evolution API (ja roda) → Dify (IA, Render free) → Evo CRM module (conversacao, re-skin Vertex) → Supabase (leads)
+```
+
+**Próximos passos:**
+1. Criar conta Render + subir Dify (docker-compose leve, SQLite)
+2. Conectar Dify na Evolution API (config nativa DifyCreds na instância)
+3. Baixar Evo CRM, isolar frontend de conversação, re-skinnar cores Vertex
+4. Documentar credenciais e URLs pra consolidação futura
+
+**Keep-alive do Dify (cron externo):**
+- Serviço: https://console.cron-job.org (agendador externo, não no Hermes)
+- Funcao: fazer HTTP request periodico no URL do Dify pra evitar sleep de 15min do Render free
+- STATUS: pendente — URL do Dify ainda nao existe (Dify nao subiu no Render ainda)
+- ACAO: quando o Dify subir e gerar a URL (ex: vertexx-dify.onrender.com), colar essa URL no cron-job.org pra manter acordado
+>>>>>>> fd42b498275e1494391a735b6447265ce409c377

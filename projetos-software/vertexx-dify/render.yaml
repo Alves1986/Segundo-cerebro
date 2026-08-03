@@ -1,0 +1,27 @@
+# Render: 1 web service único (Dify API leve)
+# Free tier: 750h/mês. 1 service = não estoura o limite.
+# Evolucao/WhatsApp usa a API (nao precisa da UI web do Dify).
+
+services:
+  - type: web
+    name: vertexx-dify
+    runtime: docker
+    dockerfilePath: ./Dockerfile.api
+    healthCheckPath: /health
+    envVars:
+      - key: DB_TYPE
+        value: sqlite
+      - key: SQLITE_DB_PATH
+        value: /app/api/storage
+      - key: REDIS_HOST
+        value: ""
+      - key: CELERY_BROKER_URL
+        value: ""
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_API_BASE
+        value: https://api.openai.com/v1
+    disk:
+      name: dify-storage
+      mountPath: /app/api/storage
+      sizeGB: 1

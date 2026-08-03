@@ -1,0 +1,43 @@
+# Configuração do perfil Hermes para WhatsApp Agent
+# Perfil isolado - memória separada
+
+model:
+  base_url: "http://127.0.0.1:20128/v1"
+  default: "provider/model-id"
+  provider: "custom"
+
+agent:
+  max_turns: 150
+  gateway_timeout: 1800
+  reasoning_effort: "high"
+  tool_use_enforcement: "auto"
+
+display:
+  personality: "concise"
+  language: "pt"
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  flush_min_turns: 6
+
+toolsets:
+  - hermes-cli
+  - web
+  - terminal
+  - file
+  - delegation
+
+# Integrações específicas para WhatsApp
+integrations:
+  whatsapp:
+    provider: "baileys"  # ou "meta-api"
+    api_key: ""
+    phone_number: ""
+    session_name: "whatsapp-session"
+
+  media:
+    transcription: true
+    image_analysis: true
+    max_image_size_mb: 5
+    max_audio_duration_sec: 60

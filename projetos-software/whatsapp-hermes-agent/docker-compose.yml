@@ -1,0 +1,50 @@
+# Docker Compose - WhatsApp Hermes Agent
+version: '3.8'
+
+services:
+  hermes-agent:
+    image: ghcr.io/nousresearch/hermes-agent:latest
+    ports:
+      - "20128:20128"
+    volumes:
+      - ./config:/app/config
+      - ./prompts:/app/prompts
+      - hermes-data:/root/.hermes
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OMEN_API_KEY=${OMEN_API_KEY}
+    profiles:
+      - production
+
+  omniroute:
+    image: ghcr.io/nousresearch/omniroute:latest
+    ports:
+      - "20128:20128"
+    volumes:
+      - ./omniroute-config:/config
+      - omniroute-data:/data
+    environment:
+      - DATABASE_URL=sqlite:///data/omniroute.db
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=omniroute
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+volumes:
+  hermes-data:
+  omniroute-data:
+  postgres-data:

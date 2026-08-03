@@ -1,0 +1,41 @@
+# Dify leve para Render (SQLite, sem Redis/PostgreSQL)
+# Build da imagem oficial do Dify API + Web
+
+services:
+  api:
+    image: langgenius/dify-api:latest
+    command: ["sh", "-c", "flask migrate && gunicorn app:app --bind 0.0.0.0:5001 --workers 1"]
+    environment:
+      # Banco leve (SQLite)
+      DB_TYPE: sqlite
+      SQLITE_DB_PATH: /app/api/storage
+      # Desativa Redis
+      REDIS_HOST: ""
+      REDIS_PORT: ""
+      REDIS_PASSWORD: ""
+      REDIS_DB: ""
+      CELERY_BROKER_URL: ""
+      BROKER_USE_SSL: "false"
+      # Evolution/WhatsApp (preencher depois)
+      EVOLUTION_API_URL: ""
+      EVOLUTION_API_KEY: ""
+      # LLM (OpenAI ou OpenRouter)
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      OPENAI_API_BASE: ${OPENAI_API_BASE:-https://api.openai.com/v1}
+    volumes:
+      - dify_storage:/app/api/storage
+    ports:
+      - "5001:5001"
+
+  web:
+    image: langgenius/dify-web:latest
+    environment:
+      NEXT_PUBLIC_API_PREFIX: http://localhost:5001
+      NEXT_PUBLIC_PUBLIC_API_PREFIX: http://localhost:5001
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+volumes:
+  dify_storage:
