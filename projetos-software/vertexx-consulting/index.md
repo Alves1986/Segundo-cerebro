@@ -36,8 +36,6 @@ Landing page de captação de leads para a Vertexx Consulting (posicionamento, l
 - Testes de invasao: anon nao le/alterar/apaga leads; INSERT com status forjado e rejeitado (401).
 
 <<<<<<< HEAD
-## Estado atual (auto)\n> Atualizado 2026-08-03. Gerado pela skill projeto-auto-sync.\n\n- **Tipo:** so GitHub\n- **Push:** erro (HTTP Error 404: Not Found)\n- **Repo:** https://github.com/Alves1986/Vertexx
-=======
 ## Arquitetura de IA (decisão 2026-07-31)
 
 **Objetivo:** adicionar IA de atendimento ao sistema Vertexx, usando a Evolution API já configurada.
