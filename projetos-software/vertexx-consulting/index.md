@@ -35,7 +35,6 @@ Landing page de captação de leads para a Vertexx Consulting (posicionamento, l
 - Security headers no vercel.json (CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy).
 - Testes de invasao: anon nao le/alterar/apaga leads; INSERT com status forjado e rejeitado (401).
 
-<<<<<<< HEAD
 ## Arquitetura de IA (decisão 2026-07-31)
 
 **Objetivo:** adicionar IA de atendimento ao sistema Vertexx, usando a Evolution API já configurada.
@@ -75,4 +74,3 @@ Lead (WhatsApp) → Evolution API (ja roda) → Dify (IA, Render free) → Evo C
 - Funcao: fazer HTTP request periodico no URL do Dify pra evitar sleep de 15min do Render free
 - STATUS: pendente — URL do Dify ainda nao existe (Dify nao subiu no Render ainda)
 - ACAO: quando o Dify subir e gerar a URL (ex: vertexx-dify.onrender.com), colar essa URL no cron-job.org pra manter acordado
->>>>>>> fd42b498275e1494391a735b6447265ce409c377
