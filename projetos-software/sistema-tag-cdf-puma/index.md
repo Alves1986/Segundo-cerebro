@@ -15,4 +15,4 @@ Sistema completo de gestão de equipamentos industriais com busca inteligente, n
 
 **Como gravar aqui:** decisões de arquitetura, bugs, telas novas vão nesta pasta.
 
-## Estado atual (auto)\n> Atualizado 2026-08-03. Gerado pela skill projeto-auto-sync.\n\n- **Tipo:** local sem git\n- **Push:** 2026-07-24T11:12:52Z\n- **Repo:** https://github.com/Alves1986/SistemaTagCdfPuma
+## Estado atual (auto)\n> Atualizado 2026-08-04. Gerado pela skill projeto-auto-sync.\n\n- **Tipo:** local sem git\n- **Push:** 2026-07-24T11:12:52Z\n- **Repo:** https://github.com/Alves1986/SistemaTagCdfPuma

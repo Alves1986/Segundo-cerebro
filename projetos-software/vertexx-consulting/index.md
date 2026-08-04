@@ -74,3 +74,5 @@ Lead (WhatsApp) → Evolution API (ja roda) → Dify (IA, Render free) → Evo C
 - Funcao: fazer HTTP request periodico no URL do Dify pra evitar sleep de 15min do Render free
 - STATUS: pendente — URL do Dify ainda nao existe (Dify nao subiu no Render ainda)
 - ACAO: quando o Dify subir e gerar a URL (ex: vertexx-dify.onrender.com), colar essa URL no cron-job.org pra manter acordado
+
+## Estado atual (auto)\n> Atualizado 2026-08-04. Gerado pela skill projeto-auto-sync.\n\n- **Tipo:** so GitHub\n- **Push:** erro (HTTP Error 404: Not Found)\n- **Repo:** https://github.com/Alves1986/Vertexx
