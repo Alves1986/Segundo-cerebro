@@ -17,3 +17,5 @@ Plataforma web para criadores gerarem roteiros virais e dashboards visuais com I
 ## Status
 - Documentação completa
 - Aguardando início da implementação
+
+## Estado atual (auto)\n> Atualizado 2026-08-06. Gerado pela skill projeto-auto-sync.\n\n- **Tipo:** local sem git\n- **Push:** erro (HTTP Error 404: Not Found)\n- **Repo:** https://github.com/Alves1986/catalagoviral
