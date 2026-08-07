@@ -1,0 +1,1119 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ranking de Frequencia | Motoclub Presenca</title>
+    <link rel="icon" type="image/png" href="assets/images/motoclub-icon.png">
+    <link rel="apple-touch-icon" href="assets/images/motoclub-icon.png">
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="build/css/custom.min.css" rel="stylesheet">
+    <link href="assets/css/app.css?v=1785509576" rel="stylesheet">
+        <style>
+    .mc-chart-box {
+        position: relative;
+        height: 340px;
+    }
+
+    .mc-chart-box canvas {
+        display: block;
+        width: 100% !important;
+        height: 340px !important;
+        max-height: 430px;
+    }
+
+    .mc-ranking-mobile {
+        display: none;
+    }
+
+    .mc-ranking-card {
+        margin-bottom: 12px;
+        padding: 14px;
+        background: #fff;
+        border: 1px solid #E6E9ED;
+        border-radius: 4px;
+    }
+
+    .mc-ranking-title {
+        color: #34495E;
+        font-weight: 700;
+    }
+
+    .mc-ranking-line {
+        margin-top: 5px;
+        color: #73879C;
+    }
+
+    .mc-ranking-line strong {
+        color: #34495E;
+    }
+
+    @media (max-width: 767px) {
+        .mc-ranking-table {
+            display: none;
+        }
+
+        .mc-ranking-mobile {
+            display: block;
+        }
+
+        .mc-chart-box {
+            height: 260px;
+        }
+
+        .mc-chart-box canvas {
+            height: 260px !important;
+        }
+    }
+</style>    <!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8358C7G"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MZR8358C7G');
+</script>
+</head>
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <div class="col-md-3 left_col">
+      <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+          <a href="dashboard.php" class="site_title"><i class="fa fa-shield"></i> <span>MC 2.0</span></a>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="profile clearfix">
+          <div class="profile_pic">
+                          <div class="profile_initials">MC</div>
+                      </div>
+          <div class="profile_info">
+            <span>Bem-vindo,</span>
+            <h2>Administrador</h2>
+            <small>Todas as bases</small>
+          </div>
+        </div>
+
+        <br>
+
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          <div class="menu_section">
+            <h3>Menu</h3>
+            <ul class="nav side-menu">
+                              <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                                            <li><a><i class="fa fa-users"></i> Membros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="membros.php">Listar membros</a></li>
+                                          <li><a href="novo_membro.php">Novo membro</a></li>
+                                          <li><a href="prospects.php">Prospects</a></li>
+                                          <li><a href="diretoria.php">Diretoria</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-calendar"></i> Eventos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="eventos.php">Listar eventos</a></li>
+                                          <li><a href="novo_evento.php">Novo evento</a></li>
+                                          <li><a href="mural_eventos.php">Mural de eventos</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-check-square-o"></i> Presencas <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="presencas.php">Resumo de presencas</a></li>
+                                          <li><a href="eventos.php?status=Aberto">Eventos para check-in</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-shopping-bag"></i> Pedidos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="pedidos.php">Itens</a></li>
+                                          <li><a href="pedido_tipos.php">Tipos de item</a></li>
+                                          <li><a href="novo_pedido_item.php">Novo item</a></li>
+                                          <li><a href="novo_pedido_membro.php">Novo pedido</a></li>
+                                          <li><a href="pedidos_membro.php">Pedidos por membro</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-cubes"></i> Patrimonio <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="patrimonio_dashboard.php">Dashboard</a></li>
+                                          <li><a href="patrimonio_itens.php">Itens</a></li>
+                                          <li><a href="novo_patrimonio.php">Novo item</a></li>
+                                          <li><a href="patrimonio_emprestimos.php">Emprestimos</a></li>
+                                          <li><a href="patrimonio_manutencoes.php">Manutencoes</a></li>
+                                          <li><a href="patrimonio_relatorios.php">Relatorios</a></li>
+                                          <li><a href="patrimonio_categorias.php">Categorias</a></li>
+                                          <li><a href="patrimonio_locais.php">Locais</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-flag"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="bases.php">Bases</a></li>
+                                          <li><a href="cargos.php">Cargos</a></li>
+                                          <li><a href="fases_membro.php">Fases do membro</a></li>
+                                          <li><a href="artes_aniversario.php">Artes de aniversario</a></li>
+                                          <li><a href="usuarios.php">Usuarios</a></li>
+                                          <li><a href="perfis.php">Perfis</a></li>
+                                          <li><a href="parametrizacoes.php">Parametrizacoes</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-bar-chart"></i> Relatorios <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="relatorios.php">Central de relatorios</a></li>
+                                          <li><a href="relatorio_eventos_ano.php">Eventos por ano</a></li>
+                                          <li><a href="relatorio_ranking_presenca.php">Ranking de presenca</a></li>
+                                      </ul>
+                </li>
+                          </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-footer hidden-small">
+                      <a data-toggle="tooltip" data-placement="top" title="Configuracoes" href="parametrizacoes.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                    <a data-toggle="tooltip" data-placement="top" title="Tela cheia"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Bloquear"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Sair" href="logout.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="top_nav">
+      <div class="nav_menu">
+        <nav>
+          <div class="nav toggle">
+            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                  <span class="user-avatar-sm">MC</span>
+                                Administrador                <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-usermenu pull-right">
+                <li><a href="dashboard.php">Dashboard</a></li>
+                <li><a href="javascript:void(0);"><span>Superadministrador</span></a></li>
+                <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="right_col" role="main">
+
+<div class="page-title">
+    <div class="title_left">
+        <h3><i class="fa fa-trophy"></i> Ranking de Frequencia</h3>
+    </div>
+    <div class="title_right text-right">
+        <a href="?ano=2026&amp;id_base=0&amp;id_cargo=0&amp;export=csv" class="btn btn-success">
+            <i class="fa fa-file-excel-o"></i> Excel
+        </a>
+        <button type="button" class="btn btn-info" onclick="window.print()">
+            <i class="fa fa-file-pdf-o"></i> PDF
+        </button>
+        <a href="relatorios.php" class="btn btn-default">
+            <i class="fa fa-arrow-left"></i> Voltar
+        </a>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="alert alert-info">
+    <strong>Regra do ranking:</strong>
+    cada membro e cobrado apenas pelos eventos finalizados realizados a partir da sua data de entrada no MC.
+    Membros que ainda nao tinham entrado no ano filtrado nao entram na apuracao daquele ano.
+</div>
+
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Filtros <small>ano, base e cargo</small></h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <form method="get" class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12 form-group">
+                <label>Ano</label>
+                <input type="number" name="ano" class="form-control" value="2026" min="2000" max="2100">
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12 form-group">
+                <label>Base</label>
+                <select name="id_base" class="form-control">
+                    <option value="0">Todas as bases</option>
+                                            <option value="3" >
+                            APARECIDA DE GOIÂNIA                        </option>
+                                            <option value="5" >
+                            BELÉM                        </option>
+                                            <option value="6" >
+                            BRASÍLIA                        </option>
+                                            <option value="7" >
+                            CARUARU                        </option>
+                                            <option value="8" >
+                            CURITIBA                        </option>
+                                            <option value="9" >
+                            FAXINAL                        </option>
+                                            <option value="10" >
+                            GOIANÉSIA                        </option>
+                                            <option value="4" >
+                            GOIÂNIA                        </option>
+                                            <option value="11" >
+                            IVAIPORÃ                        </option>
+                                            <option value="24" >
+                            JABOATÃO                        </option>
+                                            <option value="13" >
+                            MANAUS                        </option>
+                                            <option value="14" >
+                            MARINGÁ                        </option>
+                                            <option value="15" >
+                            NATAL                        </option>
+                                            <option value="1" >
+                            PALMAS                        </option>
+                                            <option value="17" >
+                            PAULISTA                        </option>
+                                            <option value="18" >
+                            RECIFE                        </option>
+                                            <option value="2" >
+                            REP. PORTO NACIONAL                        </option>
+                                            <option value="23" >
+                            REPRESENTAÇÃO AFOGADOS DA INGAZEIRA                        </option>
+                                            <option value="22" >
+                            REPRESENTAÇÃO EUSÉBIO                        </option>
+                                            <option value="26" >
+                            REPRESENTAÇÃO GARANHUNS                        </option>
+                                            <option value="27" >
+                            REPRESENTAÇÃO GOIANA                        </option>
+                                            <option value="12" >
+                            REPRESENTAÇÃO JOÃO PESSOA                        </option>
+                                            <option value="30" >
+                            REPRESENTAÇÃO JUAZEIRO DO NORTE                        </option>
+                                            <option value="28" >
+                            REPRESENTAÇÃO MONTEIRO                        </option>
+                                            <option value="29" >
+                            REPRESENTAÇÃO PETROLINA                        </option>
+                                            <option value="19" >
+                            REPRESENTAÇÃO SALVADOR                        </option>
+                                            <option value="25" >
+                            SÃO BENTO DO SUL                        </option>
+                                            <option value="20" >
+                            SÃO PAULO                        </option>
+                                            <option value="21" >
+                            TELÊMACO BORBA                        </option>
+                                    </select>
+            </div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12 form-group">
+                <label>Cargo</label>
+                <select name="id_cargo" class="form-control">
+                    <option value="0">Todos os cargos</option>
+                                            <option value="8" >
+                            Alfa 1                        </option>
+                                            <option value="14" >
+                            Capelania                        </option>
+                                            <option value="12" >
+                            Dependente                        </option>
+                                            <option value="1" >
+                            Diretor de Base                        </option>
+                                            <option value="11" >
+                            Diretor de Logística                        </option>
+                                            <option value="6" >
+                            Diretor Financeiro                        </option>
+                                            <option value="13" >
+                            Diretor Regional                        </option>
+                                            <option value="10" >
+                            Diretor Social                        </option>
+                                            <option value="3" >
+                            Membro                        </option>
+                                            <option value="9" >
+                            Pastor                        </option>
+                                            <option value="4" >
+                            Prospect                        </option>
+                                            <option value="7" >
+                            Sargento de Armas                        </option>
+                                            <option value="5" >
+                            Secretário                        </option>
+                                            <option value="2" >
+                            Vice Diretor de Base                        </option>
+                                    </select>
+            </div>
+
+            <div class="col-md-2 col-sm-12 col-xs-12 form-group mc-filter-actions">
+                <button type="submit" class="btn btn-success btn-block">
+                    <i class="fa fa-filter"></i> Filtrar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row tile_count">
+    <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-users"></i> Membros</span>
+        <div class="count">21</div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-check"></i> Presencas em 2026</span>
+        <div class="count green">212</div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-list"></i> Registros no ano</span>
+        <div class="count">1022</div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-percent"></i> Assiduidade geral</span>
+        <div class="count">20.7%</div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Presencas por membro <small>top 21 em 2026</small></h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content mc-chart-box">
+                <canvas id="graficoRanking"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Assiduidade por membro <small>top 21 em 2026</small></h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content mc-chart-box">
+                <canvas id="graficoPercentual"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Resumo por Membro <small>2026 - total: 21</small></h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <div class="mc-ranking-table table-responsive">
+            <table class="table table-striped jambo_table">
+                <thead>
+                    <tr>
+                        <th>Membro</th>
+                        <th>Base</th>
+                        <th>Cargo</th>
+                        <th>Presentes</th>
+                        <th>Ausentes</th>
+                        <th>Justificados</th>
+                        <th>Total</th>
+                        <th>Assiduidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                                                                                                    <tr>
+                                <td>
+                                    John Dalto Alves de Sousa                                                                            <br><small>John</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Vice Diretor de Base</td>
+                                <td><span class="label label-default">29</span></td>
+                                <td><span class="label label-default">23</span></td>
+                                <td><span class="label label-default">0</span></td>
+                                <td>52</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-warning" style="width: 55.8%;"></div>
+                                    </div>
+                                    <strong>55.8%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Alexandre Florentino Ferreira                                                                            <br><small>Alexandre</small>
+                                                                    </td>
+                                <td>REP. PORTO NACIONAL</td>
+                                <td>Membro</td>
+                                <td><span class="label label-default">23</span></td>
+                                <td><span class="label label-default">25</span></td>
+                                <td><span class="label label-default">3</span></td>
+                                <td>51</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-warning" style="width: 45.1%;"></div>
+                                    </div>
+                                    <strong>45.1%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Fernando Lucas Alves de Araújo                                                                            <br><small>Capl. Fernando</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Diretor de Base</td>
+                                <td><span class="label label-default">20</span></td>
+                                <td><span class="label label-default">29</span></td>
+                                <td><span class="label label-default">1</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-warning" style="width: 40%;"></div>
+                                    </div>
+                                    <strong>40%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Sandoval Candido Farias Junior                                                                            <br><small>Sandoval</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Alfa 1</td>
+                                <td><span class="label label-default">16</span></td>
+                                <td><span class="label label-default">32</span></td>
+                                <td><span class="label label-default">2</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 32%;"></div>
+                                    </div>
+                                    <strong>32%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    José Neto                                                                            <br><small>Neto</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Membro</td>
+                                <td><span class="label label-default">15</span></td>
+                                <td><span class="label label-default">35</span></td>
+                                <td><span class="label label-default">1</span></td>
+                                <td>51</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 29.4%;"></div>
+                                    </div>
+                                    <strong>29.4%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Leo Marcio Bona                                                                            <br><small>Bona</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Membro</td>
+                                <td><span class="label label-default">15</span></td>
+                                <td><span class="label label-default">35</span></td>
+                                <td><span class="label label-default">1</span></td>
+                                <td>51</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 29.4%;"></div>
+                                    </div>
+                                    <strong>29.4%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Ildson Oliveira de Lima                                                                            <br><small>Ildson</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Diretor Regional</td>
+                                <td><span class="label label-default">13</span></td>
+                                <td><span class="label label-default">37</span></td>
+                                <td><span class="label label-default">0</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 26%;"></div>
+                                    </div>
+                                    <strong>26%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Heráclito Botelho Toscano Barreto Junior                                                                            <br><small>Toscano</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Secretário</td>
+                                <td><span class="label label-default">11</span></td>
+                                <td><span class="label label-default">38</span></td>
+                                <td><span class="label label-default">1</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 22%;"></div>
+                                    </div>
+                                    <strong>22%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Milton Gomes da Silva Filho                                                                            <br><small>Milton</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Diretor Social</td>
+                                <td><span class="label label-default">11</span></td>
+                                <td><span class="label label-default">38</span></td>
+                                <td><span class="label label-default">1</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 22%;"></div>
+                                    </div>
+                                    <strong>22%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Vinicius Regis Felix                                                                            <br><small>Vinicius</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Membro</td>
+                                <td><span class="label label-default">10</span></td>
+                                <td><span class="label label-default">37</span></td>
+                                <td><span class="label label-default">3</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 20%;"></div>
+                                    </div>
+                                    <strong>20%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Eber Miranda de Sousa                                                                            <br><small>Pr. Eber</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Pastor</td>
+                                <td><span class="label label-default">9</span></td>
+                                <td><span class="label label-default">40</span></td>
+                                <td><span class="label label-default">1</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 18%;"></div>
+                                    </div>
+                                    <strong>18%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Erika Silper                                                                            <br><small>Erica</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Membro</td>
+                                <td><span class="label label-default">9</span></td>
+                                <td><span class="label label-default">40</span></td>
+                                <td><span class="label label-default">1</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 18%;"></div>
+                                    </div>
+                                    <strong>18%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    João Adolfo de Abreu Guimarães                                                                            <br><small>João</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Diretor de Logística</td>
+                                <td><span class="label label-default">9</span></td>
+                                <td><span class="label label-default">35</span></td>
+                                <td><span class="label label-default">6</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 18%;"></div>
+                                    </div>
+                                    <strong>18%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Antônio Soares Júnior                                                                            <br><small>Soares</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Diretor Financeiro</td>
+                                <td><span class="label label-default">5</span></td>
+                                <td><span class="label label-default">44</span></td>
+                                <td><span class="label label-default">1</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 10%;"></div>
+                                    </div>
+                                    <strong>10%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Myller de França Ferreira                                                                            <br><small>Myller</small>
+                                                                    </td>
+                                <td>REP. PORTO NACIONAL</td>
+                                <td>Membro</td>
+                                <td><span class="label label-default">5</span></td>
+                                <td><span class="label label-default">36</span></td>
+                                <td><span class="label label-default">9</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 10%;"></div>
+                                    </div>
+                                    <strong>10%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Gildenor Pereira Barros Junior                                                                            <br><small>Guerriro</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Membro</td>
+                                <td><span class="label label-default">4</span></td>
+                                <td><span class="label label-default">45</span></td>
+                                <td><span class="label label-default">1</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 8%;"></div>
+                                    </div>
+                                    <strong>8%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Algemiro                                                                            <br><small>Algemiro</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Membro</td>
+                                <td><span class="label label-default">2</span></td>
+                                <td><span class="label label-default">48</span></td>
+                                <td><span class="label label-default">0</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 4%;"></div>
+                                    </div>
+                                    <strong>4%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Betânia                                                                            <br><small>Betânia</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Membro</td>
+                                <td><span class="label label-default">2</span></td>
+                                <td><span class="label label-default">48</span></td>
+                                <td><span class="label label-default">0</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 4%;"></div>
+                                    </div>
+                                    <strong>4%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Fabio                                                                            <br><small>Fabio</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Membro</td>
+                                <td><span class="label label-default">2</span></td>
+                                <td><span class="label label-default">48</span></td>
+                                <td><span class="label label-default">0</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 4%;"></div>
+                                    </div>
+                                    <strong>4%</strong>
+                                </td>
+                            </tr>
+                                                                                <tr>
+                                <td>
+                                    Nádia Flausino Vieira Borges                                                                            <br><small>Nádia</small>
+                                                                    </td>
+                                <td>PALMAS</td>
+                                <td>Membro</td>
+                                <td><span class="label label-default">1</span></td>
+                                <td><span class="label label-default">48</span></td>
+                                <td><span class="label label-default">1</span></td>
+                                <td>50</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom: 4px;">
+                                        <div class="progress-bar progress-bar-danger" style="width: 2%;"></div>
+                                    </div>
+                                    <strong>2%</strong>
+                                </td>
+                            </tr>
+                                                            </tbody>
+            </table>
+        </div>
+
+        <div class="mc-ranking-mobile">
+                                                                    <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">John Dalto Alves de Sousa</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> John</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Vice Diretor de Base</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 29</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 23</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 0</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 52</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-warning" style="width: 55.8%;"></div>
+                        </div>
+                        <strong>55.8%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Alexandre Florentino Ferreira</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Alexandre</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> REP. PORTO NACIONAL</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Membro</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 23</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 25</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 3</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 51</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-warning" style="width: 45.1%;"></div>
+                        </div>
+                        <strong>45.1%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Fernando Lucas Alves de Araújo</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Capl. Fernando</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Diretor de Base</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 20</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 29</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 1</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-warning" style="width: 40%;"></div>
+                        </div>
+                        <strong>40%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Sandoval Candido Farias Junior</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Sandoval</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Alfa 1</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 16</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 32</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 2</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 32%;"></div>
+                        </div>
+                        <strong>32%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">José Neto</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Neto</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Membro</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 15</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 35</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 1</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 51</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 29.4%;"></div>
+                        </div>
+                        <strong>29.4%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Leo Marcio Bona</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Bona</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Membro</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 15</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 35</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 1</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 51</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 29.4%;"></div>
+                        </div>
+                        <strong>29.4%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Ildson Oliveira de Lima</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Ildson</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Diretor Regional</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 13</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 37</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 0</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 26%;"></div>
+                        </div>
+                        <strong>26%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Heráclito Botelho Toscano Barreto Junior</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Toscano</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Secretário</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 11</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 38</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 1</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 22%;"></div>
+                        </div>
+                        <strong>22%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Milton Gomes da Silva Filho</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Milton</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Diretor Social</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 11</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 38</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 1</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 22%;"></div>
+                        </div>
+                        <strong>22%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Vinicius Regis Felix</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Vinicius</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Membro</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 10</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 37</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 3</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 20%;"></div>
+                        </div>
+                        <strong>20%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Eber Miranda de Sousa</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Pr. Eber</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Pastor</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 9</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 40</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 1</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 18%;"></div>
+                        </div>
+                        <strong>18%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Erika Silper</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Erica</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Membro</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 9</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 40</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 1</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 18%;"></div>
+                        </div>
+                        <strong>18%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">João Adolfo de Abreu Guimarães</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> João</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Diretor de Logística</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 9</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 35</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 6</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 18%;"></div>
+                        </div>
+                        <strong>18%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Antônio Soares Júnior</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Soares</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Diretor Financeiro</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 5</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 44</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 1</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 10%;"></div>
+                        </div>
+                        <strong>10%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Myller de França Ferreira</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Myller</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> REP. PORTO NACIONAL</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Membro</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 5</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 36</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 9</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 10%;"></div>
+                        </div>
+                        <strong>10%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Gildenor Pereira Barros Junior</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Guerriro</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Membro</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 4</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 45</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 1</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 8%;"></div>
+                        </div>
+                        <strong>8%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Algemiro</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Algemiro</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Membro</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 2</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 48</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 0</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 4%;"></div>
+                        </div>
+                        <strong>4%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Betânia</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Betânia</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Membro</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 2</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 48</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 0</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 4%;"></div>
+                        </div>
+                        <strong>4%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Fabio</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Fabio</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Membro</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 2</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 48</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 0</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 4%;"></div>
+                        </div>
+                        <strong>4%</strong>
+                    </div>
+                                                        <div class="mc-ranking-card">
+                        <div class="mc-ranking-title">Nádia Flausino Vieira Borges</div>
+                                                    <div class="mc-ranking-line"><strong>Apelido:</strong> Nádia</div>
+                                                <div class="mc-ranking-line"><strong>Base:</strong> PALMAS</div>
+                        <div class="mc-ranking-line"><strong>Cargo:</strong> Membro</div>
+                        <div class="mc-ranking-line"><strong>Presentes:</strong> 1</div>
+                        <div class="mc-ranking-line"><strong>Ausentes:</strong> 48</div>
+                        <div class="mc-ranking-line"><strong>Justificados:</strong> 1</div>
+                        <div class="mc-ranking-line"><strong>Total:</strong> 50</div>
+                        <div class="progress" style="margin-top: 8px;">
+                            <div class="progress-bar progress-bar-danger" style="width: 2%;"></div>
+                        </div>
+                        <strong>2%</strong>
+                    </div>
+                                    </div>
+        <div class="mc-pagination"><div class="mc-pagination-summary">Mostrando 1-20 de 21</div><div class="mc-pagination-controls"><a class="btn btn-default btn-sm disabled" href="?pagina=1"><i class="fa fa-angle-left"></i></a><a class="btn btn-success btn-sm" href="?pagina=1">1</a><a class="btn btn-default btn-sm" href="?pagina=2">2</a><a class="btn btn-default btn-sm " href="?pagina=2"><i class="fa fa-angle-right"></i></a></div><form class="mc-pagination-size" method="get"><input type="hidden" name="pagina" value="1"><label>Por pagina</label><select name="por_pagina" class="form-control input-sm" onchange="this.form.submit()"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option><option value="100">100</option></select></form></div>    </div>
+</div>
+
+        </div>
+        <footer>
+            <div class="pull-right">
+                Motoclub Presenca 2.0            </div>
+            <div class="clearfix"></div>
+        </footer>
+      </div>
+    </div>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendors/fastclick/lib/fastclick.js"></script>
+<script src="vendors/nprogress/nprogress.js"></script>
+<script src="vendors/select2/dist/js/select2.full.min.js"></script>
+<script src="build/js/custom.min.js"></script>
+<script src="assets/js/app.js?v=1785509576"></script>
+    <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+
+<script>
+(function () {
+    var labelsRanking = ["John Dalto Alves de Sousa","Alexandre Florentino Ferreira","Fernando Lucas Alves de Araújo","Sandoval Candido Farias Junior","José Neto","Leo Marcio Bona","Ildson Oliveira de Lima","Heráclito Botelho Toscano Barreto Junior","Milton Gomes da Silva Filho","Vinicius Regis Felix","Eber Miranda de Sousa","Erika Silper","João Adolfo de Abreu Guimarães","Antônio Soares Júnior","Myller de França Ferreira","Gildenor Pereira Barros Junior","Algemiro","Betânia","Fabio","Nádia Flausino Vieira Borges","Jales"];
+    var dadosPresentes = [29,23,20,16,15,15,13,11,11,10,9,9,9,5,5,4,2,2,2,1,1];
+    var dadosPercentual = [55.8,45.1,40,32,29.4,29.4,26,22,22,20,18,18,18,10,10,8,4,4,4,2,5.9];
+    var graficoRanking = document.getElementById("graficoRanking");
+    var graficoPercentual = document.getElementById("graficoPercentual");
+
+    if (typeof Chart === "undefined" || !graficoRanking || !graficoPercentual) {
+        return;
+    }
+
+    function chartOptions(maximo) {
+        var ticksY = { beginAtZero: true };
+
+        if (maximo) {
+            ticksY.max = maximo;
+        }
+
+        return {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: { duration: 0 },
+            hover: { animationDuration: 0 },
+            responsiveAnimationDuration: 0,
+            legend: { display: true },
+            scales: {
+                xAxes: [{ ticks: { autoSkip: true, maxRotation: 45, minRotation: 0 } }],
+                yAxes: [{ ticks: ticksY }]
+            }
+        };
+    }
+
+    new Chart(graficoRanking.getContext("2d"), {
+        type: "bar",
+        data: {
+            labels: labelsRanking,
+            datasets: [{ label: "Presencas em 2026", data: dadosPresentes, backgroundColor: "#1ABB9C" }]
+        },
+        options: chartOptions()
+    });
+
+    new Chart(graficoPercentual.getContext("2d"), {
+        type: "line",
+        data: {
+            labels: labelsRanking,
+            datasets: [{ label: "% Assiduidade em 2026", data: dadosPercentual, borderColor: "#2A3F54", backgroundColor: "#2A3F54", fill: false }]
+        },
+        options: chartOptions(100)
+    });
+})();
+</script></body>
+</html>
