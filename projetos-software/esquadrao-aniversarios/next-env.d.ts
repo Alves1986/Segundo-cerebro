@@ -1,0 +1,5 @@
+/// <reference types="next" />
+/// <reference types="next/types/global" />
+/// <reference types="next/images" />
+/// <reference types="next/font" />
+/// <reference types="tailwindcss/types/index.d.ts" />

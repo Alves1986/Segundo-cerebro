@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Crie gratuitamente seu cartão de aniversário do Esquadrão de Cristo.">
+  <title>Cartão de aniversário | Esquadrão de Cristo</title>
+  <link rel="icon" type="image/png" href="assets/images/motoclub-icon.png">
+  <style>
+    :root { --gold: #bda16c; --gold-light: #d7c08f; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; overflow-x: hidden; color: #f5f5f5; background: #0c0c0c; font-family: Arial, Helvetica, sans-serif; }
+    .topbar { padding: 18px 24px; border-bottom: 1px solid #302b22; background: #151515; text-align: center; }
+    .topbar img { width: 58px; height: 58px; object-fit: contain; margin-right: 12px; vertical-align: middle; }
+    .topbar h1 { display: inline; margin: 0; color: var(--gold-light); font-size: clamp(22px, 4vw, 32px); vertical-align: middle; }
+    .intro { max-width: 1080px; margin: 24px auto 0; padding: 0 20px; text-align: center; color: #ddd; }
+    .maker { display: grid; grid-template-columns: minmax(0, 520px) minmax(0, 420px); gap: 28px; max-width: 1080px; margin: 22px auto 40px; padding: 0 20px; }
+    .preview { position: relative; padding: 10px; border: 1px solid #443b2b; border-radius: 12px; background: #181818; box-shadow: 0 15px 40px rgba(0,0,0,.35); }
+    .mobile-tools { display: none; }
+    canvas { display: block; width: 100%; max-width: 100%; height: auto; background: #fff; touch-action: none; cursor: grab; }
+    .hint { margin: 10px 2px 0; color: #aaa; text-align: center; font-size: 13px; }
+    .controls { padding: 22px; border: 1px solid #38332a; border-radius: 12px; background: #202020; }
+    .controls h2 { margin: 0 0 20px; color: var(--gold-light); font-size: 22px; }
+    .field { margin-bottom: 18px; }
+    label { display: block; margin-bottom: 7px; font-weight: 700; color: #eee; }
+    input[type="text"], input[type="file"] { width: 100%; padding: 10px 12px; border: 1px solid #555; border-radius: 6px; color: #fff; background: #111; }
+    input[type="file"] { padding: 7px; }
+    input[type="range"] { width: 100%; accent-color: var(--gold); }
+    .sex-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .sex-options label { padding: 11px; border: 1px solid #555; border-radius: 6px; text-align: center; cursor: pointer; }
+    .sex-options label:has(input:checked) { color: #111; border-color: var(--gold-light); background: var(--gold-light); }
+    .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+    button { min-height: 46px; padding: 10px 14px; border: 0; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer; }
+    .reset { color: #eee; background: #4b4b4b; }
+    .download { color: #111; background: var(--gold-light); }
+    .whatsapp { color: #fff; background: #168c46; }
+    button:disabled { opacity: .45; cursor: not-allowed; }
+    .privacy { margin: 18px 0 0; color: #aaa; font-size: 12px; }
+    .message { min-height: 20px; margin: 12px 0 0; color: #f1cc7b; font-size: 13px; }
+    @media (max-width: 600px) {
+      .maker { grid-template-columns: minmax(0, 560px); max-width: 600px; gap: 18px; }
+      .controls { order: -1; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar"><img src="assets/images/motoclub-icon.png" alt=""><h1>Cartão de aniversário</h1></header>
+  <p class="intro">Informe o nome, selecione o modelo e ajuste a foto na moldura. Baixe o cartão pronto para compartilhar.</p>
+
+  <main class="maker">
+    <div>
+      <div class="preview" aria-label="Prévia do cartão">
+        <canvas id="cartaoCanvas" width="1080" height="1350"></canvas>
+        <p class="hint">Arraste a foto para reposicioná-la.</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <h2>Personalize o cartão</h2>
+      <div class="field">
+        <label for="nome">Nome da pessoa</label>
+        <input id="nome" type="text" maxlength="40" placeholder="Ex.: Soares" autocomplete="name">
+      </div>
+      <div class="field">
+        <label>Sexo / modelo</label>
+        <div class="sex-options">
+          <label><input type="radio" name="sexo" value="M" checked> Masculino</label>
+          <label><input type="radio" name="sexo" value="F"> Feminino</label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="foto">Escolha a foto</label>
+        <input id="foto" type="file" accept="image/jpeg,image/png,image/webp">
+      </div>
+      <div class="field">
+        <label for="zoom">Zoom da foto</label>
+        <input id="zoom" type="range" min="1" max="3" value="1" step="0.01" disabled>
+      </div>
+      <div class="actions">
+        <button id="recentralizar" type="button" disabled>Recentralizar</button>
+        <button id="baixar" type="button">Baixar cartão</button>
+        <button id="compartilhar" type="button" class="whatsapp">WhatsApp</button>
+      </div>
+      <p id="mensagem" class="message" role="status"></p>
+      <p class="privacy">Sua foto é processada somente neste navegador e não é enviada nem armazenada no servidor.</p>
+    </div>
+  </main>
+
+<script>
+(function () {
+  var artes = {"M":"uploads/aniversarios/arte_m_1786021519.jpeg","F":"uploads/aniversarios/arte_f_1786021526.jpeg"};
+  var canvas = document.getElementById('cartaoCanvas');
+  var ctx = canvas.getContext('2d');
+  var nomeInput = document.getElementById('nome');
+  var fotoInput = document.getElementById('foto');
+  var zoomInput = document.getElementById('zoom');
+  var btnCentro = document.getElementById('recentralizar');
+  var btnBaixar = document.getElementById('baixar');
+  var btnCompartilhar = document.getElementById('compartilhar');
+  var mensagem = document.getElementById('mensagem');
+  var moldura = { x: 270, y: 372, w: 536, h: 517 };
+  var modelos = {};
+  var foto = null;
+  var estado = { zoom: 1, x: 0, y: 0, arrastando: false, px: 0, py: 0 };
+
+  function carregarImagem(src) {
+    return new Promise(function (resolve, reject) {
+      if (!src) return reject(new Error('Modelo nao cadastrado.'));
+      var img = new Image();
+      img.onload = function () { resolve(img); };
+      img.onerror = function () { reject(new Error('Nao foi possivel carregar o modelo.')); };
+      img.src = src;
+    });
+  }
+
+  function sexoAtual() {
+    return document.querySelector('input[name="sexo"]:checked').value;
+  }
+
+  function limitarPosicao() {
+    if (!foto) return;
+    var base = Math.max(moldura.w / foto.width, moldura.h / foto.height);
+    var w = foto.width * base * estado.zoom;
+    var h = foto.height * base * estado.zoom;
+    estado.x = Math.max(-(w - moldura.w) / 2, Math.min((w - moldura.w) / 2, estado.x));
+    estado.y = Math.max(-(h - moldura.h) / 2, Math.min((h - moldura.h) / 2, estado.y));
+  }
+
+  function desenharFoto() {
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(moldura.x, moldura.y, moldura.w, moldura.h);
+    if (!foto) return;
+    limitarPosicao();
+    var escala = Math.max(moldura.w / foto.width, moldura.h / foto.height) * estado.zoom;
+    var w = foto.width * escala;
+    var h = foto.height * escala;
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(moldura.x, moldura.y, moldura.w, moldura.h);
+    ctx.clip();
+    ctx.drawImage(foto, moldura.x + (moldura.w - w) / 2 + estado.x, moldura.y + (moldura.h - h) / 2 + estado.y, w, h);
+    ctx.restore();
+    ctx.save();
+    ctx.strokeStyle = '#050505';
+    ctx.lineWidth = 14;
+    ctx.strokeRect(moldura.x + 7, moldura.y + 7, moldura.w - 14, moldura.h - 14);
+    ctx.restore();
+  }
+
+  function desenharNome() {
+    var texto = nomeInput.value.trim() || 'Seu nome';
+    var tamanho = 92;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#000';
+    ctx.font = '700 ' + tamanho + 'px Arial, sans-serif';
+    while (ctx.measureText(texto).width > 570 && tamanho > 42) {
+      tamanho -= 4;
+      ctx.font = '700 ' + tamanho + 'px Arial, sans-serif';
+    }
+    ctx.fillText(texto, 540, 945);
+  }
+
+  function desenhar() {
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    var modelo = modelos[sexoAtual()];
+    if (!modelo) {
+      ctx.fillStyle = '#333';
+      ctx.font = '36px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('Carregando...', canvas.width / 2, canvas.height / 2);
+      return;
+    }
+    ctx.drawImage(modelo, 0, 0, canvas.width, canvas.height);
+    desenharFoto();
+    desenharNome();
+  }
+
+  function recentalizar() {
+    estado.x = 0; estado.y = 0; estado.zoom = 1;
+    zoomInput.value = '1';
+    desenhar();
+  }
+
+  function pontoCanvas(evento) {
+    var rect = canvas.getBoundingClientRect();
+    return { x: (evento.clientX - rect.left) * canvas.width / rect.width, y: (evento.clientY - rect.top) * canvas.height / rect.height };
+  }
+
+  fotoInput.addEventListener('change', function () {
+    var arquivo = this.files && this.files[0];
+    mensagem.textContent = '';
+    if (!arquivo) return;
+    if (!/^image\//.test(arquivo.type) || arquivo.size > 12 * 1024 * 1024) {
+      mensagem.textContent = 'Escolha imagem JPG, PNG ou WEBP de ate 12 MB.';
+      this.value = '';
+      return;
+    }
+    var url = URL.createObjectURL(arquivo);
+    var img = new Image();
+    img.onload = function () {
+      foto = img;
+      zoomInput.disabled = false;
+      btnCentro.disabled = false;
+      recentalizar();
+    };
+    img.onerror = function () { URL.revokeObjectURL(url); mensagem.textContent = 'Nao foi possivel abrir essa imagem.'; };
+    img.src = url;
+  });
+
+  nomeInput.addEventListener('input', desenhar);
+  document.querySelectorAll('input[name="sexo"]').forEach(function (radio) { radio.addEventListener('change', desenhar); });
+  function alterarZoom(valor) {
+    estado.zoom = Number(valor);
+    zoomInput.value = String(estado.zoom);
+    limitarPosicao();
+    desenhar();
+  }
+
+  zoomInput.addEventListener('input', function () { alterarZoom(this.value); });
+  btnCentro.addEventListener('click', recentalizar);
+
+  canvas.addEventListener('pointerdown', function (e) {
+    if (!foto) return;
+    var p = pontoCanvas(e);
+    if (p.x < moldura.x || p.x > moldura.x + moldura.w || p.y < moldura.y || p.y > moldura.y + moldura.h) return;
+    estado.arrastando = true; estado.px = p.x; estado.py = p.y;
+    canvas.classList.add('dragging');
+    canvas.setPointerCapture(e.pointerId);
+  });
+
+  canvas.addEventListener('pointermove', function (e) {
+    if (!estado.arrastando) return;
+    var p = pontoCanvas(e);
+    estado.x += p.x - estado.px; estado.y += p.y - estado.py;
+    estado.px = p.x; estado.py = p.y;
+    limitarPosicao(); desenhar();
+  });
+
+  function pararArrasto() { estado.arrastando = false; canvas.classList.remove('dragging'); }
+  canvas.addEventListener('pointerup', pararArrasto);
+  canvas.addEventListener('pointercancel', pararArrasto);
+
+  function validarCartao() {
+    if (!nomeInput.value.trim()) { mensagem.textContent = 'Informe o nome.'; nomeInput.focus(); return false; }
+    if (!foto) { mensagem.textContent = 'Escolha uma foto.'; fotoInput.focus(); return false; }
+    mensagem.textContent = '';
+    desenhar();
+    return true;
+  }
+
+  function nomeArquivoCartao() {
+    var nomeArquivo = nomeInput.value.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    return 'aniversario-' + (nomeArquivo || 'cartao') + '.png';
+  }
+
+  btnBaixar.addEventListener('click', function () {
+    if (!validarCartao()) return;
+    canvas.toBlob(function (blob) {
+      if (!blob) { mensagem.textContent = 'Erro ao gerar arquivo.'; return; }
+      var url = URL.createObjectURL(blob);
+      var link = document.createElement('a');
+      link.download = nomeArquivoCartao();
+      link.href = url;
+      link.click();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    }, 'image/png');
+  });
+
+  btnCompartilhar.addEventListener('click', function () {
+    if (!validarCartao()) return;
+    canvas.toBlob(function (blob) {
+      if (!blob) { mensagem.textContent = 'Erro.'; return; }
+      var texto = 'Feliz aniversario, ' + nomeInput.value.trim() + '!';
+      window.open('https://wa.me/?text=' + encodeURIComponent(texto), '_blank');
+      mensagem.textContent = 'O cartao foi baixado. Anexe a imagem no WhatsApp.';
+    }, 'image/png');
+  });
+
+  Promise.all(Object.keys(artes).map(function (sexo) {
+    if (!artes[sexo]) return Promise.resolve();
+    return carregarImagem(artes[sexo]).then(function (img) { modelos[sexo] = img; });
+  })).then(desenhar).catch(function (erro) { mensagem.textContent = erro.message; desenhar(); });
+}());
+</script>
+</body>
+</html>

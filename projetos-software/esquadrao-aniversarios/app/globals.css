@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #bda16c;
+  --gold-light: #d7c08f;
+}
+
+/* Custom utilities */
+.text-gold-light {
+  color: var(--gold-light);
+}
+
+.bg-gold-light {
+  background-color: var(--gold-light);
+}
+
+.bg-gold {
+  background-color: var(--gold);
+}

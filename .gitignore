@@ -28,3 +28,26 @@ Thumbs.db
 secrets/
 .env
 .git-credentials
+
+# Node.js/Output
+node_modules/
+.next/
+out/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Build outputs
+.coverage/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-specific
+ehthumbs.db
+Desktop.ini

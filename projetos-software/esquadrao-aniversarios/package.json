@@ -1,0 +1,21 @@
+{
+  "name": "espadra-aniversarios",
+  "version": "1.0.0",
+  "description": "Sistema online para criação de cartões de aniversário personalizados",
+  "main": "app/page.tsx",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "16.3.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.0",
+    "typescript": "^5.4.0"
+  }
+}
