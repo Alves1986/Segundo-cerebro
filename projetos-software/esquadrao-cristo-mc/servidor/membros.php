@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Membros | Motoclub Presenca</title>
+    <link rel="icon" type="image/png" href="assets/images/motoclub-icon.png">
+    <link rel="apple-touch-icon" href="assets/images/motoclub-icon.png">
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="build/css/custom.min.css" rel="stylesheet">
+    <link href="assets/css/app.css?v=1785509576" rel="stylesheet">
+        <style>
+    .mc-member-name-cell {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 220px;
+    }
+
+    .mc-member-photo,
+    .mc-member-photo-empty {
+        width: 42px;
+        height: 42px;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        border: 2px solid rgba(26, 187, 156, .2);
+    }
+
+    .mc-member-photo {
+        object-fit: cover;
+    }
+
+    .mc-member-photo-empty {
+        display: inline-grid;
+        place-items: center;
+        color: #1ABB9C;
+        background: #F5F7FA;
+    }
+
+    .mc-member-name-cell strong,
+    .mc-member-name-cell small {
+        display: block;
+    }
+
+    .mc-members-table {
+        min-width: 1040px;
+    }
+
+    .mc-members-table th,
+    .mc-members-table td {
+        vertical-align: middle !important;
+    }
+
+    .mc-members-table th:first-child {
+        min-width: 240px;
+    }
+
+    .mc-members-table th:nth-child(2) {
+        min-width: 120px;
+    }
+
+    .mc-members-table th:nth-child(3),
+    .mc-members-table th:nth-child(4) {
+        min-width: 130px;
+    }
+
+    .mc-members-table th:last-child {
+        min-width: 220px;
+    }
+
+    .mc-member-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(92px, 1fr));
+        gap: 6px;
+        min-width: 210px;
+    }
+
+    .mc-member-actions .btn {
+        width: 100%;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    @media (max-width: 767px) {
+        .mc-members-table {
+            min-width: 0;
+        }
+
+        .mc-members-table td[data-label="Nome"] {
+            display: block;
+            text-align: left;
+        }
+
+        .mc-members-table td[data-label="Nome"]::before {
+            display: block;
+            max-width: 100%;
+            margin-bottom: 8px;
+        }
+
+        .mc-member-actions {
+            grid-template-columns: 1fr;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .mc-member-actions .btn {
+            min-height: 40px;
+            white-space: normal;
+        }
+    }
+</style>    <!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8358C7G"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MZR8358C7G');
+</script>
+</head>
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <div class="col-md-3 left_col">
+      <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+          <a href="dashboard.php" class="site_title"><i class="fa fa-shield"></i> <span>MC 2.0</span></a>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="profile clearfix">
+          <div class="profile_pic">
+                          <div class="profile_initials">MC</div>
+                      </div>
+          <div class="profile_info">
+            <span>Bem-vindo,</span>
+            <h2>Administrador</h2>
+            <small>Todas as bases</small>
+          </div>
+        </div>
+
+        <br>
+
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          <div class="menu_section">
+            <h3>Menu</h3>
+            <ul class="nav side-menu">
+                              <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                                            <li><a><i class="fa fa-users"></i> Membros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="membros.php">Listar membros</a></li>
+                                          <li><a href="novo_membro.php">Novo membro</a></li>
+                                          <li><a href="prospects.php">Prospects</a></li>
+                                          <li><a href="diretoria.php">Diretoria</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-calendar"></i> Eventos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="eventos.php">Listar eventos</a></li>
+                                          <li><a href="novo_evento.php">Novo evento</a></li>
+                                          <li><a href="mural_eventos.php">Mural de eventos</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-check-square-o"></i> Presencas <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="presencas.php">Resumo de presencas</a></li>
+                                          <li><a href="eventos.php?status=Aberto">Eventos para check-in</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-shopping-bag"></i> Pedidos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="pedidos.php">Itens</a></li>
+                                          <li><a href="pedido_tipos.php">Tipos de item</a></li>
+                                          <li><a href="novo_pedido_item.php">Novo item</a></li>
+                                          <li><a href="novo_pedido_membro.php">Novo pedido</a></li>
+                                          <li><a href="pedidos_membro.php">Pedidos por membro</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-cubes"></i> Patrimonio <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="patrimonio_dashboard.php">Dashboard</a></li>
+                                          <li><a href="patrimonio_itens.php">Itens</a></li>
+                                          <li><a href="novo_patrimonio.php">Novo item</a></li>
+                                          <li><a href="patrimonio_emprestimos.php">Emprestimos</a></li>
+                                          <li><a href="patrimonio_manutencoes.php">Manutencoes</a></li>
+                                          <li><a href="patrimonio_relatorios.php">Relatorios</a></li>
+                                          <li><a href="patrimonio_categorias.php">Categorias</a></li>
+                                          <li><a href="patrimonio_locais.php">Locais</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-flag"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="bases.php">Bases</a></li>
+                                          <li><a href="cargos.php">Cargos</a></li>
+                                          <li><a href="fases_membro.php">Fases do membro</a></li>
+                                          <li><a href="artes_aniversario.php">Artes de aniversario</a></li>
+                                          <li><a href="usuarios.php">Usuarios</a></li>
+                                          <li><a href="perfis.php">Perfis</a></li>
+                                          <li><a href="parametrizacoes.php">Parametrizacoes</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-bar-chart"></i> Relatorios <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="relatorios.php">Central de relatorios</a></li>
+                                          <li><a href="relatorio_eventos_ano.php">Eventos por ano</a></li>
+                                          <li><a href="relatorio_ranking_presenca.php">Ranking de presenca</a></li>
+                                      </ul>
+                </li>
+                          </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-footer hidden-small">
+                      <a data-toggle="tooltip" data-placement="top" title="Configuracoes" href="parametrizacoes.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                    <a data-toggle="tooltip" data-placement="top" title="Tela cheia"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Bloquear"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Sair" href="logout.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="top_nav">
+      <div class="nav_menu">
+        <nav>
+          <div class="nav toggle">
+            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                  <span class="user-avatar-sm">MC</span>
+                                Administrador                <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-usermenu pull-right">
+                <li><a href="dashboard.php">Dashboard</a></li>
+                <li><a href="javascript:void(0);"><span>Superadministrador</span></a></li>
+                <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="right_col" role="main">
+<div class="page-title">
+  <div class="title_left"><h3>Membros <small>cadastro e acompanhamento</small></h3></div>
+  <div class="title_right text-right">
+    <a class="btn btn-success" href="novo_membro.php"><i class="fa fa-user-plus"></i> Novo membro</a>
+  </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="x_panel">
+  <div class="x_title">
+    <h2>Filtros <small>busca e segmentacao</small></h2>
+    <div class="clearfix"></div>
+  </div>
+  <div class="x_content">
+    <form method="get" class="row">
+      <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+        <label>Buscar</label>
+        <input class="form-control" name="busca" value="" placeholder="Nome, apelido, telefone, e-mail, base ou cargo">
+      </div>
+
+      <div class="col-md-2 col-sm-6 col-xs-12 form-group">
+        <label>Status</label>
+        <select class="form-control" name="status">
+                      <option value="Todos" selected>
+              Todos            </option>
+                      <option value="Ativo" >
+              Ativo            </option>
+                      <option value="Prospect" >
+              Prospect            </option>
+                      <option value="Afastado" >
+              Afastado            </option>
+                      <option value="Desligado" >
+              Desligado            </option>
+                      <option value="Inativo" >
+              Inativo            </option>
+                  </select>
+      </div>
+
+      <div class="col-md-2 col-sm-6 col-xs-12 form-group">
+        <label>Base</label>
+        <select class="form-control" name="id_base">
+          <option value="0">Todas</option>
+                      <option value="3" >
+              APARECIDA DE GOIÂNIA            </option>
+                      <option value="5" >
+              BELÉM            </option>
+                      <option value="6" >
+              BRASÍLIA            </option>
+                      <option value="7" >
+              CARUARU            </option>
+                      <option value="8" >
+              CURITIBA            </option>
+                      <option value="9" >
+              FAXINAL            </option>
+                      <option value="10" >
+              GOIANÉSIA            </option>
+                      <option value="4" >
+              GOIÂNIA            </option>
+                      <option value="11" >
+              IVAIPORÃ            </option>
+                      <option value="24" >
+              JABOATÃO            </option>
+                      <option value="13" >
+              MANAUS            </option>
+                      <option value="14" >
+              MARINGÁ            </option>
+                      <option value="15" >
+              NATAL            </option>
+                      <option value="1" >
+              PALMAS            </option>
+                      <option value="17" >
+              PAULISTA            </option>
+                      <option value="18" >
+              RECIFE            </option>
+                      <option value="2" >
+              REP. PORTO NACIONAL            </option>
+                      <option value="23" >
+              REPRESENTAÇÃO AFOGADOS DA INGAZEIRA            </option>
+                      <option value="22" >
+              REPRESENTAÇÃO EUSÉBIO            </option>
+                      <option value="26" >
+              REPRESENTAÇÃO GARANHUNS            </option>
+                      <option value="27" >
+              REPRESENTAÇÃO GOIANA            </option>
+                      <option value="12" >
+              REPRESENTAÇÃO JOÃO PESSOA            </option>
+                      <option value="30" >
+              REPRESENTAÇÃO JUAZEIRO DO NORTE            </option>
+                      <option value="28" >
+              REPRESENTAÇÃO MONTEIRO            </option>
+                      <option value="29" >
+              REPRESENTAÇÃO PETROLINA            </option>
+                      <option value="19" >
+              REPRESENTAÇÃO SALVADOR            </option>
+                      <option value="25" >
+              SÃO BENTO DO SUL            </option>
+                      <option value="20" >
+              SÃO PAULO            </option>
+                      <option value="21" >
+              TELÊMACO BORBA            </option>
+                  </select>
+      </div>
+
+      <div class="col-md-2 col-sm-6 col-xs-12 form-group">
+        <label>Cargo</label>
+        <select class="form-control" name="id_cargo">
+          <option value="0">Todos</option>
+                      <option value="8" >
+              Alfa 1            </option>
+                      <option value="14" >
+              Capelania            </option>
+                      <option value="12" >
+              Dependente            </option>
+                      <option value="1" >
+              Diretor de Base            </option>
+                      <option value="11" >
+              Diretor de Logística            </option>
+                      <option value="6" >
+              Diretor Financeiro            </option>
+                      <option value="13" >
+              Diretor Regional            </option>
+                      <option value="10" >
+              Diretor Social            </option>
+                      <option value="3" >
+              Membro            </option>
+                      <option value="9" >
+              Pastor            </option>
+                      <option value="4" >
+              Prospect            </option>
+                      <option value="7" >
+              Sargento de Armas            </option>
+                      <option value="5" >
+              Secretário            </option>
+                      <option value="2" >
+              Vice Diretor de Base            </option>
+                  </select>
+      </div>
+
+      <div class="col-md-2 col-sm-6 col-xs-12 form-group mc-filter-actions">
+        <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> Filtrar</button>
+        <a class="btn btn-default" href="membros.php"><i class="fa fa-eraser"></i> Limpar</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="x_panel">
+  <div class="x_title">
+    <h2>Lista de membros <small>total: 31</small></h2>
+    <div class="clearfix"></div>
+  </div>
+  <div class="x_content table-responsive">
+    <table class="table table-striped jambo_table mc-responsive-table mc-members-table">
+      <thead><tr><th>Nome</th><th>Telefone</th><th>Base</th><th>Cargo</th><th>Status</th><th>Entrada</th><th>Acoes</th></tr></thead>
+      <tbody>
+                                    <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_19_1781025387.png" class="mc-member-photo" alt="Adeilane Reis">
+                                <span>
+                  <strong>Adeilane Reis</strong>
+                  <small>Adeilane</small>                  <small><span class="label label-info">Dependente</span></small>                </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Dependente</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">15/11/2017</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=19"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=19"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_35_1781025398.png" class="mc-member-photo" alt="Adriano">
+                                <span>
+                  <strong>Adriano</strong>
+                  <small>Adriano</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">REP. PORTO NACIONAL</td>
+            <td data-label="Cargo">Membro</td>
+            <td data-label="Status"><span class="label label-default">Inativo</span></td>
+            <td data-label="Entrada">25/04/2023</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=35"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=35"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_13_1781010074.png" class="mc-member-photo" alt="Alexandre Florentino Ferreira">
+                                <span>
+                  <strong>Alexandre Florentino Ferreira</strong>
+                  <small>Alexandre</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">REP. PORTO NACIONAL</td>
+            <td data-label="Cargo">Membro</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">04/11/2024</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=13"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=13"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_28_1781185603.png" class="mc-member-photo" alt="Algemiro">
+                                <span>
+                  <strong>Algemiro</strong>
+                  <small>Algemiro</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Membro</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">01/01/2016</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=28"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=28"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_26_1781185948.png" class="mc-member-photo" alt="Antônio Rodrigues Rocha Neto">
+                                <span>
+                  <strong>Antônio Rodrigues Rocha Neto</strong>
+                  <small>Casebre</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Membro</td>
+            <td data-label="Status"><span class="label label-default">Inativo</span></td>
+            <td data-label="Entrada">22/04/2023</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=26"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=26"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_7_1781187515.png" class="mc-member-photo" alt="Antônio Soares Júnior">
+                                <span>
+                  <strong>Antônio Soares Júnior</strong>
+                  <small>Soares</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Diretor Financeiro</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">11/04/2017</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=7"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=7"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_31_1781817398.png" class="mc-member-photo" alt="Betânia">
+                                <span>
+                  <strong>Betânia</strong>
+                  <small>Betânia</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Membro</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">01/01/2016</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=31"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=31"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <span class="mc-member-photo-empty"><i class="fa fa-user"></i></span>
+                                <span>
+                  <strong>Davi</strong>
+                  <small>Davi</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Membro</td>
+            <td data-label="Status"><span class="label label-default">Inativo</span></td>
+            <td data-label="Entrada">01/01/2017</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=39"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=39"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_12_1781025435.png" class="mc-member-photo" alt="Eber Miranda de Sousa">
+                                <span>
+                  <strong>Eber Miranda de Sousa</strong>
+                  <small>Pr. Eber</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Pastor</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">10/02/2018</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=12"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=12"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_29_1785004926.png" class="mc-member-photo" alt="Erika Silper">
+                                <span>
+                  <strong>Erika Silper</strong>
+                  <small>Erica</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Membro</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">12/11/2019</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=29"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=29"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_32_1785337242.png" class="mc-member-photo" alt="Fabio">
+                                <span>
+                  <strong>Fabio</strong>
+                  <small>Fabio</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Membro</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">12/01/2018</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=32"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=32"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_5_1781263845.png" class="mc-member-photo" alt="Fernando Lucas Alves de Araújo">
+                                <span>
+                  <strong>Fernando Lucas Alves de Araújo</strong>
+                  <small>Capl. Fernando</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Diretor de Base</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">12/11/2019</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=5"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=5"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_42_1781186076.png" class="mc-member-photo" alt="Francisco das Chagas Soares Lopes Ribeiros da Silva">
+                                <span>
+                  <strong>Francisco das Chagas Soares Lopes Ribeiros da Silva</strong>
+                  <small>Lopes</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Membro</td>
+            <td data-label="Status"><span class="label label-default">Inativo</span></td>
+            <td data-label="Entrada"></td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=42"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=42"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_20_1781188434.png" class="mc-member-photo" alt="Gildenor Pereira Barros Junior">
+                                <span>
+                  <strong>Gildenor Pereira Barros Junior</strong>
+                  <small>Guerriro</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Membro</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">13/08/2016</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=20"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=20"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_8_1781187624.png" class="mc-member-photo" alt="Heráclito Botelho Toscano Barreto Junior">
+                                <span>
+                  <strong>Heráclito Botelho Toscano Barreto Junior</strong>
+                  <small>Toscano</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Secretário</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">28/04/2023</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=8"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=8"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_27_1781188230.png" class="mc-member-photo" alt="Ildson Oliveira de Lima">
+                                <span>
+                  <strong>Ildson Oliveira de Lima</strong>
+                  <small>Ildson</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Diretor Regional</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">28/05/2014</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=27"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=27"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <span class="mc-member-photo-empty"><i class="fa fa-user"></i></span>
+                                <span>
+                  <strong>Jaime Pereira Filho</strong>
+                  <small>Jaime</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">REP. PORTO NACIONAL</td>
+            <td data-label="Cargo">Membro</td>
+            <td data-label="Status"><span class="label label-default">Inativo</span></td>
+            <td data-label="Entrada">14/04/2022</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=21"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=21"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <span class="mc-member-photo-empty"><i class="fa fa-user"></i></span>
+                                <span>
+                  <strong>Jales</strong>
+                  <small>Jales</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Prospect</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">01/07/2026</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=43"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=43"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_10_1781187343.png" class="mc-member-photo" alt="João Adolfo de Abreu Guimarães">
+                                <span>
+                  <strong>João Adolfo de Abreu Guimarães</strong>
+                  <small>João</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone"></td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Diretor de Logística</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">22/04/2023</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=10"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=10"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+                            <tr>
+            <td data-label="Nome">
+              <div class="mc-member-name-cell">
+                                  <img src="uploads/membros/membro_6_1781008349.jpeg" class="mc-member-photo" alt="John Dalto Alves de Sousa">
+                                <span>
+                  <strong>John Dalto Alves de Sousa</strong>
+                  <small>John</small>                                  </span>
+              </div>
+            </td>
+            <td data-label="Telefone">63984475897</td>
+            <td data-label="Base">PALMAS</td>
+            <td data-label="Cargo">Vice Diretor de Base</td>
+            <td data-label="Status"><span class="label label-success">Ativo</span></td>
+            <td data-label="Entrada">28/12/2018</td>
+            <td data-label="Acoes" class="mc-table-actions-cell">
+              <div class="mc-member-actions">
+              <a class="btn btn-info btn-xs" href="perfil_membro.php?id=6"><i class="fa fa-id-card"></i> Perfil</a>
+              <a class="btn btn-primary btn-xs" href="editar_membro.php?id=6"><i class="fa fa-edit"></i> Editar</a>
+                                          </div>
+            </td>
+          </tr>
+              </tbody>
+    </table>
+    <div class="mc-pagination"><div class="mc-pagination-summary">Mostrando 1-20 de 31</div><div class="mc-pagination-controls"><a class="btn btn-default btn-sm disabled" href="?pagina=1"><i class="fa fa-angle-left"></i></a><a class="btn btn-success btn-sm" href="?pagina=1">1</a><a class="btn btn-default btn-sm" href="?pagina=2">2</a><a class="btn btn-default btn-sm " href="?pagina=2"><i class="fa fa-angle-right"></i></a></div><form class="mc-pagination-size" method="get"><input type="hidden" name="pagina" value="1"><label>Por pagina</label><select name="por_pagina" class="form-control input-sm" onchange="this.form.submit()"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option><option value="100">100</option></select></form></div>  </div>
+</div>
+        </div>
+        <footer>
+            <div class="pull-right">
+                Motoclub Presenca 2.0            </div>
+            <div class="clearfix"></div>
+        </footer>
+      </div>
+    </div>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendors/fastclick/lib/fastclick.js"></script>
+<script src="vendors/nprogress/nprogress.js"></script>
+<script src="vendors/select2/dist/js/select2.full.min.js"></script>
+<script src="build/js/custom.min.js"></script>
+<script src="assets/js/app.js?v=1785509576"></script>
+</body>
+</html>

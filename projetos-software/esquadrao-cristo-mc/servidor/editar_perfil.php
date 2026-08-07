@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editar Perfil | Motoclub Presenca</title>
+    <link rel="icon" type="image/png" href="assets/images/motoclub-icon.png">
+    <link rel="apple-touch-icon" href="assets/images/motoclub-icon.png">
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="build/css/custom.min.css" rel="stylesheet">
+    <link href="assets/css/app.css?v=1785509576" rel="stylesheet">
+            <!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8358C7G"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MZR8358C7G');
+</script>
+</head>
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <div class="col-md-3 left_col">
+      <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+          <a href="dashboard.php" class="site_title"><i class="fa fa-shield"></i> <span>MC 2.0</span></a>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="profile clearfix">
+          <div class="profile_pic">
+                          <div class="profile_initials">MC</div>
+                      </div>
+          <div class="profile_info">
+            <span>Bem-vindo,</span>
+            <h2>Administrador</h2>
+            <small>Todas as bases</small>
+          </div>
+        </div>
+
+        <br>
+
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          <div class="menu_section">
+            <h3>Menu</h3>
+            <ul class="nav side-menu">
+                              <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                                            <li><a><i class="fa fa-users"></i> Membros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="membros.php">Listar membros</a></li>
+                                          <li><a href="novo_membro.php">Novo membro</a></li>
+                                          <li><a href="prospects.php">Prospects</a></li>
+                                          <li><a href="diretoria.php">Diretoria</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-calendar"></i> Eventos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="eventos.php">Listar eventos</a></li>
+                                          <li><a href="novo_evento.php">Novo evento</a></li>
+                                          <li><a href="mural_eventos.php">Mural de eventos</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-check-square-o"></i> Presencas <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="presencas.php">Resumo de presencas</a></li>
+                                          <li><a href="eventos.php?status=Aberto">Eventos para check-in</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-shopping-bag"></i> Pedidos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="pedidos.php">Itens</a></li>
+                                          <li><a href="pedido_tipos.php">Tipos de item</a></li>
+                                          <li><a href="novo_pedido_item.php">Novo item</a></li>
+                                          <li><a href="novo_pedido_membro.php">Novo pedido</a></li>
+                                          <li><a href="pedidos_membro.php">Pedidos por membro</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-cubes"></i> Patrimonio <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="patrimonio_dashboard.php">Dashboard</a></li>
+                                          <li><a href="patrimonio_itens.php">Itens</a></li>
+                                          <li><a href="novo_patrimonio.php">Novo item</a></li>
+                                          <li><a href="patrimonio_emprestimos.php">Emprestimos</a></li>
+                                          <li><a href="patrimonio_manutencoes.php">Manutencoes</a></li>
+                                          <li><a href="patrimonio_relatorios.php">Relatorios</a></li>
+                                          <li><a href="patrimonio_categorias.php">Categorias</a></li>
+                                          <li><a href="patrimonio_locais.php">Locais</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-flag"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="bases.php">Bases</a></li>
+                                          <li><a href="cargos.php">Cargos</a></li>
+                                          <li><a href="fases_membro.php">Fases do membro</a></li>
+                                          <li><a href="artes_aniversario.php">Artes de aniversario</a></li>
+                                          <li><a href="usuarios.php">Usuarios</a></li>
+                                          <li><a href="perfis.php">Perfis</a></li>
+                                          <li><a href="parametrizacoes.php">Parametrizacoes</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-bar-chart"></i> Relatorios <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="relatorios.php">Central de relatorios</a></li>
+                                          <li><a href="relatorio_eventos_ano.php">Eventos por ano</a></li>
+                                          <li><a href="relatorio_ranking_presenca.php">Ranking de presenca</a></li>
+                                      </ul>
+                </li>
+                          </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-footer hidden-small">
+                      <a data-toggle="tooltip" data-placement="top" title="Configuracoes" href="parametrizacoes.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                    <a data-toggle="tooltip" data-placement="top" title="Tela cheia"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Bloquear"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Sair" href="logout.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="top_nav">
+      <div class="nav_menu">
+        <nav>
+          <div class="nav toggle">
+            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                  <span class="user-avatar-sm">MC</span>
+                                Administrador                <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-usermenu pull-right">
+                <li><a href="dashboard.php">Dashboard</a></li>
+                <li><a href="javascript:void(0);"><span>Superadministrador</span></a></li>
+                <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="right_col" role="main">
+<div class="page-title">
+  <div class="title_left"><h3>Editar perfil <small>Administrador</small></h3></div>
+  <div class="title_right text-right"><a class="btn btn-default" href="perfis.php"><i class="fa fa-arrow-left"></i> Voltar</a></div>
+</div>
+<div class="clearfix"></div>
+
+<div class="x_panel">
+  <div class="x_title"><h2>Dados do perfil</h2><div class="clearfix"></div></div>
+  <div class="x_content">
+    <form method="post">
+      <div class="row">
+        <div class="col-md-6 col-sm-12 form-group"><label>Nome *</label><input type="text" name="nome" class="form-control" required value="Administrador"></div>
+        <div class="col-md-6 col-sm-12 form-group"><label>Status</label><select name="status" class="form-control"><option value="Ativo" selected>Ativo</option><option value="Inativo" >Inativo</option></select></div>
+        <div class="col-md-12 col-sm-12 form-group"><label>Descricao</label><input type="text" name="descricao" class="form-control" value="Acesso total a todas as telas, inclusive paginas novas."></div>
+        <div class="col-md-12 col-sm-12 form-group">
+          <label><input type="checkbox" name="administrador" value="1" checked> Acesso total a todas as telas, inclusive novas paginas</label>
+        </div>
+      </div>
+
+      <div class="ln_solid"></div>
+      <h4>Telas liberadas</h4>
+      <div class="row">
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="relatorio_eventos_analise.php" >
+                Analise de Eventos <small class="text-muted">(relatorio_eventos_analise.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="artes_aniversario.php" >
+                Artes de Aniversario <small class="text-muted">(artes_aniversario.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="relatorio_baixa_frequencia.php" >
+                Baixa Frequencia <small class="text-muted">(relatorio_baixa_frequencia.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="patrimonio_baixa.php" >
+                Baixa Patrimonial <small class="text-muted">(patrimonio_baixa.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="bases.php" >
+                Bases <small class="text-muted">(bases.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="cargos.php" >
+                Cargos <small class="text-muted">(cargos.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="cartao_aniversario.php" >
+                Cartao de Aniversario <small class="text-muted">(cartao_aniversario.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="patrimonio_categorias.php" >
+                Categorias Patrimoniais <small class="text-muted">(patrimonio_categorias.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="central_pedidos.php" >
+                Central de Pedidos <small class="text-muted">(central_pedidos.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="checkin_evento.php" >
+                Check-in do Evento <small class="text-muted">(checkin_evento.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="pedidos_dashboard.php" >
+                Dashboard - Pedidos <small class="text-muted">(pedidos_dashboard.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="dashboard.php" >
+                Dashboard Executivo <small class="text-muted">(dashboard.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="patrimonio_dashboard.php" >
+                Dashboard Patrimonial <small class="text-muted">(patrimonio_dashboard.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="deletar_modelo.php" >
+                Deletar Modelo <small class="text-muted">(deletar_modelo.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="detalhe_presenca_membro.php" >
+                Detalhe de Presenca <small class="text-muted">(detalhe_presenca_membro.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="patrimonio_item.php" >
+                Detalhes do Patrimonio <small class="text-muted">(patrimonio_item.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="diretoria.php" >
+                Diretoria <small class="text-muted">(diretoria.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="diretoria_mandato.php" >
+                Diretoria Mandato <small class="text-muted">(diretoria_mandato.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="editar_base.php" >
+                Editar Base <small class="text-muted">(editar_base.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="editar_cargo.php" >
+                Editar Cargo <small class="text-muted">(editar_cargo.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="editar_evento.php" >
+                Editar Evento <small class="text-muted">(editar_evento.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="editar_pedido_item.php" >
+                Editar Item <small class="text-muted">(editar_pedido_item.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="editar_membro.php" >
+                Editar Membro <small class="text-muted">(editar_membro.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="editar_patrimonio.php" >
+                Editar Patrimonio <small class="text-muted">(editar_patrimonio.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="editar_perfil.php" >
+                Editar Perfil <small class="text-muted">(editar_perfil.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="editar_usuario.php" >
+                Editar Usuario <small class="text-muted">(editar_usuario.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="patrimonio_emprestimos.php" >
+                Emprestimos Patrimoniais <small class="text-muted">(patrimonio_emprestimos.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="eventos.php" >
+                Eventos <small class="text-muted">(eventos.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="relatorio_eventos_ano.php" >
+                Eventos por Ano <small class="text-muted">(relatorio_eventos_ano.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="relatorio_eventos_base.php" >
+                Eventos por Base <small class="text-muted">(relatorio_eventos_base.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="fases_membro.php" >
+                Fases do Membro <small class="text-muted">(fases_membro.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="financeiro.php" >
+                Financeiro <small class="text-muted">(financeiro.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="financeiro_membro.php" >
+                Financeiro do Membro <small class="text-muted">(financeiro_membro.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="gerar_mensagem_aniversario.php" >
+                Gerar Mensagem Aniversario <small class="text-muted">(gerar_mensagem_aniversario.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="pedidos.php" >
+                Itens de Pedidos <small class="text-muted">(pedidos.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="patrimonio_itens.php" >
+                Itens Patrimoniais <small class="text-muted">(patrimonio_itens.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="patrimonio_locais.php" >
+                Locais Patrimoniais <small class="text-muted">(patrimonio_locais.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="patrimonio_manutencoes.php" >
+                Manutencoes Patrimoniais <small class="text-muted">(patrimonio_manutencoes.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="membros.php" >
+                Membros <small class="text-muted">(membros.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="patrimonio_movimentacao.php" >
+                Movimentacao Patrimonial <small class="text-muted">(patrimonio_movimentacao.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="nova_base.php" >
+                Nova Base <small class="text-muted">(nova_base.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="novo_cargo.php" >
+                Novo Cargo <small class="text-muted">(novo_cargo.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="novo_evento.php" >
+                Novo Evento <small class="text-muted">(novo_evento.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="novo_pedido_item.php" >
+                Novo Item de Pedido <small class="text-muted">(novo_pedido_item.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="novo_mandato_diretoria.php" >
+                Novo mandato <small class="text-muted">(novo_mandato_diretoria.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="novo_membro.php" >
+                Novo Membro <small class="text-muted">(novo_membro.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="novo_patrimonio.php" >
+                Novo Patrimonio <small class="text-muted">(novo_patrimonio.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="novo_pedido_membro.php" >
+                Novo Pedido Membro <small class="text-muted">(novo_pedido_membro.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="novo_perfil.php" >
+                Novo Perfil <small class="text-muted">(novo_perfil.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="novo_usuario.php" >
+                Novo Usuario <small class="text-muted">(novo_usuario.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="parametrizacoes.php" >
+                Parametrizacoes <small class="text-muted">(parametrizacoes.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="patrimonio_arquivo.php" >
+                Patrimonio Arquivo <small class="text-muted">(patrimonio_arquivo.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="ver_pedido_membro.php" >
+                Pedido # <small class="text-muted">(ver_pedido_membro.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="pedido_acao.php" >
+                Pedido Acao <small class="text-muted">(pedido_acao.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="pedidos_membro.php" >
+                Pedidos Membro <small class="text-muted">(pedidos_membro.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="perfil_membro.php" >
+                Perfil do Membro <small class="text-muted">(perfil_membro.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="perfis.php" >
+                Perfis <small class="text-muted">(perfis.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="financeiro_planos.php" >
+                Planos de Pagamento <small class="text-muted">(financeiro_planos.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="reconhecimento_presenca.php" >
+                Pre-marcar por Foto <small class="text-muted">(reconhecimento_presenca.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="presenca_evento.php" >
+                Presenca do Evento <small class="text-muted">(presenca_evento.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="presencas.php" >
+                Presencas <small class="text-muted">(presencas.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="prospects.php" >
+                Prospects <small class="text-muted">(prospects.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="relatorio_ranking_presenca.php" >
+                Ranking de Frequencia <small class="text-muted">(relatorio_ranking_presenca.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="relatorios.php" >
+                Relatorios <small class="text-muted">(relatorios.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="patrimonio_relatorios.php" >
+                Relatorios Patrimoniais <small class="text-muted">(patrimonio_relatorios.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="patrimonio_termo_emprestimo.php" >
+                Termo de Emprestimo <small class="text-muted">(patrimonio_termo_emprestimo.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="pedido_tipos.php" >
+                Tipos de Item <small class="text-muted">(pedido_tipos.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="patrimonio_transferencia.php" >
+                Transferencia Patrimonial <small class="text-muted">(patrimonio_transferencia.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="usuarios.php" >
+                Usuarios <small class="text-muted">(usuarios.php)</small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="paginas[]" value="ver_pedido_item.php" >
+                Ver Pedido Item <small class="text-muted">(ver_pedido_item.php)</small>
+              </label>
+            </div>
+          </div>
+              </div>
+
+      <div class="ln_solid"></div>
+      <h4>Usuarios deste perfil</h4>
+      <div class="row">
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="usuarios[]" value="1" >
+                Administrador                <small class="text-muted">
+                  (admin - atual: Superadministrador)
+                </small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="usuarios[]" value="4" >
+                Cliente                <small class="text-muted">
+                  (Cliente - atual: Usuário)
+                </small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="usuarios[]" value="3" checked>
+                Fernando                <small class="text-muted">
+                  (fernando - atual: Administrador)
+                </small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="usuarios[]" value="2" >
+                John Dalto Alves de Sousa                <small class="text-muted">
+                  (john.sousa - atual: Superadministrador)
+                </small>
+              </label>
+            </div>
+          </div>
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="usuarios[]" value="5" >
+                Myller Ferreira                <small class="text-muted">
+                  (myller - atual: Superadministrador)
+                </small>
+              </label>
+            </div>
+          </div>
+              </div>
+
+      <div class="ln_solid"></div>
+      <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Salvar alteracoes</button>
+      <a href="perfis.php" class="btn btn-default">Cancelar</a>
+    </form>
+  </div>
+</div>
+        </div>
+        <footer>
+            <div class="pull-right">
+                Motoclub Presenca 2.0            </div>
+            <div class="clearfix"></div>
+        </footer>
+      </div>
+    </div>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendors/fastclick/lib/fastclick.js"></script>
+<script src="vendors/nprogress/nprogress.js"></script>
+<script src="vendors/select2/dist/js/select2.full.min.js"></script>
+<script src="build/js/custom.min.js"></script>
+<script src="assets/js/app.js?v=1785509576"></script>
+</body>
+</html>

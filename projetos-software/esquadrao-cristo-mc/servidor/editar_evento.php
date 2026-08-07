@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editar Evento | Motoclub Presenca</title>
+    <link rel="icon" type="image/png" href="assets/images/motoclub-icon.png">
+    <link rel="apple-touch-icon" href="assets/images/motoclub-icon.png">
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="build/css/custom.min.css" rel="stylesheet">
+    <link href="assets/css/app.css?v=1785509576" rel="stylesheet">
+            <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
+        <style>
+    #mapa_evento {
+        width: 100%;
+        height: 360px;
+        border: 1px solid #E6E9ED;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .mc-help-box {
+        margin-bottom: 10px;
+        padding: 12px;
+        color: #73879C;
+        background: #F5F7FA;
+        border: 1px solid #E6E9ED;
+        border-radius: 4px;
+    }
+
+    .mc-help-box strong {
+        color: #34495E;
+    }
+
+    .mc-event-photo-preview {
+        width: 220px;
+        max-width: 100%;
+        max-height: 160px;
+        object-fit: cover;
+        margin-top: 10px;
+        border: 1px solid #E6E9ED;
+        border-radius: 4px;
+    }
+
+    .mc-drive-preview {
+        overflow: hidden;
+        background: #F5F7FA;
+        border: 1px solid #E6E9ED;
+        border-radius: 4px;
+    }
+
+    .mc-drive-preview iframe {
+        width: 100%;
+        height: 480px;
+        border: 0;
+        background: #fff;
+    }
+
+    @media (max-width: 767px) {
+        #mapa_evento {
+            height: 320px;
+        }
+
+        .mc-drive-preview iframe {
+            height: 340px;
+        }
+    }
+</style>    <!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8358C7G"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MZR8358C7G');
+</script>
+</head>
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <div class="col-md-3 left_col">
+      <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+          <a href="dashboard.php" class="site_title"><i class="fa fa-shield"></i> <span>MC 2.0</span></a>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="profile clearfix">
+          <div class="profile_pic">
+                          <div class="profile_initials">MC</div>
+                      </div>
+          <div class="profile_info">
+            <span>Bem-vindo,</span>
+            <h2>Administrador</h2>
+            <small>Todas as bases</small>
+          </div>
+        </div>
+
+        <br>
+
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          <div class="menu_section">
+            <h3>Menu</h3>
+            <ul class="nav side-menu">
+                              <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                                            <li><a><i class="fa fa-users"></i> Membros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="membros.php">Listar membros</a></li>
+                                          <li><a href="novo_membro.php">Novo membro</a></li>
+                                          <li><a href="prospects.php">Prospects</a></li>
+                                          <li><a href="diretoria.php">Diretoria</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-calendar"></i> Eventos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="eventos.php">Listar eventos</a></li>
+                                          <li><a href="novo_evento.php">Novo evento</a></li>
+                                          <li><a href="mural_eventos.php">Mural de eventos</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-check-square-o"></i> Presencas <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="presencas.php">Resumo de presencas</a></li>
+                                          <li><a href="eventos.php?status=Aberto">Eventos para check-in</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-shopping-bag"></i> Pedidos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="pedidos.php">Itens</a></li>
+                                          <li><a href="pedido_tipos.php">Tipos de item</a></li>
+                                          <li><a href="novo_pedido_item.php">Novo item</a></li>
+                                          <li><a href="novo_pedido_membro.php">Novo pedido</a></li>
+                                          <li><a href="pedidos_membro.php">Pedidos por membro</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-cubes"></i> Patrimonio <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="patrimonio_dashboard.php">Dashboard</a></li>
+                                          <li><a href="patrimonio_itens.php">Itens</a></li>
+                                          <li><a href="novo_patrimonio.php">Novo item</a></li>
+                                          <li><a href="patrimonio_emprestimos.php">Emprestimos</a></li>
+                                          <li><a href="patrimonio_manutencoes.php">Manutencoes</a></li>
+                                          <li><a href="patrimonio_relatorios.php">Relatorios</a></li>
+                                          <li><a href="patrimonio_categorias.php">Categorias</a></li>
+                                          <li><a href="patrimonio_locais.php">Locais</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-flag"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="bases.php">Bases</a></li>
+                                          <li><a href="cargos.php">Cargos</a></li>
+                                          <li><a href="fases_membro.php">Fases do membro</a></li>
+                                          <li><a href="artes_aniversario.php">Artes de aniversario</a></li>
+                                          <li><a href="usuarios.php">Usuarios</a></li>
+                                          <li><a href="perfis.php">Perfis</a></li>
+                                          <li><a href="parametrizacoes.php">Parametrizacoes</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-bar-chart"></i> Relatorios <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="relatorios.php">Central de relatorios</a></li>
+                                          <li><a href="relatorio_eventos_ano.php">Eventos por ano</a></li>
+                                          <li><a href="relatorio_ranking_presenca.php">Ranking de presenca</a></li>
+                                      </ul>
+                </li>
+                          </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-footer hidden-small">
+                      <a data-toggle="tooltip" data-placement="top" title="Configuracoes" href="parametrizacoes.php"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                    <a data-toggle="tooltip" data-placement="top" title="Tela cheia"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Bloquear"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Sair" href="logout.php"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="top_nav">
+      <div class="nav_menu">
+        <nav>
+          <div class="nav toggle">
+            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                  <span class="user-avatar-sm">MC</span>
+                                Administrador                <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-usermenu pull-right">
+                <li><a href="dashboard.php">Dashboard</a></li>
+                <li><a href="javascript:void(0);"><span>Superadministrador</span></a></li>
+                <li><a href="logout.php"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="right_col" role="main">
+
+<div class="page-title">
+    <div class="title_left">
+        <h3><i class="fa fa-pencil"></i> Editar Evento</h3>
+    </div>
+    <div class="title_right text-right">
+        <a href="eventos.php" class="btn btn-default">
+            <i class="fa fa-arrow-left"></i> Voltar
+        </a>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+
+<form method="post" action="editar_evento.php?id=71" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Dados do evento <small>informacoes principais</small></h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                            <label>Nome do Evento *</label>
+                            <input type="text" name="nome" class="form-control" required value="ANIVERSÁRIO ÁGUIAS DE HAASTS MC">
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12 form-group">
+                            <label>Tipo do Evento *</label>
+                            <select name="id_tipo_evento" class="form-control" required>
+                                <option value="">Selecione</option>
+                                                                    <option value="6" >
+                                        Ação Social                                    </option>
+                                                                    <option value="5" selected>
+                                        Aniversário                                    </option>
+                                                                    <option value="15" >
+                                        Café                                    </option>
+                                                                    <option value="14" >
+                                        Comemorativo                                    </option>
+                                                                    <option value="13" >
+                                        Confraternização                                    </option>
+                                                                    <option value="12" >
+                                        Desfile                                    </option>
+                                                                    <option value="9" >
+                                        Encontro                                    </option>
+                                                                    <option value="10" >
+                                        Inauguração                                    </option>
+                                                                    <option value="11" >
+                                        Moto Rock                                    </option>
+                                                                    <option value="2" >
+                                        Motoculto                                    </option>
+                                                                    <option value="16" >
+                                        Oração                                    </option>
+                                                                    <option value="7" >
+                                        Outro                                    </option>
+                                                                    <option value="4" >
+                                        Passeio                                    </option>
+                                                                    <option value="8" >
+                                        Quinta Biker                                    </option>
+                                                                    <option value="1" >
+                                        R.O.D.A                                    </option>
+                                                                    <option value="3" >
+                                        Reunião                                    </option>
+                                                                    <option value="17" >
+                                        Treinamento                                    </option>
+                                                            </select>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12 form-group">
+                            <label>Base Responsavel *</label>
+                            <select name="id_base" class="form-control" required>
+                                <option value="">Selecione</option>
+                                                                    <option value="3" >
+                                        APARECIDA DE GOIÂNIA                                    </option>
+                                                                    <option value="5" >
+                                        BELÉM                                    </option>
+                                                                    <option value="6" >
+                                        BRASÍLIA                                    </option>
+                                                                    <option value="7" >
+                                        CARUARU                                    </option>
+                                                                    <option value="8" >
+                                        CURITIBA                                    </option>
+                                                                    <option value="9" >
+                                        FAXINAL                                    </option>
+                                                                    <option value="10" >
+                                        GOIANÉSIA                                    </option>
+                                                                    <option value="4" >
+                                        GOIÂNIA                                    </option>
+                                                                    <option value="11" >
+                                        IVAIPORÃ                                    </option>
+                                                                    <option value="24" >
+                                        JABOATÃO                                    </option>
+                                                                    <option value="13" >
+                                        MANAUS                                    </option>
+                                                                    <option value="14" >
+                                        MARINGÁ                                    </option>
+                                                                    <option value="15" >
+                                        NATAL                                    </option>
+                                                                    <option value="1" selected>
+                                        PALMAS                                    </option>
+                                                                    <option value="17" >
+                                        PAULISTA                                    </option>
+                                                                    <option value="18" >
+                                        RECIFE                                    </option>
+                                                                    <option value="2" >
+                                        REP. PORTO NACIONAL                                    </option>
+                                                                    <option value="23" >
+                                        REPRESENTAÇÃO AFOGADOS DA INGAZEIRA                                    </option>
+                                                                    <option value="22" >
+                                        REPRESENTAÇÃO EUSÉBIO                                    </option>
+                                                                    <option value="26" >
+                                        REPRESENTAÇÃO GARANHUNS                                    </option>
+                                                                    <option value="27" >
+                                        REPRESENTAÇÃO GOIANA                                    </option>
+                                                                    <option value="12" >
+                                        REPRESENTAÇÃO JOÃO PESSOA                                    </option>
+                                                                    <option value="30" >
+                                        REPRESENTAÇÃO JUAZEIRO DO NORTE                                    </option>
+                                                                    <option value="28" >
+                                        REPRESENTAÇÃO MONTEIRO                                    </option>
+                                                                    <option value="29" >
+                                        REPRESENTAÇÃO PETROLINA                                    </option>
+                                                                    <option value="19" >
+                                        REPRESENTAÇÃO SALVADOR                                    </option>
+                                                                    <option value="25" >
+                                        SÃO BENTO DO SUL                                    </option>
+                                                                    <option value="20" >
+                                        SÃO PAULO                                    </option>
+                                                                    <option value="21" >
+                                        TELÊMACO BORBA                                    </option>
+                                                            </select>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 form-group">
+                            <label>Data *</label>
+                            <input type="date" name="data_evento" class="form-control" required value="2026-08-08">
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 form-group">
+                            <label>Hora</label>
+                            <input type="time" name="hora_evento" class="form-control" value="">
+                        </div>
+
+                        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <label>Status</label>
+                            <select name="status" class="form-control">
+                                                                    <option value="Aberto" selected>
+                                        Aberto                                    </option>
+                                                                    <option value="Finalizado" >
+                                        Finalizado                                    </option>
+                                                                    <option value="Cancelado" >
+                                        Cancelado                                    </option>
+                                                            </select>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label>Evento Oficial?</label>
+                            <select name="evento_oficial" class="form-control">
+                                <option value="Sim" selected>Sim</option>
+                                <option value="N&atilde;o" >Nao</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label>Link Instagram</label>
+                            <input type="url" name="link_instagram" class="form-control" value="">
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label>Link Album Google Drive</label>
+                            <input type="url" name="link_google_drive" id="link_google_drive" class="form-control" value="" placeholder="https://drive.google.com/...">
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                            <label>Link YouTube</label>
+                            <input type="url" name="link_youtube" class="form-control" value="" placeholder="https://youtube.com/...">
+                        </div>
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                            <label>Local</label>
+                            <input type="text" name="local_evento" id="local_evento" class="form-control" value="" placeholder="Ex: Praca do Motociclista, Palmas - TO">
+                        </div>
+
+                        <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                            <label>Descricao / Observacao</label>
+                            <textarea name="descricao" class="form-control" rows="4">Evento de aniversário MC parceiro.</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Localizacao e check-in <small>ponto usado para validar proximidade</small></h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="mc-help-box">
+                        <strong>Como usar:</strong>
+                        pesquise o endereco ou clique no mapa para marcar o ponto do evento.
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-9 col-sm-12 col-xs-12 form-group">
+                            <input type="text" id="buscar_endereco" class="form-control" placeholder="Pesquisar endereco. Ex: Praca dos Girassois, Palmas TO">
+                        </div>
+                        <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                            <button type="button" class="btn btn-success btn-block" onclick="buscarEndereco()">
+                                <i class="fa fa-search"></i> Buscar no mapa
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="mapa_evento"></div>
+
+                    <div class="row" style="margin-top: 15px;">
+                        <div class="col-md-4 col-sm-6 col-xs-12 form-group">
+                            <label>Latitude</label>
+                            <input type="text" name="latitude_evento" id="latitude_evento" class="form-control" readonly value="">
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12 form-group">
+                            <label>Longitude</label>
+                            <input type="text" name="longitude_evento" id="longitude_evento" class="form-control" readonly value="">
+                        </div>
+
+                        <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                            <label>Raio do Check-in em metros</label>
+                            <input type="number" name="raio_checkin_metros" class="form-control" min="10" step="10" value="150">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Evidencia visual <small>foto usada no mural e check-in</small></h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="form-group">
+                        <label>Foto do Evento</label>
+                        <input type="file" name="foto_evento" class="form-control" accept=".jpg,.jpeg,.png,.webp">
+
+                                                    <img src="uploads/eventos/evento_71_1785876639.png" class="mc-event-photo-preview" alt="Foto atual">
+                                            </div>
+
+                    <div class="ln_solid"></div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-save"></i> Salvar Alteracoes
+                        </button>
+                        <a href="eventos.php" class="btn btn-default">
+                            <i class="fa fa-times"></i> Cancelar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+        </div>
+        <footer>
+            <div class="pull-right">
+                Motoclub Presenca 2.0            </div>
+            <div class="clearfix"></div>
+        </footer>
+      </div>
+    </div>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendors/fastclick/lib/fastclick.js"></script>
+<script src="vendors/nprogress/nprogress.js"></script>
+<script src="vendors/select2/dist/js/select2.full.min.js"></script>
+<script src="build/js/custom.min.js"></script>
+<script src="assets/js/app.js?v=1785509576"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+const latInicial = -10.1849;
+const lonInicial = -48.3336;
+const zoomInicial = 12;
+
+const mapa = L.map("mapa_evento").setView([latInicial, lonInicial], zoomInicial);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution: "&copy; OpenStreetMap"
+}).addTo(mapa);
+
+let marcador = null;
+const latitudeInput = document.getElementById("latitude_evento");
+const longitudeInput = document.getElementById("longitude_evento");
+
+function definirMarcador(lat, lon) {
+    latitudeInput.value = Number(lat).toFixed(8);
+    longitudeInput.value = Number(lon).toFixed(8);
+
+    if (marcador) {
+        marcador.setLatLng([lat, lon]);
+        return;
+    }
+
+    marcador = L.marker([lat, lon], { draggable: true }).addTo(mapa);
+    marcador.on("dragend", function(e) {
+        const pos = e.target.getLatLng();
+        latitudeInput.value = pos.lat.toFixed(8);
+        longitudeInput.value = pos.lng.toFixed(8);
+    });
+}
+
+if (latitudeInput.value && longitudeInput.value) {
+    definirMarcador(parseFloat(latitudeInput.value), parseFloat(longitudeInput.value));
+}
+
+mapa.on("click", function(e) {
+    definirMarcador(e.latlng.lat, e.latlng.lng);
+});
+
+function buscarEndereco() {
+    const termo = document.getElementById("buscar_endereco").value.trim();
+
+    if (!termo) {
+        alert("Digite um endereco para buscar.");
+        return;
+    }
+
+    fetch("https://nominatim.openstreetmap.org/search?format=json&q=" + encodeURIComponent(termo))
+        .then(response => response.json())
+        .then(data => {
+            if (!data || data.length === 0) {
+                alert("Endereco nao encontrado.");
+                return;
+            }
+
+            const lat = parseFloat(data[0].lat);
+            const lon = parseFloat(data[0].lon);
+
+            mapa.setView([lat, lon], 17);
+            definirMarcador(lat, lon);
+        })
+        .catch(() => {
+            alert("Nao foi possivel buscar o endereco agora.");
+        });
+}
+</script></body>
+</html>

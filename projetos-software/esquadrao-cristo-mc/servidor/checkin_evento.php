@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Check-in do Evento | Motoclub Presenca</title>
+    <link rel="icon" type="image/png" href="assets/images/motoclub-icon.png">
+    <link rel="apple-touch-icon" href="assets/images/motoclub-icon.png">
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="build/css/custom.min.css" rel="stylesheet">
+    <link href="assets/css/app.css?v=1785509576" rel="stylesheet">
+            <!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8358C7G"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MZR8358C7G');
+</script>
+</head>
+<body class="mc-public-body">
+<main class="mc-checkin-page">
+  <section class="mc-checkin-card">
+    <div class="mc-checkin-media">
+              <img src="uploads/eventos/evento_71_1785876639.png" alt="Foto do evento">
+          </div>
+
+    <div class="mc-checkin-content">
+      <div class="mc-checkin-header">
+        <span>Check-in por localizacao</span>
+        <h1>ANIVERSÁRIO ÁGUIAS DE HAASTS MC</h1>
+      </div>
+
+      
+      <div class="mc-checkin-info">
+        <div><strong>Tipo</strong><span>Aniversário</span></div>
+        <div><strong>Base</strong><span>PALMAS</span></div>
+        <div><strong>Data</strong><span>08/08/2026</span></div>
+                <div><strong>Raio permitido</strong><span>150 metros</span></div>
+      </div>
+
+      <div class="mc-checkin-actions">
+                <a class="btn btn-success" href="https://wa.me/?text=Check-in+do+evento%3A+ANIVERS%C3%81RIO+%C3%81GUIAS+DE+HAASTS+MC%0AData%3A+08%2F08%2F2026%0ACheck-in%3A+checkin_evento.php%3Fid_evento%3D71" target="_blank"><i class="fa fa-whatsapp"></i> Compartilhar</a>
+        <a class="btn btn-default" href="mural_eventos.php"><i class="fa fa-calendar"></i> Voltar ao mural</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mc-checkin-form-panel">
+          <div class="alert alert-warning mb-0">O check-in estara disponivel apenas no dia do evento: <strong>08/08/2026</strong>.</div>
+      </section>
+</main>
+
+<script>
+function capturarLocalizacao() {
+    var status = document.getElementById('statusLocalizacao');
+    var btn = document.getElementById('btnCheckin');
+
+    if (!navigator.geolocation) {
+        status.innerHTML = 'Seu navegador nao suporta geolocalizacao.';
+        btn.disabled = true;
+        return;
+    }
+
+    status.innerHTML = 'Capturando localizacao... permita o acesso no navegador.';
+
+    navigator.geolocation.getCurrentPosition(function (pos) {
+        document.getElementById('latitude_checkin').value = pos.coords.latitude;
+        document.getElementById('longitude_checkin').value = pos.coords.longitude;
+        status.innerHTML = 'Localizacao capturada com sucesso.<br>Precisao aproximada: <strong>' + Math.round(pos.coords.accuracy) + 'm</strong>.';
+        btn.disabled = false;
+    }, function (err) {
+        var texto = 'Nao foi possivel capturar a localizacao.';
+        if (err.code === 1) texto = 'Permissao de localizacao negada. Ative a localizacao para fazer check-in.';
+        if (err.code === 2) texto = 'Localizacao indisponivel no momento. Tente novamente.';
+        if (err.code === 3) texto = 'Tempo limite excedido ao buscar localizacao.';
+        status.innerHTML = texto;
+        btn.disabled = true;
+    }, {
+        enableHighAccuracy: true,
+        timeout: 15000,
+        maximumAge: 0
+    });
+}
+</script>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendors/fastclick/lib/fastclick.js"></script>
+<script src="vendors/nprogress/nprogress.js"></script>
+<script src="vendors/select2/dist/js/select2.full.min.js"></script>
+<script src="build/js/custom.min.js"></script>
+<script src="assets/js/app.js?v=1785509576"></script>
+</body>
+</html>
