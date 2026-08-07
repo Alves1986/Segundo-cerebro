@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Analise de Eventos | Motoclub Presenca</title>
+    <link rel="icon" type="image/png" href="assets/images/motoclub-icon.png">
+    <link rel="apple-touch-icon" href="assets/images/motoclub-icon.png">
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="build/css/custom.min.css" rel="stylesheet">
+    <link href="assets/css/app.css?v=1785509576" rel="stylesheet">
+        <style>
+    .mc-chart-box {
+        position: relative;
+        min-height: 320px;
+    }
+
+    .mc-chart-box canvas {
+        max-height: 420px;
+    }
+
+    .mc-event-alert-list .alert {
+        min-height: 96px;
+    }
+</style>    <!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8358C7G"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MZR8358C7G');
+</script>
+</head>
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <div class="col-md-3 left_col">
+      <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+          <a href="dashboard.html" class="site_title"><i class="fa fa-shield"></i> <span>MC 2.0</span></a>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="profile clearfix">
+          <div class="profile_pic">
+                          <div class="profile_initials">MC</div>
+                      </div>
+          <div class="profile_info">
+            <span>Bem-vindo,</span>
+            <h2>Administrador</h2>
+            <small>Todas as bases</small>
+          </div>
+        </div>
+
+        <br>
+
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          <div class="menu_section">
+            <h3>Menu</h3>
+            <ul class="nav side-menu">
+                              <li><a href="dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                                            <li><a><i class="fa fa-users"></i> Membros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="membros.html">Listar membros</a></li>
+                                          <li><a href="novo_membro.html">Novo membro</a></li>
+                                          <li><a href="prospects.html">Prospects</a></li>
+                                          <li><a href="diretoria.html">Diretoria</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-calendar"></i> Eventos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="eventos.html">Listar eventos</a></li>
+                                          <li><a href="novo_evento.html">Novo evento</a></li>
+                                          <li><a href="mural_eventos.html">Mural de eventos</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-check-square-o"></i> Presencas <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="presencas.html">Resumo de presencas</a></li>
+                                          <li><a href="eventos.html?status=Aberto">Eventos para check-in</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-shopping-bag"></i> Pedidos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="pedidos.html">Itens</a></li>
+                                          <li><a href="pedido_tipos.html">Tipos de item</a></li>
+                                          <li><a href="novo_pedido_item.html">Novo item</a></li>
+                                          <li><a href="novo_pedido_membro.html">Novo pedido</a></li>
+                                          <li><a href="pedidos_membro.html">Pedidos por membro</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-cubes"></i> Patrimonio <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="patrimonio_dashboard.html">Dashboard</a></li>
+                                          <li><a href="patrimonio_itens.html">Itens</a></li>
+                                          <li><a href="novo_patrimonio.html">Novo item</a></li>
+                                          <li><a href="patrimonio_emprestimos.html">Emprestimos</a></li>
+                                          <li><a href="patrimonio_manutencoes.html">Manutencoes</a></li>
+                                          <li><a href="patrimonio_relatorios.html">Relatorios</a></li>
+                                          <li><a href="patrimonio_categorias.html">Categorias</a></li>
+                                          <li><a href="patrimonio_locais.html">Locais</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-flag"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="bases.html">Bases</a></li>
+                                          <li><a href="cargos.html">Cargos</a></li>
+                                          <li><a href="fases_membro.html">Fases do membro</a></li>
+                                          <li><a href="artes_aniversario.html">Artes de aniversario</a></li>
+                                          <li><a href="usuarios.html">Usuarios</a></li>
+                                          <li><a href="perfis.html">Perfis</a></li>
+                                          <li><a href="parametrizacoes.html">Parametrizacoes</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-bar-chart"></i> Relatorios <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="relatorios.html">Central de relatorios</a></li>
+                                          <li><a href="relatorio_eventos_ano.html">Eventos por ano</a></li>
+                                          <li><a href="relatorio_ranking_presenca.html">Ranking de presenca</a></li>
+                                      </ul>
+                </li>
+                          </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-footer hidden-small">
+                      <a data-toggle="tooltip" data-placement="top" title="Configuracoes" href="parametrizacoes.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                    <a data-toggle="tooltip" data-placement="top" title="Tela cheia"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Bloquear"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Sair" href="logout.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="top_nav">
+      <div class="nav_menu">
+        <nav>
+          <div class="nav toggle">
+            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                  <span class="user-avatar-sm">MC</span>
+                                Administrador                <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-usermenu pull-right">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="javascript:void(0);"><span>Superadministrador</span></a></li>
+                <li><a href="logout.html"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="right_col" role="main">
+
+<div class="page-title">
+    <div class="title_left">
+        <h3><i class="fa fa-line-chart"></i> Analise de Eventos</h3>
+    </div>
+    <div class="title_right text-right">
+        <a href="?ano=2026&amp;id_base=0&amp;id_tipo_evento=0&amp;status=Todos&amp;export=csv" class="btn btn-success">
+            <i class="fa fa-file-excel-o"></i> Excel
+        </a>
+        <button type="button" class="btn btn-info" onclick="window.print()">
+            <i class="fa fa-file-pdf-o"></i> PDF
+        </button>
+        <a href="relatorios.html" class="btn btn-default">
+            <i class="fa fa-arrow-left"></i> Voltar
+        </a>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Filtros <small>ano, base, tipo e status</small></h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <form method="get" class="row">
+            <div class="col-md-2 col-sm-6 col-xs-12 form-group">
+                <label>Ano</label>
+                <input type="number" name="ano" class="form-control" value="2026" min="2000" max="2100">
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 form-group">
+                <label>Base</label>
+                <select name="id_base" class="form-control">
+                    <option value="0">Todas as bases</option>
+                                            <option value="3" >
+                            APARECIDA DE GOIÂNIA                        </option>
+                                            <option value="5" >
+                            BELÉM                        </option>
+                                            <option value="6" >
+                            BRASÍLIA                        </option>
+                                            <option value="7" >
+                            CARUARU                        </option>
+                                            <option value="8" >
+                            CURITIBA                        </option>
+                                            <option value="9" >
+                            FAXINAL                        </option>
+                                            <option value="10" >
+                            GOIANÉSIA                        </option>
+                                            <option value="4" >
+                            GOIÂNIA                        </option>
+                                            <option value="11" >
+                            IVAIPORÃ                        </option>
+                                            <option value="24" >
+                            JABOATÃO                        </option>
+                                            <option value="13" >
+                            MANAUS                        </option>
+                                            <option value="14" >
+                            MARINGÁ                        </option>
+                                            <option value="15" >
+                            NATAL                        </option>
+                                            <option value="1" >
+                            PALMAS                        </option>
+                                            <option value="17" >
+                            PAULISTA                        </option>
+                                            <option value="18" >
+                            RECIFE                        </option>
+                                            <option value="2" >
+                            REP. PORTO NACIONAL                        </option>
+                                            <option value="23" >
+                            REPRESENTAÇÃO AFOGADOS DA INGAZEIRA                        </option>
+                                            <option value="22" >
+                            REPRESENTAÇÃO EUSÉBIO                        </option>
+                                            <option value="26" >
+                            REPRESENTAÇÃO GARANHUNS                        </option>
+                                            <option value="27" >
+                            REPRESENTAÇÃO GOIANA                        </option>
+                                            <option value="12" >
+                            REPRESENTAÇÃO JOÃO PESSOA                        </option>
+                                            <option value="30" >
+                            REPRESENTAÇÃO JUAZEIRO DO NORTE                        </option>
+                                            <option value="28" >
+                            REPRESENTAÇÃO MONTEIRO                        </option>
+                                            <option value="29" >
+                            REPRESENTAÇÃO PETROLINA                        </option>
+                                            <option value="19" >
+                            REPRESENTAÇÃO SALVADOR                        </option>
+                                            <option value="25" >
+                            SÃO BENTO DO SUL                        </option>
+                                            <option value="20" >
+                            SÃO PAULO                        </option>
+                                            <option value="21" >
+                            TELÊMACO BORBA                        </option>
+                                    </select>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 form-group">
+                <label>Tipo</label>
+                <select name="id_tipo_evento" class="form-control">
+                    <option value="0">Todos os tipos</option>
+                                            <option value="6" >
+                            Ação Social                        </option>
+                                            <option value="5" >
+                            Aniversário                        </option>
+                                            <option value="15" >
+                            Café                        </option>
+                                            <option value="14" >
+                            Comemorativo                        </option>
+                                            <option value="13" >
+                            Confraternização                        </option>
+                                            <option value="12" >
+                            Desfile                        </option>
+                                            <option value="9" >
+                            Encontro                        </option>
+                                            <option value="10" >
+                            Inauguração                        </option>
+                                            <option value="11" >
+                            Moto Rock                        </option>
+                                            <option value="2" >
+                            Motoculto                        </option>
+                                            <option value="16" >
+                            Oração                        </option>
+                                            <option value="7" >
+                            Outro                        </option>
+                                            <option value="4" >
+                            Passeio                        </option>
+                                            <option value="8" >
+                            Quinta Biker                        </option>
+                                            <option value="1" >
+                            R.O.D.A                        </option>
+                                            <option value="3" >
+                            Reunião                        </option>
+                                            <option value="17" >
+                            Treinamento                        </option>
+                                    </select>
+            </div>
+            <div class="col-md-2 col-sm-6 col-xs-12 form-group">
+                <label>Status</label>
+                <select name="status" class="form-control">
+                                            <option value="Todos" selected>Todos</option>
+                                            <option value="Aberto" >Aberto</option>
+                                            <option value="Pendente" >Pendente</option>
+                                            <option value="Finalizado" >Finalizado</option>
+                                            <option value="Cancelado" >Cancelado</option>
+                                    </select>
+            </div>
+            <div class="col-md-2 col-sm-12 col-xs-12 form-group mc-filter-actions">
+                <button type="submit" class="btn btn-success btn-block">
+                    <i class="fa fa-filter"></i> Filtrar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row tile_count">
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-calendar"></i> Eventos</span>
+        <div class="count">71</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-check"></i> Finalizados</span>
+        <div class="count green">50</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-clock-o"></i> Pendentes</span>
+        <div class="count red">0</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-users"></i> Media presenca</span>
+        <div class="count">4.9</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-list"></i> Sem presenca</span>
+        <div class="count red">10</div>
+    </div>
+    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-picture-o"></i> Sem midia</span>
+        <div class="count red">23</div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title"><h2>Comparacao mensal <small>volume de eventos</small></h2><div class="clearfix"></div></div>
+            <div class="x_content mc-chart-box"><canvas id="graficoEventosMes"></canvas></div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title"><h2>Presencas por mes <small>participacao registrada</small></h2><div class="clearfix"></div></div>
+            <div class="x_content mc-chart-box"><canvas id="graficoPresencasMes"></canvas></div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title"><h2>Eventos por base <small>2026</small></h2><div class="clearfix"></div></div>
+            <div class="x_content mc-chart-box"><canvas id="graficoBases"></canvas></div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title"><h2>Eventos por tipo <small>2026</small></h2><div class="clearfix"></div></div>
+            <div class="x_content mc-chart-box"><canvas id="graficoTipos"></canvas></div>
+        </div>
+    </div>
+</div>
+
+<div class="row mc-event-alert-list">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title"><h2>Eventos sem presenca lancada <small>finalizados</small></h2><div class="clearfix"></div></div>
+            <div class="x_content">
+                                                    <div class="alert alert-warning">
+                        <strong>CAPITAL MOTO WEEK - DIA 7</strong><br>
+                        01/08/2026 - PALMAS<br>
+                        <a href="presenca_evento.html?id=101">Lancar presenca</a>
+                    </div>
+                                    <div class="alert alert-warning">
+                        <strong>CAPITAL MOTO WEEK - DIA 6</strong><br>
+                        31/07/2026 - PALMAS<br>
+                        <a href="presenca_evento.html?id=100">Lancar presenca</a>
+                    </div>
+                                    <div class="alert alert-warning">
+                        <strong>CAPITAL MOTO WEEK - DIA 5</strong><br>
+                        30/07/2026 - PALMAS<br>
+                        <a href="presenca_evento.html?id=99">Lancar presenca</a>
+                    </div>
+                                    <div class="alert alert-warning">
+                        <strong>CAPITAL MOTO WEEK - DIA 4</strong><br>
+                        26/07/2026 - PALMAS<br>
+                        <a href="presenca_evento.html?id=98">Lancar presenca</a>
+                    </div>
+                                    <div class="alert alert-warning">
+                        <strong>CAPITAL MOTO WEEK - DIA 3</strong><br>
+                        25/07/2026 - PALMAS<br>
+                        <a href="presenca_evento.html?id=97">Lancar presenca</a>
+                    </div>
+                                    <div class="alert alert-warning">
+                        <strong>CAPITAL MOTO WEEK - DIA 2</strong><br>
+                        24/07/2026 - PALMAS<br>
+                        <a href="presenca_evento.html?id=96">Lancar presenca</a>
+                    </div>
+                                    <div class="alert alert-warning">
+                        <strong>CAPITAL MOTO WEEK - DIA 1</strong><br>
+                        23/07/2026 - PALMAS<br>
+                        <a href="presenca_evento.html?id=94">Lancar presenca</a>
+                    </div>
+                                    <div class="alert alert-warning">
+                        <strong>ABERTURA DA CAMPANHA CEROL O</strong><br>
+                        10/07/2026 - PALMAS<br>
+                        <a href="presenca_evento.html?id=268">Lancar presenca</a>
+                    </div>
+                            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title"><h2>Eventos sem foto/galeria <small>imagem publica</small></h2><div class="clearfix"></div></div>
+            <div class="x_content">
+                                                    <div class="alert alert-info">
+                        <strong>NATAL BIKER</strong><br>
+                        19/12/2026 - PALMAS<br>
+                        <a href="editar_evento.html?id=73">Completar midia</a>
+                    </div>
+                                    <div class="alert alert-info">
+                        <strong>MOTOARA 2026 - 2º DIA</strong><br>
+                        11/10/2026 - PALMAS<br>
+                        <a href="editar_evento.html?id=91">Completar midia</a>
+                    </div>
+                                    <div class="alert alert-info">
+                        <strong>MOTOARA 2026 - 1º DIA</strong><br>
+                        10/10/2026 - PALMAS<br>
+                        <a href="editar_evento.html?id=90">Completar midia</a>
+                    </div>
+                                    <div class="alert alert-info">
+                        <strong>DIA DAS CRIANÇAS</strong><br>
+                        10/10/2026 - PALMAS<br>
+                        <a href="editar_evento.html?id=72">Completar midia</a>
+                    </div>
+                                    <div class="alert alert-info">
+                        <strong>10 ANOS MC INDOMÁVEIS</strong><br>
+                        19/09/2026 - PALMAS<br>
+                        <a href="editar_evento.html?id=89">Completar midia</a>
+                    </div>
+                                    <div class="alert alert-info">
+                        <strong>RODA PORTO NACIONAL</strong><br>
+                        29/08/2026 - PALMAS<br>
+                        <a href="editar_evento.html?id=279">Completar midia</a>
+                    </div>
+                                    <div class="alert alert-info">
+                        <strong>PASSEIO E CAFÉ DA MANHÃ</strong><br>
+                        26/08/2026 - PALMAS<br>
+                        <a href="editar_evento.html?id=278">Completar midia</a>
+                    </div>
+                                    <div class="alert alert-info">
+                        <strong>PASSEIO E CAFÉ DA MANHÃ</strong><br>
+                        23/08/2026 - PALMAS<br>
+                        <a href="editar_evento.html?id=277">Completar midia</a>
+                    </div>
+                            </div>
+        </div>
+    </div>
+</div>
+
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Eventos analisados <small>total: 71 - media com presenca lancada: 6.2</small></h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content table-responsive">
+        <table class="table table-striped jambo_table">
+            <thead>
+                <tr>
+                    <th>Evento</th>
+                    <th>Data</th>
+                    <th>Base</th>
+                    <th>Tipo</th>
+                    <th>Status</th>
+                    <th>Presentes</th>
+                    <th>Lancamentos</th>
+                    <th>Midia</th>
+                    <th>Acoes</th>
+                </tr>
+            </thead>
+            <tbody>
+                                                    <tr>
+                        <td>NATAL BIKER</td>
+                        <td>19/12/2026</td>
+                        <td>PALMAS</td>
+                        <td>Confraternização</td>
+                        <td><span class="label label-success">Aberto</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-default">Sem foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=73"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=73"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>MOTOARA 2026 - 2º DIA</td>
+                        <td>11/10/2026</td>
+                        <td>PALMAS</td>
+                        <td>Encontro</td>
+                        <td><span class="label label-success">Aberto</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-default">Sem foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=91"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=91"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>MOTOARA 2026 - 1º DIA</td>
+                        <td>10/10/2026</td>
+                        <td>PALMAS</td>
+                        <td>Encontro</td>
+                        <td><span class="label label-success">Aberto</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-default">Sem foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=90"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=90"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>DIA DAS CRIANÇAS</td>
+                        <td>10/10/2026</td>
+                        <td>PALMAS</td>
+                        <td>Ação Social</td>
+                        <td><span class="label label-success">Aberto</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-default">Sem foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=72"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=72"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>10 ANOS MC INDOMÁVEIS</td>
+                        <td>19/09/2026</td>
+                        <td>PALMAS</td>
+                        <td>Aniversário</td>
+                        <td><span class="label label-success">Aberto</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-default">Sem foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=89"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=89"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>RODA PORTO NACIONAL</td>
+                        <td>29/08/2026</td>
+                        <td>PALMAS</td>
+                        <td>R.O.D.A</td>
+                        <td><span class="label label-success">Aberto</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-default">Sem foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=279"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=279"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>PASSEIO E CAFÉ DA MANHÃ</td>
+                        <td>26/08/2026</td>
+                        <td>PALMAS</td>
+                        <td>Passeio</td>
+                        <td><span class="label label-success">Aberto</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-default">Sem foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=278"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=278"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>PASSEIO E CAFÉ DA MANHÃ</td>
+                        <td>23/08/2026</td>
+                        <td>PALMAS</td>
+                        <td>Passeio</td>
+                        <td><span class="label label-success">Aberto</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-default">Sem foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=277"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=277"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>VIAGEM MISSIONÁRIA - ARAGUAÍNA</td>
+                        <td>21/08/2026</td>
+                        <td>PALMAS</td>
+                        <td>Ação Social</td>
+                        <td><span class="label label-success">Aberto</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-default">Sem foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=276"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=276"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>MOTO CULTO E FECHAMENTO DA CAMPANHA CEROL O</td>
+                        <td>15/08/2026</td>
+                        <td>PALMAS</td>
+                        <td>Motoculto</td>
+                        <td><span class="label label-success">Aberto</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-default">Sem foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=275"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=275"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>CELEBRAÇÃO DO DIA DOS PAIS E RODA (CHÁCARA)</td>
+                        <td>09/08/2026</td>
+                        <td>PALMAS</td>
+                        <td>Comemorativo</td>
+                        <td><span class="label label-success">Aberto</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-success">Foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=274"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=274"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>DIA DO MOTOCICLISTA</td>
+                        <td>08/08/2026</td>
+                        <td>PALMAS</td>
+                        <td>Outro</td>
+                        <td><span class="label label-success">Aberto</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-success">Foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=282"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=282"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>ANIVERSÁRIO ÁGUIAS DE HAASTS MC</td>
+                        <td>08/08/2026</td>
+                        <td>PALMAS</td>
+                        <td>Aniversário</td>
+                        <td><span class="label label-success">Aberto</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-success">Foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=71"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=71"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>DESFILE CÍVICO</td>
+                        <td>07/08/2026</td>
+                        <td>PALMAS</td>
+                        <td>Desfile</td>
+                        <td><span class="label label-danger">Cancelado</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-default">Sem foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=70"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=70"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>CAPITAL MOTO WEEK - DIA 7</td>
+                        <td>01/08/2026</td>
+                        <td>PALMAS</td>
+                        <td>Confraternização</td>
+                        <td><span class="label label-default">Finalizado</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-success">Foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=101"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=101"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>CAPITAL MOTO WEEK - DIA 6</td>
+                        <td>31/07/2026</td>
+                        <td>PALMAS</td>
+                        <td>Confraternização</td>
+                        <td><span class="label label-default">Finalizado</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-success">Foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=100"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=100"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>CAPITAL MOTO WEEK - DIA 5</td>
+                        <td>30/07/2026</td>
+                        <td>PALMAS</td>
+                        <td>Confraternização</td>
+                        <td><span class="label label-default">Finalizado</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-success">Foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=99"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=99"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>CAPITAL MOTO WEEK - DIA 4</td>
+                        <td>26/07/2026</td>
+                        <td>PALMAS</td>
+                        <td>Confraternização</td>
+                        <td><span class="label label-default">Finalizado</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-success">Foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=98"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=98"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>PASSEIO E CAFÉ DA MANHÃ</td>
+                        <td>26/07/2026</td>
+                        <td>PALMAS</td>
+                        <td>Passeio</td>
+                        <td><span class="label label-default">Finalizado</span></td>
+                        <td>2</td>
+                        <td>21</td>
+                        <td>
+                            <span class="label label-success">Foto</span>                            <span class="label label-info">Galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=273"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=273"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td>CAPITAL MOTO WEEK - DIA 3</td>
+                        <td>25/07/2026</td>
+                        <td>PALMAS</td>
+                        <td>Confraternização</td>
+                        <td><span class="label label-default">Finalizado</span></td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>
+                            <span class="label label-success">Foto</span>                            <span class="label label-default">Sem galeria</span>                        </td>
+                        <td>
+                            <a class="btn btn-info btn-xs" href="presenca_evento.html?id=97"><i class="fa fa-check-square-o"></i> Presenca</a>
+                            <a class="btn btn-default btn-xs" href="editar_evento.html?id=97"><i class="fa fa-pencil"></i> Editar</a>
+                        </td>
+                    </tr>
+                            </tbody>
+        </table>
+        <div class="mc-pagination"><div class="mc-pagination-summary">Mostrando 1-20 de 71</div><div class="mc-pagination-controls"><a class="btn btn-default btn-sm disabled" href="?pagina=1"><i class="fa fa-angle-left"></i></a><a class="btn btn-success btn-sm" href="?pagina=1">1</a><a class="btn btn-default btn-sm" href="?pagina=2">2</a><a class="btn btn-default btn-sm" href="?pagina=3">3</a><a class="btn btn-default btn-sm" href="?pagina=4">4</a><a class="btn btn-default btn-sm " href="?pagina=2"><i class="fa fa-angle-right"></i></a></div><form class="mc-pagination-size" method="get"><input type="hidden" name="pagina" value="1"><label>Por pagina</label><select name="por_pagina" class="form-control input-sm" onchange="this.form.submit()"><option value="10">10</option><option value="20" selected>20</option><option value="50">50</option><option value="100">100</option></select></form></div>    </div>
+</div>
+
+        </div>
+        <footer>
+            <div class="pull-right">
+                Motoclub Presenca 2.0            </div>
+            <div class="clearfix"></div>
+        </footer>
+      </div>
+    </div>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendors/fastclick/lib/fastclick.js"></script>
+<script src="vendors/nprogress/nprogress.js"></script>
+<script src="vendors/select2/dist/js/select2.full.min.js"></script>
+<script src="build/js/custom.min.js"></script>
+<script src="assets/js/app.js?v=1785509576"></script>
+    <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+
+<script>
+(function () {
+    if (typeof Chart === "undefined") {
+        return;
+    }
+
+    var meses = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+    var eventosMes = [8,4,3,3,12,9,17,10,1,3,0,1];
+    var presencasMes = [31,9,21,12,53,38,82,0,0,0,0,0];
+    var basesLabels = ["PALMAS","REP. PORTO NACIONAL"];
+    var basesDados = [57,14];
+    var tiposLabels = ["Confraternização","Aniversário","Ação Social","Encontro","Motoculto","Outro","Quinta Biker","R.O.D.A","Passeio","Comemorativo","Desfile","Café","Moto Rock","Inauguração"];
+    var tiposDados = [13,10,7,6,6,6,6,5,5,2,2,1,1,1];
+    var cores = ["#1ABB9C","#3498DB","#F0AD4E","#D9534F","#9B59B6","#2A3F54","#26B99A","#5A738E"];
+
+    function criarGrafico(id, tipo, labels, dados, label, cor) {
+        var el = document.getElementById(id);
+        if (!el) return;
+
+        new Chart(el, {
+            type: tipo,
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: label,
+                    data: dados,
+                    backgroundColor: Array.isArray(cor) ? cor : cor,
+                    borderColor: Array.isArray(cor) ? cor : cor,
+                    fill: tipo !== "line"
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: { display: true },
+                scales: tipo === "doughnut" ? {} : { yAxes: [{ ticks: { beginAtZero: true } }] }
+            }
+        });
+    }
+
+    criarGrafico("graficoEventosMes", "bar", meses, eventosMes, "Eventos", "#1ABB9C");
+    criarGrafico("graficoPresencasMes", "line", meses, presencasMes, "Presencas", "#2A3F54");
+    criarGrafico("graficoBases", "bar", basesLabels, basesDados, "Eventos por base", "#3498DB");
+    criarGrafico("graficoTipos", "doughnut", tiposLabels, tiposDados, "Eventos por tipo", cores);
+})();
+</script></body>
+</html>

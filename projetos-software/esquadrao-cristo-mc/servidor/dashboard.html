@@ -1,0 +1,1042 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard Executivo | Motoclub Presenca</title>
+    <link rel="icon" type="image/png" href="assets/images/motoclub-icon.png">
+    <link rel="apple-touch-icon" href="assets/images/motoclub-icon.png">
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="build/css/custom.min.css" rel="stylesheet">
+    <link href="assets/css/app.css?v=1785509576" rel="stylesheet">
+        <style>
+  .mc-exec-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .mc-exec-card {
+    min-height: 126px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 14px;
+    color: #73879C;
+    background: #fff;
+    border: 1px solid #E6E9ED;
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(42, 63, 84, .06);
+    overflow: hidden;
+  }
+
+  .mc-exec-card:hover,
+  .mc-action-card:hover,
+  .mc-list-card:hover {
+    border-color: #1ABB9C;
+    box-shadow: 0 12px 26px rgba(42, 63, 84, .12);
+  }
+
+  .mc-exec-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .mc-exec-icon {
+    width: 38px;
+    height: 38px;
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 38px;
+    color: #fff;
+    background: #1ABB9C;
+    border-radius: 50%;
+    font-size: 17px;
+  }
+
+  .mc-exec-card.warning .mc-exec-icon { background: #F0AD4E; }
+  .mc-exec-card.danger .mc-exec-icon { background: #D9534F; }
+  .mc-exec-card.default .mc-exec-icon { background: #2A3F54; }
+  .mc-exec-card.info .mc-exec-icon { background: #3498DB; }
+
+  .mc-exec-value {
+    margin-top: 12px;
+    color: #34495E;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .mc-exec-label {
+    margin-top: 6px;
+    color: #73879C;
+    font-size: 13px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+
+  .mc-exec-link {
+    margin-top: 10px;
+    color: #169F85;
+    font-weight: 700;
+  }
+
+  .mc-panel-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 16px;
+  }
+
+  .mc-dashboard-section {
+    margin-bottom: 16px;
+  }
+
+  .mc-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .mc-list-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    align-items: center;
+    min-height: 70px;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #E6E9ED;
+    border-radius: 6px;
+  }
+
+  .mc-list-card h4 {
+    margin: 0 0 5px;
+    color: #34495E;
+    font-size: 15px;
+    font-weight: 800;
+  }
+
+  .mc-list-card p,
+  .mc-list-card small {
+    margin: 0;
+    color: #73879C;
+  }
+
+  .mc-list-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+    color: #73879C;
+    font-size: 12px;
+  }
+
+  .mc-list-actions {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .mc-progress-line {
+    min-width: 138px;
+  }
+
+  .mc-progress-line .progress {
+    height: 8px;
+    margin: 5px 0 0;
+    background: #E6E9ED;
+  }
+
+  .mc-action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 10px;
+  }
+
+  .mc-action-card {
+    min-height: 88px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    color: #34495E;
+    background: #fff;
+    border: 1px solid #E6E9ED;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  .mc-action-card i {
+    width: 38px;
+    height: 38px;
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 auto;
+    color: #fff;
+    background: #1ABB9C;
+    border-radius: 50%;
+    font-size: 17px;
+  }
+
+  .mc-action-card strong,
+  .mc-action-card small {
+    display: block;
+  }
+
+  .mc-action-card strong {
+    color: #34495E;
+    font-size: 14px;
+  }
+
+  .mc-action-card small {
+    color: #73879C;
+  }
+
+  .mc-birthday-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+  }
+
+  .mc-birthday-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 76px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #E6E9ED;
+    border-radius: 6px;
+  }
+
+  .mc-birthday-photo,
+  .mc-birthday-empty {
+    width: 52px;
+    height: 52px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    border: 2px solid rgba(26, 187, 156, .22);
+  }
+
+  .mc-birthday-photo {
+    object-fit: cover;
+  }
+
+  .mc-birthday-empty {
+    display: grid;
+    place-items: center;
+    color: #1ABB9C;
+    background: #F5F7FA;
+    font-size: 20px;
+  }
+
+  .mc-birthday-info {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .mc-birthday-info strong,
+  .mc-birthday-info small {
+    display: block;
+  }
+
+  .mc-birthday-info strong {
+    color: #34495E;
+    font-size: 14px;
+  }
+
+  .mc-birthday-info small {
+    color: #73879C;
+  }
+
+  .mc-birthday-actions {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  @media (max-width: 1200px) {
+    .mc-exec-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 991px) {
+    .mc-panel-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .mc-exec-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .mc-exec-card {
+      min-height: 104px;
+      padding: 13px;
+    }
+
+    .mc-exec-value {
+      font-size: 25px;
+    }
+
+    .mc-exec-label {
+      font-size: 14px;
+    }
+
+    .mc-exec-icon {
+      width: 34px;
+      height: 34px;
+      flex-basis: 34px;
+      font-size: 15px;
+    }
+
+    .mc-action-grid,
+    .mc-birthday-list {
+      grid-template-columns: 1fr;
+    }
+
+    .mc-action-card {
+      min-height: 76px;
+      padding: 10px;
+    }
+
+    .mc-list-card {
+      grid-template-columns: 1fr;
+    }
+
+    .mc-list-actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .mc-list-actions .btn,
+    .mc-progress-line {
+      width: 100%;
+    }
+
+    .mc-birthday-card {
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .mc-birthday-actions {
+      width: 100%;
+      margin-left: 64px;
+    }
+  }
+</style>    <!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8358C7G"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MZR8358C7G');
+</script>
+</head>
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <div class="col-md-3 left_col">
+      <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+          <a href="dashboard.html" class="site_title"><i class="fa fa-shield"></i> <span>MC 2.0</span></a>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="profile clearfix">
+          <div class="profile_pic">
+                          <div class="profile_initials">MC</div>
+                      </div>
+          <div class="profile_info">
+            <span>Bem-vindo,</span>
+            <h2>Administrador</h2>
+            <small>Todas as bases</small>
+          </div>
+        </div>
+
+        <br>
+
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          <div class="menu_section">
+            <h3>Menu</h3>
+            <ul class="nav side-menu">
+                              <li><a href="dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                                            <li><a><i class="fa fa-users"></i> Membros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="membros.html">Listar membros</a></li>
+                                          <li><a href="novo_membro.html">Novo membro</a></li>
+                                          <li><a href="prospects.html">Prospects</a></li>
+                                          <li><a href="diretoria.html">Diretoria</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-calendar"></i> Eventos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="eventos.html">Listar eventos</a></li>
+                                          <li><a href="novo_evento.html">Novo evento</a></li>
+                                          <li><a href="mural_eventos.html">Mural de eventos</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-check-square-o"></i> Presencas <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="presencas.html">Resumo de presencas</a></li>
+                                          <li><a href="eventos.html?status=Aberto">Eventos para check-in</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-shopping-bag"></i> Pedidos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="pedidos.html">Itens</a></li>
+                                          <li><a href="pedido_tipos.html">Tipos de item</a></li>
+                                          <li><a href="novo_pedido_item.html">Novo item</a></li>
+                                          <li><a href="novo_pedido_membro.html">Novo pedido</a></li>
+                                          <li><a href="pedidos_membro.html">Pedidos por membro</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-cubes"></i> Patrimonio <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="patrimonio_dashboard.html">Dashboard</a></li>
+                                          <li><a href="patrimonio_itens.html">Itens</a></li>
+                                          <li><a href="novo_patrimonio.html">Novo item</a></li>
+                                          <li><a href="patrimonio_emprestimos.html">Emprestimos</a></li>
+                                          <li><a href="patrimonio_manutencoes.html">Manutencoes</a></li>
+                                          <li><a href="patrimonio_relatorios.html">Relatorios</a></li>
+                                          <li><a href="patrimonio_categorias.html">Categorias</a></li>
+                                          <li><a href="patrimonio_locais.html">Locais</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-flag"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="bases.html">Bases</a></li>
+                                          <li><a href="cargos.html">Cargos</a></li>
+                                          <li><a href="fases_membro.html">Fases do membro</a></li>
+                                          <li><a href="artes_aniversario.html">Artes de aniversario</a></li>
+                                          <li><a href="usuarios.html">Usuarios</a></li>
+                                          <li><a href="perfis.html">Perfis</a></li>
+                                          <li><a href="parametrizacoes.html">Parametrizacoes</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-bar-chart"></i> Relatorios <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="relatorios.html">Central de relatorios</a></li>
+                                          <li><a href="relatorio_eventos_ano.html">Eventos por ano</a></li>
+                                          <li><a href="relatorio_ranking_presenca.html">Ranking de presenca</a></li>
+                                      </ul>
+                </li>
+                          </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-footer hidden-small">
+                      <a data-toggle="tooltip" data-placement="top" title="Configuracoes" href="parametrizacoes.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                    <a data-toggle="tooltip" data-placement="top" title="Tela cheia"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Bloquear"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Sair" href="logout.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="top_nav">
+      <div class="nav_menu">
+        <nav>
+          <div class="nav toggle">
+            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                  <span class="user-avatar-sm">MC</span>
+                                Administrador                <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-usermenu pull-right">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="javascript:void(0);"><span>Superadministrador</span></a></li>
+                <li><a href="logout.html"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="right_col" role="main">
+<div class="page-title">
+  <div class="title_left">
+    <h3>Dashboard Executivo <small>Superadministrador</small></h3>
+  </div>
+  <div class="title_right text-right">
+          <a class="btn btn-success" href="novo_evento.html"><i class="fa fa-plus"></i> Novo evento</a>
+      </div>
+</div>
+<div class="clearfix"></div>
+
+<section class="mc-exec-grid">
+      <a class="mc-exec-card primary" href="membros.html?status=Ativo">
+      <span class="mc-exec-card-top">
+        <span>
+          <span class="mc-exec-label">Membros ativos</span>
+          <span class="mc-exec-value">21</span>
+        </span>
+        <span class="mc-exec-icon"><i class="fa fa-users"></i></span>
+      </span>
+      <span class="mc-exec-link">Abrir modulo</span>
+    </a>
+      <a class="mc-exec-card warning" href="prospects.html">
+      <span class="mc-exec-card-top">
+        <span>
+          <span class="mc-exec-label">Prospects</span>
+          <span class="mc-exec-value">0</span>
+        </span>
+        <span class="mc-exec-icon"><i class="fa fa-user-plus"></i></span>
+      </span>
+      <span class="mc-exec-link">Abrir modulo</span>
+    </a>
+      <a class="mc-exec-card info" href="eventos.html?mes=8&amp;ano=2026&amp;status=Todos">
+      <span class="mc-exec-card-top">
+        <span>
+          <span class="mc-exec-label">Eventos no mes</span>
+          <span class="mc-exec-value">10</span>
+        </span>
+        <span class="mc-exec-icon"><i class="fa fa-calendar"></i></span>
+      </span>
+      <span class="mc-exec-link">Abrir modulo</span>
+    </a>
+      <a class="mc-exec-card success" href="presencas.html">
+      <span class="mc-exec-card-top">
+        <span>
+          <span class="mc-exec-label">Presencas no mes</span>
+          <span class="mc-exec-value">0</span>
+        </span>
+        <span class="mc-exec-icon"><i class="fa fa-check-square-o"></i></span>
+      </span>
+      <span class="mc-exec-link">Abrir modulo</span>
+    </a>
+      <a class="mc-exec-card default" href="bases.html">
+      <span class="mc-exec-card-top">
+        <span>
+          <span class="mc-exec-label">Bases ativas</span>
+          <span class="mc-exec-value">29</span>
+        </span>
+        <span class="mc-exec-icon"><i class="fa fa-flag"></i></span>
+      </span>
+      <span class="mc-exec-link">Abrir modulo</span>
+    </a>
+      <a class="mc-exec-card danger" href="eventos.html?status=Pendente">
+      <span class="mc-exec-card-top">
+        <span>
+          <span class="mc-exec-label">Pendentes</span>
+          <span class="mc-exec-value">20</span>
+        </span>
+        <span class="mc-exec-icon"><i class="fa fa-clock-o"></i></span>
+      </span>
+      <span class="mc-exec-link">Abrir modulo</span>
+    </a>
+  </section>
+
+<div class="x_panel mc-dashboard-section">
+  <div class="x_title">
+    <h2>Atalhos por perfil <small>10 disponiveis</small></h2>
+    <div class="clearfix"></div>
+  </div>
+  <div class="x_content">
+          <div class="mc-action-grid">
+                  <a class="mc-action-card" href="novo_evento.html">
+            <i class="fa fa-calendar-plus-o"></i>
+            <span>
+              <strong>Novo evento</strong>
+              <small>Agenda e operacao</small>
+            </span>
+          </a>
+                  <a class="mc-action-card" href="novo_membro.html">
+            <i class="fa fa-user-plus"></i>
+            <span>
+              <strong>Novo membro</strong>
+              <small>Cadastro rapido</small>
+            </span>
+          </a>
+                  <a class="mc-action-card" href="presencas.html">
+            <i class="fa fa-check-square-o"></i>
+            <span>
+              <strong>Presencas</strong>
+              <small>Resumo e check-in</small>
+            </span>
+          </a>
+                  <a class="mc-action-card" href="eventos.html?status=Pendente">
+            <i class="fa fa-clock-o"></i>
+            <span>
+              <strong>Eventos pendentes</strong>
+              <small>Finalizar chamadas</small>
+            </span>
+          </a>
+                  <a class="mc-action-card" href="relatorio_ranking_presenca.html">
+            <i class="fa fa-trophy"></i>
+            <span>
+              <strong>Ranking</strong>
+              <small>Frequencia anual</small>
+            </span>
+          </a>
+                  <a class="mc-action-card" href="relatorios.html">
+            <i class="fa fa-bar-chart"></i>
+            <span>
+              <strong>Relatorios</strong>
+              <small>Indicadores gerais</small>
+            </span>
+          </a>
+                  <a class="mc-action-card" href="mural_eventos.html">
+            <i class="fa fa-bullhorn"></i>
+            <span>
+              <strong>Mural</strong>
+              <small>Eventos publicos</small>
+            </span>
+          </a>
+                  <a class="mc-action-card" href="artes_aniversario.html">
+            <i class="fa fa-birthday-cake"></i>
+            <span>
+              <strong>Aniversarios</strong>
+              <small>Artes e cartoes</small>
+            </span>
+          </a>
+                  <a class="mc-action-card" href="usuarios.html">
+            <i class="fa fa-lock"></i>
+            <span>
+              <strong>Usuarios</strong>
+              <small>Acessos do sistema</small>
+            </span>
+          </a>
+                  <a class="mc-action-card" href="perfis.html">
+            <i class="fa fa-id-badge"></i>
+            <span>
+              <strong>Perfis</strong>
+              <small>Permissoes por tela</small>
+            </span>
+          </a>
+              </div>
+      </div>
+</div>
+
+<div class="x_panel mc-dashboard-section">
+  <div class="x_title">
+    <h2>Aniversariantes <small>2 do mes</small></h2>
+    <div class="clearfix"></div>
+  </div>
+  <div class="x_content">
+          <div class="mc-birthday-list">
+                  <article class="mc-birthday-card">
+                          <img src="uploads/membros/membro_7_1781187515.png" class="mc-birthday-photo" alt="Antônio Soares Júnior">
+                        <span class="mc-birthday-info">
+              <strong>Antônio Soares Júnior</strong>
+              <small><i class="fa fa-birthday-cake"></i> 08/08 - Soares</small>
+              <small><i class="fa fa-flag"></i> PALMAS</small>
+            </span>
+            <span class="mc-birthday-actions">
+              <a class="btn btn-success btn-xs" href="cartao_aniversario.html?id_membro=7"><i class="fa fa-picture-o"></i> Gerar cartao</a>
+            </span>
+          </article>
+                  <article class="mc-birthday-card">
+                          <img src="uploads/membros/membro_29_1785004926.png" class="mc-birthday-photo" alt="Erika Silper">
+                        <span class="mc-birthday-info">
+              <strong>Erika Silper</strong>
+              <small><i class="fa fa-birthday-cake"></i> 15/08 - Erica</small>
+              <small><i class="fa fa-flag"></i> PALMAS</small>
+            </span>
+            <span class="mc-birthday-actions">
+              <a class="btn btn-success btn-xs" href="cartao_aniversario.html?id_membro=29"><i class="fa fa-picture-o"></i> Gerar cartao</a>
+            </span>
+          </article>
+              </div>
+      </div>
+</div>
+
+<div class="mc-panel-grid">
+  <div>
+    <div class="x_panel mc-dashboard-section">
+      <div class="x_title">
+        <h2>Proximos eventos <small>6 na agenda</small></h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+                  <div class="mc-list">
+                          <article class="mc-list-card">
+                <div>
+                  <h4>ANIVERSÁRIO ÁGUIAS DE HAASTS MC</h4>
+                  <p><i class="fa fa-calendar"></i> 08/08/2026</p>
+                  <span class="mc-list-meta">
+                    <span><i class="fa fa-flag"></i> PALMAS</span>
+                    <span><i class="fa fa-tag"></i> Aniversário</span>
+                                      </span>
+                </div>
+                <div class="mc-list-actions">
+                  <a class="btn btn-default btn-xs" href="editar_evento.html?id=71"><i class="fa fa-pencil"></i> Editar</a>
+                  <a class="btn btn-success btn-xs" href="presenca_evento.html?id=71"><i class="fa fa-check"></i> Presenca</a>
+                </div>
+              </article>
+                          <article class="mc-list-card">
+                <div>
+                  <h4>DIA DO MOTOCICLISTA</h4>
+                  <p><i class="fa fa-calendar"></i> 08/08/2026 as 17:00</p>
+                  <span class="mc-list-meta">
+                    <span><i class="fa fa-flag"></i> PALMAS</span>
+                    <span><i class="fa fa-tag"></i> Outro</span>
+                                      </span>
+                </div>
+                <div class="mc-list-actions">
+                  <a class="btn btn-default btn-xs" href="editar_evento.html?id=282"><i class="fa fa-pencil"></i> Editar</a>
+                  <a class="btn btn-success btn-xs" href="presenca_evento.html?id=282"><i class="fa fa-check"></i> Presenca</a>
+                </div>
+              </article>
+                          <article class="mc-list-card">
+                <div>
+                  <h4>CELEBRAÇÃO DO DIA DOS PAIS E RODA (CHÁCARA)</h4>
+                  <p><i class="fa fa-calendar"></i> 09/08/2026 as 09:00</p>
+                  <span class="mc-list-meta">
+                    <span><i class="fa fa-flag"></i> PALMAS</span>
+                    <span><i class="fa fa-tag"></i> Comemorativo</span>
+                                          <span><i class="fa fa-map-marker"></i> Chácara</span>
+                                      </span>
+                </div>
+                <div class="mc-list-actions">
+                  <a class="btn btn-default btn-xs" href="editar_evento.html?id=274"><i class="fa fa-pencil"></i> Editar</a>
+                  <a class="btn btn-success btn-xs" href="presenca_evento.html?id=274"><i class="fa fa-check"></i> Presenca</a>
+                </div>
+              </article>
+                          <article class="mc-list-card">
+                <div>
+                  <h4>MOTO CULTO E FECHAMENTO DA CAMPANHA CEROL O</h4>
+                  <p><i class="fa fa-calendar"></i> 15/08/2026 as 20:00</p>
+                  <span class="mc-list-meta">
+                    <span><i class="fa fa-flag"></i> PALMAS</span>
+                    <span><i class="fa fa-tag"></i> Motoculto</span>
+                                      </span>
+                </div>
+                <div class="mc-list-actions">
+                  <a class="btn btn-default btn-xs" href="editar_evento.html?id=275"><i class="fa fa-pencil"></i> Editar</a>
+                  <a class="btn btn-success btn-xs" href="presenca_evento.html?id=275"><i class="fa fa-check"></i> Presenca</a>
+                </div>
+              </article>
+                          <article class="mc-list-card">
+                <div>
+                  <h4>VIAGEM MISSIONÁRIA - ARAGUAÍNA</h4>
+                  <p><i class="fa fa-calendar"></i> 21/08/2026</p>
+                  <span class="mc-list-meta">
+                    <span><i class="fa fa-flag"></i> PALMAS</span>
+                    <span><i class="fa fa-tag"></i> Ação Social</span>
+                                          <span><i class="fa fa-map-marker"></i> Araguaína</span>
+                                      </span>
+                </div>
+                <div class="mc-list-actions">
+                  <a class="btn btn-default btn-xs" href="editar_evento.html?id=276"><i class="fa fa-pencil"></i> Editar</a>
+                  <a class="btn btn-success btn-xs" href="presenca_evento.html?id=276"><i class="fa fa-check"></i> Presenca</a>
+                </div>
+              </article>
+                          <article class="mc-list-card">
+                <div>
+                  <h4>PASSEIO E CAFÉ DA MANHÃ</h4>
+                  <p><i class="fa fa-calendar"></i> 23/08/2026 as 07:30</p>
+                  <span class="mc-list-meta">
+                    <span><i class="fa fa-flag"></i> PALMAS</span>
+                    <span><i class="fa fa-tag"></i> Passeio</span>
+                                      </span>
+                </div>
+                <div class="mc-list-actions">
+                  <a class="btn btn-default btn-xs" href="editar_evento.html?id=277"><i class="fa fa-pencil"></i> Editar</a>
+                  <a class="btn btn-success btn-xs" href="presenca_evento.html?id=277"><i class="fa fa-check"></i> Presenca</a>
+                </div>
+              </article>
+                      </div>
+              </div>
+    </div>
+
+    <div class="x_panel mc-dashboard-section">
+      <div class="x_title">
+        <h2>Membros com baixa frequencia <small>ano 2026</small></h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+                  <div class="mc-list">
+                                        <article class="mc-list-card">
+                <div>
+                  <h4>Nádia Flausino Vieira Borges - Nádia</h4>
+                  <p><i class="fa fa-flag"></i> PALMAS</p>
+                  <small>1 presenca(s) em 50 evento(s)</small>
+                </div>
+                <div class="mc-progress-line">
+                  <strong>2%</strong>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-danger" style="width: 2%;"></div>
+                  </div>
+                </div>
+              </article>
+                                        <article class="mc-list-card">
+                <div>
+                  <h4>Algemiro - Algemiro</h4>
+                  <p><i class="fa fa-flag"></i> PALMAS</p>
+                  <small>2 presenca(s) em 50 evento(s)</small>
+                </div>
+                <div class="mc-progress-line">
+                  <strong>4%</strong>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-danger" style="width: 4%;"></div>
+                  </div>
+                </div>
+              </article>
+                                        <article class="mc-list-card">
+                <div>
+                  <h4>Betânia - Betânia</h4>
+                  <p><i class="fa fa-flag"></i> PALMAS</p>
+                  <small>2 presenca(s) em 50 evento(s)</small>
+                </div>
+                <div class="mc-progress-line">
+                  <strong>4%</strong>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-danger" style="width: 4%;"></div>
+                  </div>
+                </div>
+              </article>
+                                        <article class="mc-list-card">
+                <div>
+                  <h4>Fabio - Fabio</h4>
+                  <p><i class="fa fa-flag"></i> PALMAS</p>
+                  <small>2 presenca(s) em 50 evento(s)</small>
+                </div>
+                <div class="mc-progress-line">
+                  <strong>4%</strong>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-danger" style="width: 4%;"></div>
+                  </div>
+                </div>
+              </article>
+                                        <article class="mc-list-card">
+                <div>
+                  <h4>Jales - Jales</h4>
+                  <p><i class="fa fa-flag"></i> PALMAS</p>
+                  <small>1 presenca(s) em 17 evento(s)</small>
+                </div>
+                <div class="mc-progress-line">
+                  <strong>5.9%</strong>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-danger" style="width: 5.9%;"></div>
+                  </div>
+                </div>
+              </article>
+                                        <article class="mc-list-card">
+                <div>
+                  <h4>Gildenor Pereira Barros Junior - Guerriro</h4>
+                  <p><i class="fa fa-flag"></i> PALMAS</p>
+                  <small>4 presenca(s) em 50 evento(s)</small>
+                </div>
+                <div class="mc-progress-line">
+                  <strong>8%</strong>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-danger" style="width: 8%;"></div>
+                  </div>
+                </div>
+              </article>
+                                        <article class="mc-list-card">
+                <div>
+                  <h4>Antônio Soares Júnior - Soares</h4>
+                  <p><i class="fa fa-flag"></i> PALMAS</p>
+                  <small>5 presenca(s) em 50 evento(s)</small>
+                </div>
+                <div class="mc-progress-line">
+                  <strong>10%</strong>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-danger" style="width: 10%;"></div>
+                  </div>
+                </div>
+              </article>
+                                        <article class="mc-list-card">
+                <div>
+                  <h4>Myller de França Ferreira - Myller</h4>
+                  <p><i class="fa fa-flag"></i> REP. PORTO NACIONAL</p>
+                  <small>5 presenca(s) em 50 evento(s)</small>
+                </div>
+                <div class="mc-progress-line">
+                  <strong>10%</strong>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-danger" style="width: 10%;"></div>
+                  </div>
+                </div>
+              </article>
+                      </div>
+              </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="x_panel mc-dashboard-section">
+      <div class="x_title">
+        <h2>Pendencias <small>20 evento(s)</small></h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+                  <div class="mc-list">
+                          <article class="mc-list-card">
+                <div>
+                  <h4>MOTO CULTO DO ESQUADRÃO BASE/PALMAS</h4>
+                  <p><i class="fa fa-calendar"></i> 04/11/2017 as 08:00</p>
+                  <small>0 registro(s) de presenca</small>
+                </div>
+                <div class="mc-list-actions">
+                  <a class="btn btn-warning btn-xs" href="presenca_evento.html?id=263"><i class="fa fa-check"></i> Revisar</a>
+                </div>
+              </article>
+                          <article class="mc-list-card">
+                <div>
+                  <h4>LOUVOR E ADORAÇÃO IGREJA BOM SAMARITANO</h4>
+                  <p><i class="fa fa-calendar"></i> 05/11/2017 as 08:00</p>
+                  <small>0 registro(s) de presenca</small>
+                </div>
+                <div class="mc-list-actions">
+                  <a class="btn btn-warning btn-xs" href="presenca_evento.html?id=262"><i class="fa fa-check"></i> Revisar</a>
+                </div>
+              </article>
+                          <article class="mc-list-card">
+                <div>
+                  <h4>AÇÃO SOCIAL BASE/PALMAS</h4>
+                  <p><i class="fa fa-calendar"></i> 24/02/2018 as 08:00</p>
+                  <small>0 registro(s) de presenca</small>
+                </div>
+                <div class="mc-list-actions">
+                  <a class="btn btn-warning btn-xs" href="presenca_evento.html?id=258"><i class="fa fa-check"></i> Revisar</a>
+                </div>
+              </article>
+                          <article class="mc-list-card">
+                <div>
+                  <h4>CAMPANHA MAIO AMARELO BASE/PALMAS</h4>
+                  <p><i class="fa fa-calendar"></i> 05/05/2018 as 08:00</p>
+                  <small>0 registro(s) de presenca</small>
+                </div>
+                <div class="mc-list-actions">
+                  <a class="btn btn-warning btn-xs" href="presenca_evento.html?id=257"><i class="fa fa-check"></i> Revisar</a>
+                </div>
+              </article>
+                          <article class="mc-list-card">
+                <div>
+                  <h4>AÇÃO SOCIAL PARA AS MÃES BASE/PALMAS</h4>
+                  <p><i class="fa fa-calendar"></i> 05/06/2018 as 08:00</p>
+                  <small>0 registro(s) de presenca</small>
+                </div>
+                <div class="mc-list-actions">
+                  <a class="btn btn-warning btn-xs" href="presenca_evento.html?id=256"><i class="fa fa-check"></i> Revisar</a>
+                </div>
+              </article>
+                          <article class="mc-list-card">
+                <div>
+                  <h4>MOTO CULTO PALMAS-TO</h4>
+                  <p><i class="fa fa-calendar"></i> 07/06/2018 as 08:00</p>
+                  <small>0 registro(s) de presenca</small>
+                </div>
+                <div class="mc-list-actions">
+                  <a class="btn btn-warning btn-xs" href="presenca_evento.html?id=255"><i class="fa fa-check"></i> Revisar</a>
+                </div>
+              </article>
+                      </div>
+              </div>
+    </div>
+
+    <div class="x_panel mc-dashboard-section">
+      <div class="x_title">
+        <h2>Bases mais ativas <small>2026</small></h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+                  <div class="mc-list">
+                                        <article class="mc-list-card">
+                <div>
+                  <h4>PALMAS</h4>
+                  <p>37 evento(s) finalizado(s)</p>
+                  <small>202 presenca(s) registradas</small>
+                </div>
+                <div class="mc-progress-line">
+                  <strong>74%</strong>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-success" style="width: 74%;"></div>
+                  </div>
+                </div>
+              </article>
+                                        <article class="mc-list-card">
+                <div>
+                  <h4>REP. PORTO NACIONAL</h4>
+                  <p>13 evento(s) finalizado(s)</p>
+                  <small>41 presenca(s) registradas</small>
+                </div>
+                <div class="mc-progress-line">
+                  <strong>26%</strong>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-success" style="width: 26%;"></div>
+                  </div>
+                </div>
+              </article>
+                                        <article class="mc-list-card">
+                <div>
+                  <h4>APARECIDA DE GOIÂNIA</h4>
+                  <p>0 evento(s) finalizado(s)</p>
+                  <small>0 presenca(s) registradas</small>
+                </div>
+                <div class="mc-progress-line">
+                  <strong>0%</strong>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-success" style="width: 0%;"></div>
+                  </div>
+                </div>
+              </article>
+                                        <article class="mc-list-card">
+                <div>
+                  <h4>BELÉM</h4>
+                  <p>0 evento(s) finalizado(s)</p>
+                  <small>0 presenca(s) registradas</small>
+                </div>
+                <div class="mc-progress-line">
+                  <strong>0%</strong>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-success" style="width: 0%;"></div>
+                  </div>
+                </div>
+              </article>
+                                        <article class="mc-list-card">
+                <div>
+                  <h4>BRASÍLIA</h4>
+                  <p>0 evento(s) finalizado(s)</p>
+                  <small>0 presenca(s) registradas</small>
+                </div>
+                <div class="mc-progress-line">
+                  <strong>0%</strong>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-success" style="width: 0%;"></div>
+                  </div>
+                </div>
+              </article>
+                      </div>
+              </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+        <footer>
+            <div class="pull-right">
+                Motoclub Presenca 2.0            </div>
+            <div class="clearfix"></div>
+        </footer>
+      </div>
+    </div>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendors/fastclick/lib/fastclick.js"></script>
+<script src="vendors/nprogress/nprogress.js"></script>
+<script src="vendors/select2/dist/js/select2.full.min.js"></script>
+<script src="build/js/custom.min.js"></script>
+<script src="assets/js/app.js?v=1785509576"></script>
+</body>
+</html>

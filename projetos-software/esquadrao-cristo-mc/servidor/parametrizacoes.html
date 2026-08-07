@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Parametrizacoes | Motoclub Presenca</title>
+    <link rel="icon" type="image/png" href="assets/images/motoclub-icon.png">
+    <link rel="apple-touch-icon" href="assets/images/motoclub-icon.png">
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="build/css/custom.min.css" rel="stylesheet">
+    <link href="assets/css/app.css?v=1785509576" rel="stylesheet">
+        <style>
+  .mc-param-help {
+    color: #73879C;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .mc-secret-field {
+    font-family: Consolas, Monaco, monospace;
+  }
+</style>    <!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8358C7G"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MZR8358C7G');
+</script>
+</head>
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <div class="col-md-3 left_col">
+      <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+          <a href="dashboard.html" class="site_title"><i class="fa fa-shield"></i> <span>MC 2.0</span></a>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="profile clearfix">
+          <div class="profile_pic">
+                          <div class="profile_initials">MC</div>
+                      </div>
+          <div class="profile_info">
+            <span>Bem-vindo,</span>
+            <h2>Administrador</h2>
+            <small>Todas as bases</small>
+          </div>
+        </div>
+
+        <br>
+
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          <div class="menu_section">
+            <h3>Menu</h3>
+            <ul class="nav side-menu">
+                              <li><a href="dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                                            <li><a><i class="fa fa-users"></i> Membros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="membros.html">Listar membros</a></li>
+                                          <li><a href="novo_membro.html">Novo membro</a></li>
+                                          <li><a href="prospects.html">Prospects</a></li>
+                                          <li><a href="diretoria.html">Diretoria</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-calendar"></i> Eventos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="eventos.html">Listar eventos</a></li>
+                                          <li><a href="novo_evento.html">Novo evento</a></li>
+                                          <li><a href="mural_eventos.html">Mural de eventos</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-check-square-o"></i> Presencas <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="presencas.html">Resumo de presencas</a></li>
+                                          <li><a href="eventos.html?status=Aberto">Eventos para check-in</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-shopping-bag"></i> Pedidos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="pedidos.html">Itens</a></li>
+                                          <li><a href="pedido_tipos.html">Tipos de item</a></li>
+                                          <li><a href="novo_pedido_item.html">Novo item</a></li>
+                                          <li><a href="novo_pedido_membro.html">Novo pedido</a></li>
+                                          <li><a href="pedidos_membro.html">Pedidos por membro</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-cubes"></i> Patrimonio <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="patrimonio_dashboard.html">Dashboard</a></li>
+                                          <li><a href="patrimonio_itens.html">Itens</a></li>
+                                          <li><a href="novo_patrimonio.html">Novo item</a></li>
+                                          <li><a href="patrimonio_emprestimos.html">Emprestimos</a></li>
+                                          <li><a href="patrimonio_manutencoes.html">Manutencoes</a></li>
+                                          <li><a href="patrimonio_relatorios.html">Relatorios</a></li>
+                                          <li><a href="patrimonio_categorias.html">Categorias</a></li>
+                                          <li><a href="patrimonio_locais.html">Locais</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-flag"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="bases.html">Bases</a></li>
+                                          <li><a href="cargos.html">Cargos</a></li>
+                                          <li><a href="fases_membro.html">Fases do membro</a></li>
+                                          <li><a href="artes_aniversario.html">Artes de aniversario</a></li>
+                                          <li><a href="usuarios.html">Usuarios</a></li>
+                                          <li><a href="perfis.html">Perfis</a></li>
+                                          <li><a href="parametrizacoes.html">Parametrizacoes</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-bar-chart"></i> Relatorios <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="relatorios.html">Central de relatorios</a></li>
+                                          <li><a href="relatorio_eventos_ano.html">Eventos por ano</a></li>
+                                          <li><a href="relatorio_ranking_presenca.html">Ranking de presenca</a></li>
+                                      </ul>
+                </li>
+                          </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-footer hidden-small">
+                      <a data-toggle="tooltip" data-placement="top" title="Configuracoes" href="parametrizacoes.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                    <a data-toggle="tooltip" data-placement="top" title="Tela cheia"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Bloquear"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Sair" href="logout.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="top_nav">
+      <div class="nav_menu">
+        <nav>
+          <div class="nav toggle">
+            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                  <span class="user-avatar-sm">MC</span>
+                                Administrador                <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-usermenu pull-right">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="javascript:void(0);"><span>Superadministrador</span></a></li>
+                <li><a href="logout.html"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="right_col" role="main">
+<div class="page-title">
+  <div class="title_left">
+    <h3>Parametrizacoes <small>Google e integracoes</small></h3>
+  </div>
+  <div class="title_right text-right">
+    <a class="btn btn-default" href="dashboard.html"><i class="fa fa-arrow-left"></i> Voltar</a>
+  </div>
+</div>
+<div class="clearfix"></div>
+
+
+
+<div class="row">
+  <div class="col-md-8 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Parametros da aplicacao <small>ambiente atual</small></h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <form method="post" class="form-horizontal form-label-left">
+                      <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="google_analytics_id">Google Analytics GA4</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google"></i></span>
+                    <input
+                      type="text"
+                      class="form-control "
+                      id="google_analytics_id"
+                      name="google_analytics_id"
+                      value="G-MZR8358C7G"
+                      placeholder="G-XXXXXXXXXX"
+                      autocomplete="off">
+                  </div>
+                                <div class="mc-param-help">ID de medicao do GA4 usado pelo gtag.</div>
+              </div>
+            </div>
+                      <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="google_tag_manager_id">Google Tag Manager</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google"></i></span>
+                    <input
+                      type="text"
+                      class="form-control "
+                      id="google_tag_manager_id"
+                      name="google_tag_manager_id"
+                      value=""
+                      placeholder="GTM-XXXXXXX"
+                      autocomplete="off">
+                  </div>
+                                <div class="mc-param-help">Container do Google Tag Manager.</div>
+              </div>
+            </div>
+                      <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="google_api_key">Google API Key</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google"></i></span>
+                    <input
+                      type="password"
+                      class="form-control mc-secret-field"
+                      id="google_api_key"
+                      name="google_api_key"
+                      value=""
+                      placeholder="AIza..."
+                      autocomplete="off">
+                  </div>
+                                <div class="mc-param-help">Chave geral para integracoes com APIs do Google.</div>
+              </div>
+            </div>
+                      <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="google_maps_api_key">Google Maps API Key</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google"></i></span>
+                    <input
+                      type="password"
+                      class="form-control mc-secret-field"
+                      id="google_maps_api_key"
+                      name="google_maps_api_key"
+                      value=""
+                      placeholder="AIza..."
+                      autocomplete="off">
+                  </div>
+                                <div class="mc-param-help">Chave usada em recursos de mapas, quando houver.</div>
+              </div>
+            </div>
+                      <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="openai_api_key">OpenAI API Key</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google"></i></span>
+                    <input
+                      type="password"
+                      class="form-control mc-secret-field"
+                      id="openai_api_key"
+                      name="openai_api_key"
+                      value="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"
+                      placeholder="sk-..."
+                      autocomplete="off">
+                  </div>
+                                <div class="mc-param-help">Chave usada para gerar mensagens de aniversario com GPT.</div>
+              </div>
+            </div>
+                      <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="openai_model">Modelo OpenAI</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google"></i></span>
+                    <input
+                      type="text"
+                      class="form-control "
+                      id="openai_model"
+                      name="openai_model"
+                      value="gpt-4.1-mini"
+                      placeholder="gpt-4.1-mini"
+                      autocomplete="off">
+                  </div>
+                                <div class="mc-param-help">Modelo usado para gerar textos. Padrao recomendado: gpt-4.1-mini.</div>
+              </div>
+            </div>
+                      <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="app_public_url">URL publica do MC</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google"></i></span>
+                    <input
+                      type="text"
+                      class="form-control "
+                      id="app_public_url"
+                      name="app_public_url"
+                      value=""
+                      placeholder="https://seudominio.com/mc"
+                      autocomplete="off">
+                  </div>
+                                <div class="mc-param-help">Endereco publico usado nos links enviados por email e Telegram.</div>
+              </div>
+            </div>
+                      <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthday_alert_token">Token do alerta</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google"></i></span>
+                    <input
+                      type="password"
+                      class="form-control mc-secret-field"
+                      id="birthday_alert_token"
+                      name="birthday_alert_token"
+                      value=""
+                      placeholder="crie-uma-chave-secreta"
+                      autocomplete="off">
+                  </div>
+                                <div class="mc-param-help">Chave para executar o alerta pela URL do cron com seguranca.</div>
+              </div>
+            </div>
+                      <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthday_alert_email">Email do alerta</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google"></i></span>
+                    <input
+                      type="text"
+                      class="form-control "
+                      id="birthday_alert_email"
+                      name="birthday_alert_email"
+                      value=""
+                      placeholder="seuemail@dominio.com"
+                      autocomplete="off">
+                  </div>
+                                <div class="mc-param-help">Email que recebera a lista de aniversariantes do dia.</div>
+              </div>
+            </div>
+                      <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthday_alert_days_ahead">Dias de antecedencia</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google"></i></span>
+                    <input
+                      type="text"
+                      class="form-control "
+                      id="birthday_alert_days_ahead"
+                      name="birthday_alert_days_ahead"
+                      value=""
+                      placeholder="0"
+                      autocomplete="off">
+                  </div>
+                                <div class="mc-param-help">Use 0 para avisar somente no dia. Use 1, 2 ou mais para avisar antes tambem.</div>
+              </div>
+            </div>
+                      <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telegram_bot_token">Telegram Bot Token</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google"></i></span>
+                    <input
+                      type="password"
+                      class="form-control mc-secret-field"
+                      id="telegram_bot_token"
+                      name="telegram_bot_token"
+                      value=""
+                      placeholder="123456:ABC..."
+                      autocomplete="off">
+                  </div>
+                                <div class="mc-param-help">Token gerado no BotFather para enviar o lembrete pelo Telegram.</div>
+              </div>
+            </div>
+                      <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telegram_chat_id">Telegram Chat ID</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-google"></i></span>
+                    <input
+                      type="text"
+                      class="form-control "
+                      id="telegram_chat_id"
+                      name="telegram_chat_id"
+                      value=""
+                      placeholder="123456789"
+                      autocomplete="off">
+                  </div>
+                                <div class="mc-param-help">ID do chat, grupo ou canal que recebera o lembrete.</div>
+              </div>
+            </div>
+                      <div class="form-group">
+              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="financeiro_habilitado">Modulo financeiro</label>
+              <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <select class="form-control" id="financeiro_habilitado" name="financeiro_habilitado">
+                                          <option value="0" selected>
+                        Nao usar mensalidades                      </option>
+                                          <option value="1" >
+                        Usar mensalidades                      </option>
+                                      </select>
+                                <div class="mc-param-help">Defina se o motoclube usara controle de mensalidades e pagamentos.</div>
+              </div>
+            </div>
+                    <div class="ln_solid"></div>
+          <div class="form-group">
+            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+              <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Salvar parametrizacoes</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>Status</h2>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <p><strong>Tabela:</strong> <span class="label label-success">Disponivel</span></p>
+        <p><strong>Analytics:</strong> <span class="label label-success">Configurado</span></p>
+        <p><strong>GTM:</strong> <span class="label label-default">Nao informado</span></p>
+        <p><strong>API Google:</strong> <span class="label label-default">Nao informada</span></p>
+        <p><strong>OpenAI:</strong> <span class="label label-success">Configurada</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+        <footer>
+            <div class="pull-right">
+                Motoclub Presenca 2.0            </div>
+            <div class="clearfix"></div>
+        </footer>
+      </div>
+    </div>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendors/fastclick/lib/fastclick.js"></script>
+<script src="vendors/nprogress/nprogress.js"></script>
+<script src="vendors/select2/dist/js/select2.full.min.js"></script>
+<script src="build/js/custom.min.js"></script>
+<script src="assets/js/app.js?v=1785509576"></script>
+</body>
+</html>
