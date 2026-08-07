@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Novo Pedido | Motoclub Presenca</title>
+    <link rel="icon" type="image/png" href="assets/images/motoclub-icon.png">
+    <link rel="apple-touch-icon" href="assets/images/motoclub-icon.png">
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="build/css/custom.min.css" rel="stylesheet">
+    <link href="assets/css/app.css?v=1785509576" rel="stylesheet">
+        <style>
+  .pedido-modelos-empty {
+    padding: 18px;
+    border: 1px dashed #d9dee4;
+    border-radius: 4px;
+    color: #73879c;
+    background: #fafafa;
+  }
+
+  .pedido-modelo-acoes {
+    white-space: nowrap;
+  }
+</style>    <!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MZR8358C7G"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MZR8358C7G');
+</script>
+</head>
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <div class="col-md-3 left_col">
+      <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+          <a href="dashboard.html" class="site_title"><i class="fa fa-shield"></i> <span>MC 2.0</span></a>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="profile clearfix">
+          <div class="profile_pic">
+                          <div class="profile_initials">MC</div>
+                      </div>
+          <div class="profile_info">
+            <span>Bem-vindo,</span>
+            <h2>Administrador</h2>
+            <small>Todas as bases</small>
+          </div>
+        </div>
+
+        <br>
+
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          <div class="menu_section">
+            <h3>Menu</h3>
+            <ul class="nav side-menu">
+                              <li><a href="dashboard.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                                            <li><a><i class="fa fa-users"></i> Membros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="membros.html">Listar membros</a></li>
+                                          <li><a href="novo_membro.html">Novo membro</a></li>
+                                          <li><a href="prospects.html">Prospects</a></li>
+                                          <li><a href="diretoria.html">Diretoria</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-calendar"></i> Eventos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="eventos.html">Listar eventos</a></li>
+                                          <li><a href="novo_evento.html">Novo evento</a></li>
+                                          <li><a href="mural_eventos.html">Mural de eventos</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-check-square-o"></i> Presencas <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="presencas.html">Resumo de presencas</a></li>
+                                          <li><a href="eventos.html?status=Aberto">Eventos para check-in</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-shopping-bag"></i> Pedidos <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="pedidos.html">Itens</a></li>
+                                          <li><a href="pedido_tipos.html">Tipos de item</a></li>
+                                          <li><a href="novo_pedido_item.html">Novo item</a></li>
+                                          <li><a href="novo_pedido_membro.html">Novo pedido</a></li>
+                                          <li><a href="pedidos_membro.html">Pedidos por membro</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-cubes"></i> Patrimonio <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="patrimonio_dashboard.html">Dashboard</a></li>
+                                          <li><a href="patrimonio_itens.html">Itens</a></li>
+                                          <li><a href="novo_patrimonio.html">Novo item</a></li>
+                                          <li><a href="patrimonio_emprestimos.html">Emprestimos</a></li>
+                                          <li><a href="patrimonio_manutencoes.html">Manutencoes</a></li>
+                                          <li><a href="patrimonio_relatorios.html">Relatorios</a></li>
+                                          <li><a href="patrimonio_categorias.html">Categorias</a></li>
+                                          <li><a href="patrimonio_locais.html">Locais</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-flag"></i> Cadastros <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="bases.html">Bases</a></li>
+                                          <li><a href="cargos.html">Cargos</a></li>
+                                          <li><a href="fases_membro.html">Fases do membro</a></li>
+                                          <li><a href="artes_aniversario.html">Artes de aniversario</a></li>
+                                          <li><a href="usuarios.html">Usuarios</a></li>
+                                          <li><a href="perfis.html">Perfis</a></li>
+                                          <li><a href="parametrizacoes.html">Parametrizacoes</a></li>
+                                      </ul>
+                </li>
+                              <li><a><i class="fa fa-bar-chart"></i> Relatorios <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                                          <li><a href="relatorios.html">Central de relatorios</a></li>
+                                          <li><a href="relatorio_eventos_ano.html">Eventos por ano</a></li>
+                                          <li><a href="relatorio_ranking_presenca.html">Ranking de presenca</a></li>
+                                      </ul>
+                </li>
+                          </ul>
+          </div>
+        </div>
+
+        <div class="sidebar-footer hidden-small">
+                      <a data-toggle="tooltip" data-placement="top" title="Configuracoes" href="parametrizacoes.html"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                    <a data-toggle="tooltip" data-placement="top" title="Tela cheia"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Bloquear"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></a>
+          <a data-toggle="tooltip" data-placement="top" title="Sair" href="logout.html"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="top_nav">
+      <div class="nav_menu">
+        <nav>
+          <div class="nav toggle">
+            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                  <span class="user-avatar-sm">MC</span>
+                                Administrador                <span class="fa fa-angle-down"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-usermenu pull-right">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="javascript:void(0);"><span>Superadministrador</span></a></li>
+                <li><a href="logout.html"><i class="fa fa-sign-out pull-right"></i> Sair</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="right_col" role="main">
+<div class="page-title">
+  <div class="title_left"><h3>Novo Pedido <small>itens por membro</small></h3></div>
+  <div class="title_right text-right">
+    <a class="btn btn-default" href="pedidos_membro.html"><i class="fa fa-arrow-left"></i> Voltar</a>
+  </div>
+</div>
+<div class="clearfix"></div>
+
+
+<form method="post">
+  <input type="hidden" name="id_pedido" value="0">
+
+  <div class="x_panel">
+    <div class="x_title"><h2>Dados do pedido</h2><div class="clearfix"></div></div>
+    <div class="x_content">
+      <div class="row">
+        <div class="col-md-6 col-sm-12 form-group">
+          <label>Membro *</label>
+          <select class="form-control" name="id_membro" required>
+            <option value="">Selecione</option>
+                                        <option value="19" >Adeilane Reis (Adeilane)</option>
+                                        <option value="13" >Alexandre Florentino Ferreira (Alexandre)</option>
+                                        <option value="28" >Algemiro (Algemiro)</option>
+                                        <option value="7" >Antônio Soares Júnior (Soares)</option>
+                                        <option value="31" >Betânia (Betânia)</option>
+                                        <option value="12" >Eber Miranda de Sousa (Pr. Eber)</option>
+                                        <option value="29" >Erika Silper (Erica)</option>
+                                        <option value="32" >Fabio (Fabio)</option>
+                                        <option value="5" >Fernando Lucas Alves de Araújo (Capl. Fernando)</option>
+                                        <option value="20" >Gildenor Pereira Barros Junior (Guerriro)</option>
+                                        <option value="8" >Heráclito Botelho Toscano Barreto Junior (Toscano)</option>
+                                        <option value="27" >Ildson Oliveira de Lima (Ildson)</option>
+                                        <option value="43" >Jales (Jales)</option>
+                                        <option value="10" >João Adolfo de Abreu Guimarães (João)</option>
+                                        <option value="6" >John Dalto Alves de Sousa (John)</option>
+                                        <option value="18" >José Neto (Neto)</option>
+                                        <option value="25" >Leo Marcio Bona (Bona)</option>
+                                        <option value="14" >Maria Lua (Lua)</option>
+                                        <option value="9" >Milton Gomes da Silva Filho (Milton)</option>
+                                        <option value="17" >Myller de França Ferreira (Myller)</option>
+                                        <option value="23" >Nádia Flausino Vieira Borges (Nádia)</option>
+                                        <option value="11" >Sandoval Candido Farias Junior (Sandoval)</option>
+                                        <option value="16" >Vinicius Regis Felix (Vinicius)</option>
+                                        <option value="15" >Zélia (Zélia)</option>
+                      </select>
+        </div>
+        <div class="col-md-6 col-sm-12 form-group">
+          <label>Item *</label>
+          <select class="form-control" id="id_item" name="id_item" required>
+            <option value="">Selecione</option>
+                                        <option value="1" >Camiseta 21 Anos Esquadrão de Cristo MC</option>
+                      </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Observacoes</label>
+        <textarea class="form-control" name="observacoes" rows="3"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Modelos e quantidades <small>adicione apenas o que o membro pediu</small></h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li>
+          <button type="button" class="btn btn-success btn-xs" id="btn-abrir-modelo" disabled>
+            <i class="fa fa-plus"></i> Adicionar modelo
+          </button>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <div id="modelos-feedback" class="pedido-modelos-empty">Selecione um item para carregar os modelos.</div>
+      <div class="table-responsive" id="modelos-selecionados-wrap" style="display:none;">
+        <table class="table table-striped jambo_table mc-responsive-table">
+          <thead>
+            <tr>
+              <th>Modelo</th>
+              <th>Descricao</th>
+              <th>Preco</th>
+              <th>Quantidade</th>
+              <th class="pedido-modelo-acoes">Acoes</th>
+            </tr>
+          </thead>
+          <tbody id="modelos-selecionados"></tbody>
+        </table>
+      </div>
+      <div id="modelos-hidden-inputs"></div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-success" type="submit"><i class="fa fa-save"></i> Salvar pedido</button>
+    <a class="btn btn-default" href="pedidos_membro.html">Cancelar</a>
+  </div>
+</form>
+
+<div class="modal fade" id="modalModeloPedido" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Adicionar modelo ao pedido</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Modelo *</label>
+          <select class="form-control" id="modal-modelo-select"></select>
+        </div>
+        <div class="form-group">
+          <label>Quantidade *</label>
+          <input class="form-control" id="modal-modelo-quantidade" type="number" min="1" value="1">
+        </div>
+        <div id="modal-modelo-info" class="text-muted"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" id="btn-confirmar-modelo"><i class="fa fa-plus"></i> Adicionar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+        <footer>
+            <div class="pull-right">
+                Motoclub Presenca 2.0            </div>
+            <div class="clearfix"></div>
+        </footer>
+      </div>
+    </div>
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendors/fastclick/lib/fastclick.js"></script>
+<script src="vendors/nprogress/nprogress.js"></script>
+<script src="vendors/select2/dist/js/select2.full.min.js"></script>
+<script src="build/js/custom.min.js"></script>
+<script src="assets/js/app.js?v=1785509576"></script>
+<script>
+(function () {
+  var editItens = [];
+  var itemSelect = document.getElementById('id_item');
+  var botaoAbrir = document.getElementById('btn-abrir-modelo');
+  var feedback = document.getElementById('modelos-feedback');
+  var tabelaWrap = document.getElementById('modelos-selecionados-wrap');
+  var tabelaBody = document.getElementById('modelos-selecionados');
+  var hiddenInputs = document.getElementById('modelos-hidden-inputs');
+  var modalSelect = document.getElementById('modal-modelo-select');
+  var modalQuantidade = document.getElementById('modal-modelo-quantidade');
+  var modalInfo = document.getElementById('modal-modelo-info');
+  var botaoConfirmar = document.getElementById('btn-confirmar-modelo');
+  var modelosDisponiveis = [];
+  var modelosSelecionados = {};
+
+  function moeda(valor) {
+    return Number(valor || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
+
+  function texto(valor) {
+    return String(valor || '').replace(/[&<>"']/g, function (char) {
+      return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'}[char];
+    });
+  }
+
+  function encontrarModelo(idModelo) {
+    return modelosDisponiveis.find(function (modelo) {
+      return String(modelo.id_modelo) === String(idModelo);
+    });
+  }
+
+  function renderSelecionados() {
+    var ids = Object.keys(modelosSelecionados);
+    hiddenInputs.innerHTML = ids.map(function (idModelo) {
+      return '<input type="hidden" name="modelos[' + texto(idModelo) + ']" value="' + texto(modelosSelecionados[idModelo]) + '">';
+    }).join('');
+
+    if (!itemSelect.value) {
+      feedback.className = 'pedido-modelos-empty';
+      feedback.textContent = 'Selecione um item para carregar os modelos.';
+      feedback.style.display = 'block';
+      tabelaWrap.style.display = 'none';
+      botaoAbrir.disabled = true;
+      return;
+    }
+
+    if (modelosDisponiveis.length === 0) {
+      feedback.className = 'alert alert-warning';
+      feedback.textContent = 'Este item ainda nao possui modelos cadastrados.';
+      feedback.style.display = 'block';
+      tabelaWrap.style.display = 'none';
+      botaoAbrir.disabled = true;
+      return;
+    }
+
+    botaoAbrir.disabled = false;
+
+    if (ids.length === 0) {
+      feedback.className = 'pedido-modelos-empty';
+      feedback.textContent = 'Nenhum modelo adicionado. Clique em Adicionar modelo para incluir quantidade.';
+      feedback.style.display = 'block';
+      tabelaWrap.style.display = 'none';
+      return;
+    }
+
+    feedback.style.display = 'none';
+    tabelaWrap.style.display = 'block';
+    tabelaBody.innerHTML = ids.map(function (idModelo) {
+      var modelo = encontrarModelo(idModelo);
+      if (!modelo) {
+        return '';
+      }
+
+      return '<tr>' +
+        '<td data-label="Modelo"><strong>' + texto(modelo.nome_modelo) + '</strong></td>' +
+        '<td data-label="Descricao">' + texto(modelo.descricao || '-') + '</td>' +
+        '<td data-label="Preco">' + moeda(modelo.preco_base) + '</td>' +
+        '<td data-label="Quantidade">' + texto(modelosSelecionados[idModelo]) + '</td>' +
+        '<td data-label="Acoes" class="pedido-modelo-acoes">' +
+          '<button type="button" class="btn btn-primary btn-xs editar-modelo" data-id="' + texto(idModelo) + '"><i class="fa fa-edit"></i> Alterar</button> ' +
+          '<button type="button" class="btn btn-danger btn-xs remover-modelo" data-id="' + texto(idModelo) + '"><i class="fa fa-trash"></i></button>' +
+        '</td>' +
+      '</tr>';
+    }).join('');
+  }
+
+  function popularModal(idModelo) {
+    modalSelect.innerHTML = modelosDisponiveis.map(function (modelo) {
+      return '<option value="' + texto(modelo.id_modelo) + '">' + texto(modelo.nome_modelo) + ' - ' + moeda(modelo.preco_base) + '</option>';
+    }).join('');
+
+    if (idModelo) {
+      modalSelect.value = idModelo;
+      modalQuantidade.value = modelosSelecionados[idModelo] || 1;
+    } else {
+      modalQuantidade.value = 1;
+    }
+
+    atualizarInfoModal();
+  }
+
+  function atualizarInfoModal() {
+    var modelo = encontrarModelo(modalSelect.value);
+    modalInfo.textContent = modelo ? ((modelo.descricao || 'Sem descricao') + ' | ' + moeda(modelo.preco_base)) : '';
+  }
+
+  function carregarModelos() {
+    var idItem = itemSelect.value;
+    modelosDisponiveis = [];
+    modelosSelecionados = {};
+
+    if (!idItem) {
+      renderSelecionados();
+      return;
+    }
+
+    feedback.className = 'pedido-modelos-empty';
+    feedback.textContent = 'Carregando modelos...';
+    feedback.style.display = 'block';
+    tabelaWrap.style.display = 'none';
+    botaoAbrir.disabled = true;
+
+    fetch('api/pedidos_get_modelos.php?id_item=' + encodeURIComponent(idItem))
+      .then(function (response) { return response.json(); })
+      .then(function (modelos) {
+        modelosDisponiveis = modelos || [];
+        editItens.forEach(function (item) {
+          if (Number(item.quantidade || 0) > 0 && encontrarModelo(item.id_modelo)) {
+            modelosSelecionados[item.id_modelo] = Number(item.quantidade);
+          }
+        });
+        renderSelecionados();
+      })
+      .catch(function () {
+        feedback.className = 'alert alert-danger';
+        feedback.textContent = 'Nao foi possivel carregar os modelos.';
+        feedback.style.display = 'block';
+        tabelaWrap.style.display = 'none';
+      });
+  }
+
+  itemSelect.addEventListener('change', carregarModelos);
+
+  if (window.jQuery) {
+    $(itemSelect).on('change select2:select', carregarModelos);
+  }
+  botaoAbrir.addEventListener('click', function () {
+    popularModal(null);
+    $('#modalModeloPedido').modal('show');
+  });
+  modalSelect.addEventListener('change', atualizarInfoModal);
+  botaoConfirmar.addEventListener('click', function () {
+    var idModelo = modalSelect.value;
+    var quantidade = Number(modalQuantidade.value || 0);
+
+    if (!idModelo || quantidade <= 0) {
+      modalQuantidade.focus();
+      return;
+    }
+
+    modelosSelecionados[idModelo] = quantidade;
+    renderSelecionados();
+    $('#modalModeloPedido').modal('hide');
+  });
+  tabelaBody.addEventListener('click', function (event) {
+    var editar = event.target.closest('.editar-modelo');
+    var remover = event.target.closest('.remover-modelo');
+
+    if (editar) {
+      popularModal(editar.getAttribute('data-id'));
+      $('#modalModeloPedido').modal('show');
+    }
+
+    if (remover) {
+      delete modelosSelecionados[remover.getAttribute('data-id')];
+      renderSelecionados();
+    }
+  });
+
+  function iniciarModelos() {
+    if (itemSelect.value) {
+      carregarModelos();
+    } else {
+      renderSelecionados();
+    }
+  }
+
+  iniciarModelos();
+  setTimeout(iniciarModelos, 150);
+  setTimeout(iniciarModelos, 600);
+}());
+</script></body>
+</html>
