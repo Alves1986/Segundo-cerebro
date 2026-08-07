@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertex Consulting - Tabela de Preços</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #38bdf8;
+            --accent-dark: #0ea5e9;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --success: #22c55e;
+            --warning: #f59e0b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--accent);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .section {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-title {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+        }
+        
+        th {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        tr:hover {
+            background: rgba(56, 189, 248, 0.05);
+        }
+        
+        .price-highlight {
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        .value-compare {
+            color: var(--warning);
+            font-weight: bold;
+        }
+        
+        .strategy-box {
+            background: rgba(56, 189, 248, 0.1);
+            border-left: 3px solid var(--accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .timeline {
+            list-style: none;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding: 10px 0 10px 20px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 15px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        
+        .strategy-highlight {
+            background: linear-gradient(120deg, rgba(56, 189, 248, 0.2), rgba(34, 197, 94, 0.1));
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            color: var(--gray);
+            border-top: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .badge-free {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--success);
+        }
+        
+        .badge-paid {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">VERTEX CONSULTING</div>
+            <p class="subtitle">Tabela de Preços Estratégica para Interior &mdash; Telêmaco Borba e Região</p>
+        </header>
+        
+        <!-- Ancoragem de Valor -->
+        <div class="section">
+            <h2 class="section-title">📊 Ancoragem de Valor Regional</h2>
+            <div class="strategy-box">
+                <p><strong>Por que nossa proposta é competitiva:</strong></p>
+                <p>Clientes no interior pagam R$ 600+ por serviços avulsos. Nossa solução integrada sai por R$ 297/mês.</p>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serviço</th>
+                        <th>Valor de Mercado</th>
+                        <th>Nossa Oferta</th>
+                        <th>Diferencial</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sistema de Salão (Trinks/Avec)</td>
+                        <td>R$ 120/mês</td>
+                        <td><span class="badge badge-free">Incluso</span></td>
+                        <td>✅ Integrado</td>
+                    </tr>
+                    <tr>
+                        <td>Plataforma Cursos (Hotmart)</td>
+                        <td>10% por venda</td>
+                        <td><span class="badge badge-free">0%</span></td>
+                        <td>✅ Sem taxas</td>
+                    </tr>
+                    <tr>
+                        <td>CRM WhatsApp (Chatwoot)</td>
+                        <td>R$ 250-400/mês</td>
+                        <td><span class="badge badge-free">Incluso</span></td>
+                        <td>✅ Integrado</td>
+                    </tr>
+                    <tr>
+                        <td>Custos Avulsos</td>
+                        <td><span class="value-compare">R$ 600+/mês</span></td>
+                        <td><span class="price-highlight">R$ 297/mês</span></td>
+                        <td>✅ Tudo em um só</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Sites -->
+        <div class="section">
+            <h2 class="section-title">🌐 Serviços Web</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Serviço</th>
+                        <th>Preço</th>
+                        <th>Inclui</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Landing Page</strong></td>
+                        <td>R$ 447</td>
+                        <td>Anúncios rápidos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Site Simples (1 página)</strong></td>
+                        <td>R$ 597</td>
+                        <td>Responsivo, básico</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Site Completo</strong></td>
+                        <td>R$ 997</td>
+                        <td>Várias abas, institucional</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Site Completo + CRM</strong></td>
+                        <td>R$ 1.500</td>
+                        <td>Integração completa</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Pacotes -->
+        <div class="section">
+            <h2 class="section-title">🏪 Soluções por Nicho</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nicho</th>
+                        <th>Preço</th>
+                        <th>Características</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Restaurante (cardápio + WS)</td>
+                        <td>R$ 1.200</td>
+                        <td>Digital + WhatsApp</td>
+                    </tr>
+                    <tr>
+                        <td>Comércio Geral</td>
+                        <td>R$ 997</td>
+                        <td>Presença digital completa</td>
+                    </tr>
+                    <tr>
+                        <td>Loja Virtual</td>
+                        <td>R$ 1.500</td>
+                        <-td>E-commerce completo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Estratégia Regional -->
+        <div class="section">
+            <h2 class="section-title">💡 Estratégia Regional (Interior)</h2>
+            
+            <div class="strategy-highlight">
+                <h3>Taxa de Implantação</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Opção</th>
+                            <th>Preço</th>
+                            <th>Detalhes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Setup Customizado</td>
+                            <td><span class="price-highlight">R$ 3.500-5.000</span></td>
+                            <td>Parcelar no cartão</td>
+                        </tr>
+                        <tr>
+                            <td>Valor Capital</td>
+                            <td><span class="value-compare">R$ 15.000+</span></td>
+                            <td>São Paulo/Curitiba</td>
+                        </tr>
+                        <tr>
+                            <td>Nosso Valor</td>
+                            <td><span class="price-highlight">R$ 4.000</span></td>
+                            <td>Parceria local</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="strategy-highlight">
+                <h3>Mensalidade</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Plano</th>
+                            <th>Preço</th>
+                            <th>Justificativa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Licença + CRM + Suporte</td>
+                            <td><span class="price-highlight">R$ 297/mês</span></td>
+                            <td>"Menos de R$ 10/dia"</td>
+                        </tr>
+                        <tr>
+                            <td>Valor Mínimo</td>
+                            <td><span class="price-highlight">R$ 197/mês</span></td>
+                            <td>Com contrato 12 meses</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Escala -->
+        <div class="section">
+            <h2 class="section-title">📈 Estratégia de Escala</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>1. Cliente Vitrine (Agnaldo):</strong> Preço cheio (R$ 4.000 + R$ 297/mês)
+                </div>
+                <div class="timeline-item">
+                    <strong>2. Segundo Cliente:</strong> R$ 3.500 (código base pronto)
+                </div>
+                <div class="timeline-item">
+                    <strong>3. Margem:</strong> 70%+ no setup replicado
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Vertex Consulting &copy; 2024 &mdash; Estratégia validada para Telêmaco Borba, Ortigueira, Tibagi e Castro</p>
+        </footer>
+    </div>
+</body>
+</html>
