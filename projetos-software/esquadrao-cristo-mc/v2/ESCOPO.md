@@ -104,22 +104,55 @@ Acesso: **geral — vê tudo que as bases estão fazendo**.
 ## Modelo de dados central (das telas do sistema atual + legado)
 
 ### Membro
-CPF, matrícula, nome completo, road name (apelido), gênero, data nascimento, fator RH, estado civil, celular, email, CNH (número, categoria, validade), endereço (CEP/logradouro/cidade), profissão, habilidades, igreja que congrega, ministério no ECM, base, cargo/função de apoio, foto, status (ativo/desligado/licança), data entrada
+CPF, matrícula, nome completo, road name (apelido), gênero, data nascimento, fator RH, estado civil, celular, email, CNH (número, categoria, validade), endereço (CEP/logradouro/cidade), profissão, habilidades, igreja que congrega, ministério no ECM, base, cargo/função de apoio, foto, status (ativo/desligado/licança), data entrada, **fase atual** (referência a `fase`)
+
+### Fases do membro (6 fases — DO LEGADO, evolução até o colete completo)
+| Ordem | Fase | Descrição |
+|---|---|---|
+| 0 | Prospect | "Namorando o MC" (inativo no legado — o prospect vira membro quando entra) |
+| 1 | Suporte | Suporte 53 |
+| 2 | Aspirante Nível 1 | Escudo Parcial |
+| 3 | Aspirante Nível 2 | Cruz Vazada |
+| 4 | Membro Nível 3 | Cruz Amarela |
+| 5 | Membro Nível 4 | Cruz Amarela + MM |
+
+> Cada membro tem UMA fase atual. A fase avança ao longo do tempo (evolução até o colete completo). A base gerencia a evolução; o membro vê a sua fase. Prospecto = candidato (conceito de "prospect" do legado, fica em fase 0 até ser aceito).
 
 ### Dependente
 id_membro, nome, parentesco, data nascimento, documento
-
-### Fases / Títulos do membro
-fases (prospect, etc.) e títulos — grade celular
 
 ### Base
 nome, cidade, estado, tipo (base/representação), liderança, status
 
 ### Evento
-nome, descricao, data, hora, local, base, tipo, status (aberto/finalizado/pendente), presença (check-in por membro)
+nome, descricao, data, hora, local, **base responsável**, **tipo**, status (aberto/finalizado/cancelado), **oficial? (Sim/Não)** — eventos oficiais do ECMC, **convidado/parceria?** — quando a base é convidada ou está em parceria, presença (check-in por membro), link Instagram, link álbum Google Drive, link YouTube
 
-### Financeiro (A MAPEAR)
-O Anderson citou financeiro no nível nacional — verificar no legado/atual se existe módulo financeiro e como modelar (por base, consolidado nacional)
+**Tipos de evento (DO LEGADO):** Ação Social, Aniversário, Café, Comemorativo, Confraternização, Desfile, Encontro, Inauguração, Moto Rock, Motoculto, Oração, Outro, Passeio, Quinta Biker, R.O.D.A, Reunião, Treinamento
+
+### Financeiro (MODELO IDEAL — a base presta contas ao nacional mensalmente)
+> O sistema atual tem financeiro, mas o Anderson não tem acesso a ele. Modelo ideal criado a partir da necessidade declarada: **toda base presta contas mensalmente ao nacional (o que entra, o que sai, com o que é gasto)**. Algumas bases têm **investimentos** e **obras em andamento** (construção de novas bases).
+
+**Estrutura por base + consolidação nacional:**
+- **Lançamento financeiro**: base, data, tipo (entrada/saída), categoria, descrição, valor, comprovante (arquivo), lançado por, status (rascunho/enviado/aprovado)
+- **Categorias de entrada**: contribuição de membros, eventos, doações, venda de itens, outras
+- **Categorias de saída**: manutenção, eventos, alimentação/estrutura, obra/investimento, deslocamento, outras
+- **Caixa / saldo da base**: saldo atual por base (entradas − saídas)
+- **Fechamento mensal (prestação de contas)**: a base fecha o mês → gera o relatório mensal financeiro → envia ao nacional → nacional **aprova/reprova**
+- **Investimentos e obras**: lançamento específico com flag `investimento/obra` + descrição (ex.: construção da nova base de X, valor aplicado, andamento %) — visível na base e consolidado no nacional
+
+### Relatório Mensal da Base (MODELO IDEAL — foco nos assuntos tratados pela base)
+> O Anderson indicou: o relatório mensal deve focar principalmente em **assuntos tratados pela base**. Modelo inicial (editável):
+
+**Estrutura do relatório mensal:**
+1. **Resumo do mês** (texto livre): o que a base fez no mês
+2. **Eventos realizados**: lista dos eventos do mês (nome, data, tipo, participantes/presenças)
+3. **Atividades/ações**: ações sociais, visitas, cultos, campanhas (com breve descrição)
+4. **Novidades da base**: membros novos, fases avançadas, desligamentos, destaques
+5. **Pendências/assuntos em aberto**: o que precisa de apoio do nacional
+6. **Financeiro do mês**: entradas, saídas, saldo (vinculado ao fechamento mensal financeiro)
+7. **Status**: rascunho → enviado → revisado (pelo nacional)
+
+**Visibilidade:** a base cria/edita; o nacional lê/revisa e pode comentar.
 
 ### Inventário / Patrimônio
 Itens, categorias, locais, empréstimos, manutenções (idem legado, por base)
@@ -130,19 +163,29 @@ Itens/magens por base
 ### Cards / Artes
 Arte-modelo (imagem), tipo, campos editáveis (posição de textos), base, status — **pendente de definição com as imagens oficiais**
 
+> **REGRAS (definidas pelo Anderson):**
+> - A aba Cards/Artes é **universal (todos os perfis)**.
+> - Os cards só são disponibilizados para edição **quando as artes forem aprovadas pela Diretoria Nacional** (workflow: nacional publica a arte aprovada → bases usam/editam).
+> - Editor real fica pendente até o Anderson coletar as imagens oficiais.
+
 ### Usuário / Perfil
-usuário, senha (via Supabase Auth), base, perfil/permissões por tela
+usuário, senha (via Supabase Auth — **CPF + senha, como já é no sistema atual**), base, perfil/permissões por tela
 
 ---
 
+## Decisões RESOLVIDAS (Anderson)
+- [x] **Financeiro**: existe no sistema atual (sem acesso detalhado). Necessidade real: base presta contas mensalmente ao nacional (entradas/saídas/gastos); bases têm investimentos e obras em andamento (construção de novas bases). → Modelo ideal criado (ver seção Financeiro).
+- [x] **Fases do membro**: cada membro tem uma fase (6 fases do legado, evolução até o colete completo) → registrado no modelo.
+- [x] **Eventos**: tipos do legado + flag `oficial?` (eventos oficiais do ECMC) + `convidado/parceria?` (base convidada ou em parceria).
+- [x] **Relatório mensal**: foco em assuntos tratados pela base → modelo ideal criado (ver seção Relatório Mensal).
+- [x] **Autenticação**: CPF + senha (como já é no sistema atual).
+- [x] **Cards/Artes**: aba universal; cards só quando as artes forem **aprovadas pela Diretoria Nacional**; editor real pendente das imagens oficiais.
+
 ## Decisões PENDENTES para validar com Anderson
-- [ ] **Financeiro**: existe no sistema atual? Como modelar (entradas/saídas por base, consolidado nacional)?
-- [ ] Definir fases do membro (qual o fluxo prospect→membro)
-- [ ] Tipos de evento (aniversário, motoculto, passeio, chá, ação social...)
-- [ ] Relatórios mensais: o que cada base deve enviar (formato)?
-- [ ] Autenticação: CPF + senha (como o atual)
-- [ ] **Cards/Artes**: Anderson coleta as imagens oficiais → define campos editáveis → implementa editor
+- [ ] Confirmar o **modelo financeiro ideal** (categorias, fechamento mensal, aprovação nacional, investimentos/obras)
+- [ ] Confirmar o **modelo do relatório mensal** (campos 1-7; adicionar/remover seções)
 - [ ] MVP: começar com (Público + Membro + Base) e Nacional depois, ou tudo junto?
+- [ ] **Cards/Artes**: Anderson coleta as imagens oficiais → define campos editáveis → implementa editor
 
 ---
 
