@@ -13,9 +13,11 @@ criado: 2026-08-07
 
 | Fonte | Papel |
 |---|---|
-| **Site oficial** `esquadraodecristo.org.br` | Identidade visual + tom + seções (Feed, Eventos, O Chamado, Irmandade, Cristo no Centro, Serviço, Comando, Faça Parte, Galeria) |
+| **Site oficial** `esquadraodecristo.org.br` | Identidade visual + tom + seções. **NÃO SERÁ MODIFICADO** — é só base de identidade. O **domínio oficial pode ser usado** para o sistema de gestão (ex.: subpasta ou subdomínio `sistema.esquadraodecristo.org.br`). |
 | **Sistema legado** (MC 2.0 / daltoinfo) | Profundidade funcional de módulos (membros, eventos, presença, pedidos, patrimônio, cadastros, relatórios) — homologação, NÃO layout |
 | **Sistema atual** (`sistema.ecmc.com.br`, login 01234567890/Caio0703@) | Referência do modelo de dados real que já existe no ECMC (perfil, membros por base, dependentes, fases, títulos, documentos) |
+
+> **NOTA ESTRUTURAL PENDENTE:** O Anderson indicou que a estrutura da `v2/` **(que estava em 4 níveis: Público/Membro/Base/Nacional) precisará ser REMODELADA**. Aguardando a visão dele sobre como dividir áreas/menus (provavelmente por área funcional filtrável por base/nacional, ou outra organização). Não reestruturar com base em chute — confirmar com ele antes.
 
 ## Diagnóstico do sistema atual (ECMC base)
 - **Raso p/ gestão nacional**: painel mostra só membros por base + totais; perfil de base só vê "Dashboard" e "Meus Dados".
